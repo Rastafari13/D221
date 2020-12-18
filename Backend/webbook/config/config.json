@@ -1,0 +1,11 @@
+{
+  "name": "conexao",
+  "version": "1.0.0",
+  "description": "",
+  "main": "connectMYSQL.js",
+  "scripts": {
+    "start": "connectMYSQL.js"
+  },
+  "author": "",
+  "license": "ISC"
+}

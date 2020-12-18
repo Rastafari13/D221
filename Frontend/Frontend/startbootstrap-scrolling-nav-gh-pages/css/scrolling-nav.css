@@ -1,0 +1,396 @@
+/*!
+ * Start Bootstrap - Scrolling Nav (https://startbootstrap.com/template/scrolling-nav)
+ * Copyright 2013-2020 Start Bootstrap
+ * Licensed under MIT (https://github.com/StartBootstrap/startbootstrap-scrolling-nav/blob/master/LICENSE)
+ */
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i,700,700i,900,900i');
+header {
+  padding: 300px 0px;
+  text-align: center;
+  color: white;
+  background-image: url(https://pplware.sapo.pt/wp-content/uploads/2016/07/incendio.jpg);
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  background-position: center center;
+  background-size: cover;
+  font-family:Roboto;
+  background-color:white !important;
+}
+
+body {
+  font-family:Roboto;
+}
+
+footer{
+  font-family:Roboto;
+}
+
+section {
+  padding: 120px 0;
+}
+
+#index-request {
+cursor: pointer;
+background-color: #611818;
+border-color: #611818;
+font-size:18px;
+padding:20px 40px;
+border-radius:12px;
+}
+
+#index-request:focus, #index-request:hover{
+  box-shadow: 0 0 0 0.2rem #621818;
+  border-color:#621818;
+  font-weight:800;
+}
+
+.navbar {
+  background-color: #621818 !important;
+}
+
+a.navbar:hover, a.navbar:focus,
+button.navbar:hover,
+button.navbar:focus {
+  background-color: #1d2124 !important;
+}
+
+#index-footer{
+  background-color:#611818 !important;
+}
+
+#index-number{
+  font-size:2rem;
+  font-weight: bold;
+}
+
+#index-login{
+  padding-left: 2rem;
+  padding-right:2rem;
+  background-color:transparent;
+  border:1px solid;
+  border-color:white;
+  border-radius:15px;
+  text-align:center;
+  padding: 0.1rem 2rem;
+  margin-top:5%;
+}
+
+#index-login:hover{
+  box-shadow: 0 0 0 0.1rem white;
+}
+
+#index-voluntary{
+  padding-right: 3.5rem;
+}
+
+/*-------------------REQUEST---------------------*/
+
+.get-in-touch {
+  max-width: 800px;
+  margin: 50px auto;
+  position: relative;
+}
+
+#request-title{
+  padding: 0 0px;
+}
+
+.request-title {
+  color:#621818 !important;
+}
+
+.get-in-touch .title {
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-size: 25px;
+  line-height: 48px;
+  color: #611818;
+  background: white;
+  font-weight: bold;
+  margin-bottom:0px;
+}
+
+.contact-form .form-field {
+  position: relative;
+  margin: 32px 0;
+}
+.contact-form .input-text {
+  display: block;
+  width: 100%;
+  height: 36px;
+  border-width: 0 0 2px 0;
+  border-color: #611818;
+  font-size: 18px;
+  line-height: 26px;
+  font-weight: 400;
+}
+
+.contact-form .input-text:focus, #request-type{
+  outline: none;
+}
+
+.contact-form .label {
+  position: absolute;
+  left: 20px;
+  bottom: 11px;
+  font-size: 18px;
+  line-height: 26px;
+  font-weight: 400;
+  color: #611818;
+  cursor: text;
+}
+
+.contact-form .submit-btn {
+  display: inline-block;
+  background-color: #611818;
+  color: #EAD2D2;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 14px;
+  padding: 7px 12px;
+  border: none;
+  width:180px;
+  cursor: pointer;
+  border-radius: 18px;
+  text-align: center;
+}
+
+#request-type{
+  border-width:0 0 2px 0;
+  border-color:#611818;
+  width:100%;
+  padding:7px;
+  text-align-last: center !important;
+  text-align:center !important;
+}
+
+#request-noturgent {
+  color:#611818;
+  font-family:Roboto;
+  text-align:center;
+  font-size: 15.4px;
+  font-weight: bold;
+}
+
+.request-distance{
+margin-bottom: 1rem;
+}
+
+#request-cancel, #request-submit{
+  background-color:#611818;
+  padding:6px 12px;
+  color:white;
+  border-radius:18px;
+  font-weight:normal;
+  width:150px;
+  border-color:#611818;
+  font-size:13px;
+  margin-top:1rem;
+  margin-bottom:2rem;
+}
+
+#request-cancel:hover, #request-submit:hover, #request-cancel:focus, #request-submit:focus{
+  font-weight:600;
+  box-shadow: 0 0 0 0.1rem #621818;
+  border-color:#611818;
+}
+
+
+
+/*--------------------------------------LOGIN----------------------------------*/
+#login-body, #login-header{
+  background-color:white !important;
+}
+
+#login-header{
+  margin-top:5rem;
+}
+
+#login-title{
+  font-weight:bold;
+}
+
+#login-btn{
+  background-color:#611818 !important;
+}
+
+#login-forgot{
+  color:black;
+}
+
+#login-btn{
+  border-radius:18px;
+  border-color:#611818;
+  width:150px;
+  position:relative;
+  margin: 0 auto ;
+}
+
+#login-body{
+  width:100%;
+  height:100%;
+  background: white;
+  opacity: 1;
+  position: absolute;
+  z-index:-1;
+}
+
+#login-ps {
+  border-color: black;
+  border-radius: 9px;
+}
+
+#login-ps-show {
+  top: 62%;
+  right: 3.5%;
+  display:block;
+  font-weight: 400;
+  background-color:white;
+  font-size:18px;
+}
+
+.inputLogin{
+  height:50px;
+}
+
+.buttonInput{
+  color: #611818;
+  position: absolute;
+  font-size: 16px;
+  opacity: 1;
+  text-align: right;
+  border: none;
+  background: none;
+  padding:0;
+}
+
+#login-email-email{
+  border-color:black;
+  border-radius:9px;
+}
+
+#login-ps:focus, #login-email-email:focus{
+  border-color:#611818;
+  box-shadow: 0 0 0 0.1rem #621818;
+}
+
+#login-ps-show:focus, #login-ps-show:hover{
+  box-shadow:none;
+  font-weight:600;
+  color:#611818;
+}
+
+#login-btn:focus, #login-btn:hover{
+  font-weight:600;
+  box-shadow: 0 0 0 0.1rem #621818;
+  border-color:#611818;
+}
+
+/*----------------------------------------PASSWORD--------------------------------*/
+
+#password-emailconf {
+background-color: #611818 !important;
+border-radius:15px;
+font-size: 15px;
+margin-left: 38%;
+margin-top: 9%;
+border: white;
+width:150px;
+}
+
+#password-body {
+  background-color: white !important;
+}
+.card-header{
+  background-color: white !important;
+  color:black;
+}
+
+#password-text{
+  text-align: center !important;
+  color:black;
+  font-size: 18px;
+}
+
+#password-header {
+  margin-top: 10rem;
+  font-size: 30px !important;
+}
+
+#password-email{
+  margin-top: 3rem;
+  border:black;
+}
+
+#inputEmailAddress{
+  border-color:black;
+  border-radius:9px;
+}
+
+#password-emailconf:hover, #password-emailconf:focus {
+  font-weight:600;
+  box-shadow: 0 0 0 0.1rem #621818;
+  border-color:#611818; 
+}
+
+#inputEmailAddress:focus{
+  border-color:#611818;
+  box-shadow: 0 0 0 0.1rem #621818;
+}
+
+#login-forgot:hover, #login-forgot:focus{
+  text-decoration: none;
+  font-weight:800;
+}
+
+
+
+
+/*EDITAR PALAVRA PASSE CENTRALISTA E DIRETOR*/
+#password-header{
+  top:10%;
+}
+
+#login-ps-show1 {
+  top: 37%;
+  right: 3.5%;
+  display:block;
+  font-weight: 400;
+  background-color:white;
+  font-size:18px;
+}
+
+#login-ps-show2 {
+  top: 57%;
+  right: 3.5%;
+  display:block;
+  font-weight: 400;
+  background-color:white;
+  font-size:18px;
+}
+#login-ps-show1:focus, #login-ps-show1:hover, #login-ps-show2:focus, #login-ps-show2:hover{
+  box-shadow:none;
+  font-weight:600;
+  color:#611818;
+}
+
+#login-ps1 {
+  border-color: black;
+  border-radius: 9px;
+}
+
+#login-ps2 {
+  border-color: black;
+  border-radius: 9px;
+}
+
+#login-ps1:focus, #login-ps2:focus{
+  border-color:#611818;
+  box-shadow: 0 0 0 0.1rem #621818;
+}
+
+textarea[name=textarea] {
+  resize: none;
+}
+

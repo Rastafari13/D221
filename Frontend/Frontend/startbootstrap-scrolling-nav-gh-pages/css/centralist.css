@@ -1,0 +1,1220 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i,700,700i,900,900i');
+
+header {
+    font-family: Roboto;
+}
+
+body {
+    font-family: Roboto;
+}
+
+footer {
+    font-family: Roboto;
+}
+
+
+#logo {
+    margin-left: 10px;
+}
+
+#name {
+    width: auto;
+}
+
+.bg-color {
+    background-color: #611818 !important;
+}
+
+#sidenavAccordion {
+    background-color: #611818 !important;
+}
+
+#btn-sourch {
+    background-color: transparent;
+    border-color: white;
+    border: none;
+}
+
+#sourch1 {
+    width: 24px;
+    border-style: none;
+}
+
+.input-group>.form-control:not(:last-child),
+.input-group>.custom-select:not(:last-child) {
+    border-color: white;
+}
+
+.input-group-append {
+    margin-left: -1px;
+    background-color: white;
+    border: none;
+    border-color: white;
+    border-top-right-radius: 0.25rem;
+    border-bottom-right-radius: 0.25rem;
+}
+
+#sourch:focus,
+#btn-sourch:focus,
+#sidebarToggle:focus {
+    border-color: white;
+    outline: 0;
+    box-shadow: 0 0 0 0;
+}
+
+#centralist-menu {
+    font-weight: lighter;
+    font-size: 15.4px;
+}
+
+#centralist-menu:hover,
+#centralist-menu:focus {
+    font-weight: 400;
+    margin-left: -4%;
+}
+
+#titles {
+    font-weight: 600;
+    color: white;
+    font-size: 16px;
+}
+
+#centralist-menu1 {
+    font-weight: 400;
+    margin-left: -4%;
+    color: white;
+    font-size: 15.4px;
+}
+
+#menu-profile:focus,
+#menu-logout:focus {
+    background-color: #611818;
+}
+
+#layoutSidenav {
+    display: flex;
+    min-width: 500px;
+}
+
+#dash-cent-title {
+    text-align: center;
+}
+
+/*---------------------------ADD-OCCURRENCE----------------*/
+
+.contact-form {
+    font-size: 15.4px;
+    max-width: 1000px;
+    min-width:1000px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.addoc-margin {
+    margin-top: 2rem;
+}
+
+#addoc-title {
+    margin-top: 0.5rem;
+    text-align: -webkit-center;
+    font-size: 22px;
+}
+
+#layoutSidenav_content {
+    position: absolute;
+    min-height: 0 !important;
+}
+
+#addoc-add {
+    background-color: #611818 !important;
+    border-radius: 15px;
+    border-color: #611818 !important;
+    width: 150px;
+    margin-top: 1rem;
+    font-weight: 400;
+    margin-bottom: 2rem;
+}
+
+#addoc-add:focus,
+#addoc-add:hover {
+    font-weight: 600;
+    border-color: #611818;
+    width: 150px;
+    box-shadow: 0 0 0 0.1rem #621818;
+}
+
+#addoc-clean {
+    margin-top: 1rem;
+    background-color: #611818 !important;
+    border-radius: 15px;
+    border-color: #611818 !important;
+    width: 150px;
+    font-weight: 400;
+    margin-bottom: 2rem;
+}
+
+#addoc-clean:hover {
+    font-weight: 600;
+    border-color: #611818 !important;
+    width: 150px;
+    box-shadow: 0 0 0 0.1rem #621818;
+}
+
+#addoc-clean:focus {
+    outline: none;
+    border-color: #611818 !important;
+    box-shadow: 0 0 0 0 #621818;
+}
+
+
+#addoc-firetype {
+    border-width: 0 0 2px 0;
+    width: 100%;
+    margin-top: 19px;
+
+}
+
+#addop {
+    border-width: 0 0 2px 0;
+    width: 100%;
+}
+
+#addoc-adress {
+    border-width: 0 0 2px 0;
+    width: 100%;
+}
+
+#addoc-hour {
+    border-width: 0 0 2px 0;
+    width: 100%;
+
+}
+
+#addoc-vehicle {
+    border-width: 0 0 2px 0;
+    width: 100%;
+}
+
+#addoc-hour {
+    border-width: 0 0 2px 0;
+    width: 100%;
+}
+
+#addoc-descrition {
+    border-width: 0 0 2px 0;
+    width: 100%;
+}
+
+.contact-form .input-text:focus,
+#addoc-duration,
+#addoc-vehicle,
+#addoc-firetype,
+#addop,
+#addoc-descrition {
+    outline: none;
+}
+
+textarea[name=textarea] {
+    resize: none;
+}
+
+/*---------CENTRALIST-PROFILE--------------------*/
+
+#span-id {
+    margin-left: 4px;
+    color: black;
+    border-width: 0 0 2px 0;
+    width: 50px;
+    border-color: rgb(118, 118, 118);
+    text-align: center;
+    background-color: white;
+}
+
+#p-id {
+    color: #611818;
+}
+
+#profile-centralist-id {
+    color: black;
+    width: 60px;
+}
+
+#pc-save {
+    background-color: #611818 !important;
+    border-radius: 15px;
+    border-color: #611818 !important;
+    width: 250px;
+    margin-top: 1rem;
+    font-weight: 400;
+    margin-bottom: 2rem;
+}
+
+#pc-save:focus,
+#pc-save:hover {
+    font-weight: 600;
+    border-color: #611818;
+    width: 250px;
+    box-shadow: 0 0 0 0.1rem #621818;
+}
+
+#pc-cc:focus,
+#pc-adress:focus,
+#pc-phone:focus,
+#pc-email:focus,
+#pc-job:focus,
+#pc-date:focus,
+#pc-password:focus {
+    outline: none;
+}
+
+#btn-profile-centralist:focus {
+    background-color: #f8f9fa;
+}
+
+#cent-edit-ps {
+    margin-left: 94%;
+    margin-top: -8%;
+    display: block;
+    background-color: transparent;
+    border-color: transparent;
+}
+
+#cent-edit-adress {
+    margin-left: 94%;
+    margin-top: -8%;
+    display: block;
+    background-color: transparent;
+    border-color: transparent;
+}
+
+#cent-edit-phone {
+    margin-left: 94%;
+    margin-top: -8%;
+    display: block;
+    background-color: transparent;
+    border-color: transparent;
+}
+
+#cent-edit-email {
+    margin-left: 94%;
+    margin-top: -8%;
+    display: block;
+    background-color: transparent;
+    border-color: transparent;
+}
+
+#centralist-id {
+    margin-top: -570px;
+    margin-left: 20px;
+    font-size: 18px;
+}
+
+#photo-profile {}
+
+#tipofile {
+    display: none;
+}
+
+#cent-edit-phone:focus,
+#cent-edit-adress:focus,
+#cent-edit-email:focus,
+#cent-edit-ps:focus {
+    outline: none;
+}
+
+/*---------ALTERAR PALAVRA-PASSE*/
+
+#new-password-body {
+    display: block;
+    position: absolute;
+}
+
+#new-ps-show {
+    margin-top: -6%;
+    margin-left: 89%;
+    display: block;
+    font-weight: 400;
+    background-color: white;
+    font-size: 18px;
+}
+
+#new-ps-show1 {
+    margin-top: -6%;
+    margin-left: 89%;
+    display: block;
+    font-weight: 400;
+    background-color: white;
+    font-size: 18px;
+}
+
+#password-passconf {
+    background-color: #611818 !important;
+    border-radius: 15px;
+    font-size: 15px;
+    margin-left: 38%;
+    margin-top: 9%;
+    border: white;
+    width: 150px;
+}
+
+#new-password-body {
+    background-color: white !important;
+}
+
+.card-header {
+    background-color: white !important;
+    color: black;
+}
+
+#password-text {
+    text-align: center !important;
+    color: black;
+    font-size: 18px;
+}
+
+#password-header {
+    margin-top: 10rem;
+    font-size: 30px !important;
+}
+
+#password-email {
+    margin-top: 3rem;
+    border: black;
+}
+
+#inputEmailAddress {
+    border-color: black;
+    border-radius: 9px;
+}
+
+#password-passconf:hover,
+#password-passconf:focus {
+    font-weight: 600;
+    box-shadow: 0 0 0 0.1rem #621818;
+    border-color: #611818;
+}
+
+#inputEmailAddress:focus {
+    border-color: #611818;
+    box-shadow: 0 0 0 0.1rem #621818;
+}
+
+#login-forgot:hover,
+#login-forgot:focus {
+    text-decoration: none;
+    font-weight: 800;
+}
+
+
+/*---LIST-OCCURENCE---*/
+#listoc-title{
+    font-size:22px;
+}
+.page-item.active .page-link {
+    background-color: #611818;
+    border-color: #611818;
+}
+
+.page-link:focus {
+    z-index: 3;
+    outline: 0;
+    box-shadow: 0 0 0 0;
+}
+
+.page-link {
+    color: black;
+}
+
+.page-link:hover {
+    background-color: #E5E5E5;
+    border-color: #E5E5E5;
+    color: black;
+}
+
+.form-control:focus {
+    color: #495057;
+    background-color: #fff;
+    border: 1px solid #ced4da;
+    outline: 0;
+    box-shadow: 0 0 0 0;
+}
+
+#Table-occurence,
+#Tabled-pending-req,
+#Tabled-validated-req {
+    cursor: pointer;
+}
+
+tr td:last-child {
+    text-align: right;
+}
+
+tr.selecionado td {
+    background-color: #D8D8D8;
+}
+
+#view-data-req,
+#req-delete {
+    margin-top: 1rem;
+    background-color: #611818 !important;
+    border-radius: 15px;
+    border-color: #611818 !important;
+    width: 180px;
+    font-weight: 400;
+    margin-bottom:2rem;
+}
+
+#view-req-validated {
+    border-radius: 18px;
+    border-color: #611818;
+    background-color: #611818;
+    width: 30%;
+    margin: 10px auto;
+    padding: 10px 0;
+    display: block;
+    color: white;
+}
+
+#view-data-req:focus,
+#view-data-req:hover,
+#view-req-validated:focus,
+#view-req-validated:hover,
+#req-delete:focus,
+#req-delete:hover {
+    font-weight: 600;
+    box-shadow: 0 0 0 0.1rem #621818;
+    border-color: #611818;
+    border-radius: 18px;
+}
+
+/*---VIEW OCCURENCE---*/
+
+#viewoc-title {
+    margin-top: 0.5rem;
+    text-align: -webkit-center;
+    font-size:25px;
+}
+
+#viewoc-confirm {
+    background-color: #611818 !important;
+    border-radius: 15px;
+    border-color: #611818 !important;
+    width: 150px;
+    margin-top: 5rem;
+    font-weight: 400;
+}
+
+#viewoc-confirm:focus,
+#viewoc-confirm:hover {
+    font-weight: 600;
+    border-color: #611818;
+    width: 150px;
+    box-shadow: 0 0 0 0.1rem #621818;
+}
+
+#viewoc-cancel {
+    margin-top: 5rem;
+    background-color: #611818 !important;
+    border-radius: 15px;
+    border-color: #611818 !important;
+    width: 150px;
+    font-weight: 400;
+}
+
+#viewoc-cancel:hover {
+    font-weight: 600;
+    border-color: #611818 !important;
+    width: 150px;
+    box-shadow: 0 0 0 0.1rem #621818;
+}
+
+#viewoc-cancel:focus {
+    outline: none;
+    border-color: #611818 !important;
+    box-shadow: 0 0 0 0 #621818;
+}
+
+
+.contact-form .input-text:focus,
+#viewoc-duration,
+#viewoc-vehicle,
+#viewoc-firetype {
+    outline: none;
+}
+
+.select2-container--default .select2-selection--multiple {
+    border-width: 0 0 2px 0 !important;
+    height: 52px;
+}
+
+#assoc-edit-cota1 {
+    margin-left: -8%;
+}
+
+.division,
+.division:after,
+.division:before {
+    margin: 0;
+    padding: 0;
+    border: 2px solid;
+    outline: none;
+    margin-block-start: -0.15rem !important;
+    margin-block-end: 0px !important;
+    color: white;
+}
+
+/*---------CENTRALIST-PROFILE--------------------*/
+
+#pc-password {
+    border-width: 0 0 2px 0;
+    width: 25rem;
+    background-color: white;
+    border-color: rgb(118, 118, 118);
+}
+
+#pc-date {
+    border-width: 0 0 2px 0;
+    width: 25rem;
+    background-color: white;
+    border-color: rgb(118, 118, 118);
+}
+
+#pc-job {
+    border-width: 0 0 2px 0;
+    width: 25rem;
+    background-color: white;
+    border-color: rgb(118, 118, 118);
+}
+
+#pc-email {
+    border-width: 0 0 2px 0;
+    width: 25rem;
+    background-color: white;
+    border-color: rgb(118, 118, 118);
+}
+
+#pc-adress {
+    border-width: 0 0 2px 0;
+    width: 25rem;
+    background-color: white;
+    border-color: rgb(118, 118, 118);
+}
+
+#pc-phone {
+    border-width: 0 0 2px 0;
+    width: 25rem;
+    background-color: white;
+    border-color: rgb(118, 118, 118);
+}
+
+#pc-cc {
+    border-width: 0 0 2px 0;
+    width: 25rem;
+    background-color: white;
+    border-color: rgb(118, 118, 118);
+}
+
+#pc-cc:focus,
+#pc-adress:focus,
+#pc-phone:focus,
+#pc-email:focus,
+#pc-job:focus,
+#pc-date:focus,
+#pc-password:focus {
+    outline: none;
+}
+
+.contact-form1 {
+    font-size: 15.4px;
+    min-width: 1000px;
+    max-width: 1000px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+#btn-profile-centralist:focus {
+    background-color: #f8f9fa;
+}
+
+#cent-edit {
+    margin-left: 94%;
+    margin-top: -29.5%;
+}
+
+.div-pc-edit {
+    margin-top: -1rem;
+}
+
+#photo-profile {
+    text-align: center;
+}
+
+#tipofile {
+    display: none;
+}
+
+#cent-edit-phone:focus,
+#cent-edit-adress:focus,
+#cent-edit-email:focus,
+#cent-edit-ps:focus {
+    outline: none;
+}
+
+#alt-photo-cent {
+    text-align: center;
+    font-size: 15.4px;
+}
+
+#cent-prof-title {
+    font-size: 25px;
+}
+
+/*---------ALTERAR PALAVRA-PASSE*/
+
+#new-password-body {
+    display: block;
+    position: absolute;
+}
+
+#new-ps-show {
+    margin-top: -6%;
+    margin-left: 89%;
+    display: block;
+    font-weight: 400;
+    background-color: white;
+    font-size: 18px;
+}
+
+#new-ps-show1 {
+    margin-top: -6%;
+    margin-left: 89%;
+    display: block;
+    font-weight: 400;
+    background-color: white;
+    font-size: 18px;
+}
+
+#password-passconf {
+    background-color: #611818 !important;
+    border-radius: 15px;
+    font-size: 15px;
+    margin-left: 38%;
+    margin-top: 9%;
+    border: white;
+    width: 150px;
+}
+
+#new-password-body {
+    background-color: white !important;
+}
+
+.card-header {
+    background-color: white !important;
+    color: black;
+}
+
+#password-text {
+    text-align: center !important;
+    color: black;
+    font-size: 18px;
+}
+
+#password-header {
+    margin-top: 10rem;
+    font-size: 30px !important;
+}
+
+#password-email {
+    margin-top: 3rem;
+    border: black;
+}
+
+#inputEmailAddress {
+    border-color: black;
+    border-radius: 9px;
+}
+
+#password-passconf:hover,
+#password-passconf:focus {
+    font-weight: 600;
+    box-shadow: 0 0 0 0.1rem #621818;
+    border-color: #611818;
+}
+
+#inputEmailAddress:focus {
+    border-color: #611818;
+    box-shadow: 0 0 0 0.1rem #621818;
+}
+
+#login-forgot:hover,
+#login-forgot:focus {
+    text-decoration: none;
+    font-weight: 800;
+}
+
+
+/*---LIST-OCCURENCE---*/
+
+.page-item.active .page-link {
+    background-color: #611818;
+    border-color: #611818;
+}
+
+.page-link:focus {
+    z-index: 3;
+    outline: 0;
+    box-shadow: 0 0 0 0;
+}
+
+.page-link {
+    color: black;
+}
+
+.page-link:hover {
+    background-color: #E5E5E5;
+    border-color: #E5E5E5;
+    color: black;
+}
+
+.form-control:focus {
+    color: #495057;
+    background-color: #fff;
+    border: 1px solid #ced4da;
+    outline: 0;
+    box-shadow: 0 0 0 0;
+}
+
+#Table-occurence {
+    cursor: pointer;
+}
+
+tr td:last-child {
+    text-align: right;
+}
+
+tr.selecionado td {
+    background-color: #D8D8D8;
+}
+
+#view-data {
+    border-radius: 18px;
+    border-color: #611818;
+    background-color: #611818;
+    width: 30%;
+    margin: 10px auto;
+    padding: 10px 0;
+    display: block;
+    color: white;
+    margin-top:1rem;
+    margin-bottom:2rem;
+}
+
+#view-data:focus,
+#view-data:hover {
+    font-weight: 600;
+    box-shadow: 0 0 0 0.1rem #621818;
+    border-color: #611818;
+    border-radius: 18px;
+}
+
+/*---VIEW OCCURENCE---*/
+
+#occu-save {
+    background-color: #611818 !important;
+    border-radius: 15px;
+    border-color: #611818 !important;
+    width: 250px;
+    margin-top: 1rem;
+    font-weight: 400;
+    margin-bottom: 2rem;
+}
+
+#occu-save:focus,
+#occu-save:hover {
+    font-weight: 600;
+    border-color: #611818;
+    width: 250px;
+    box-shadow: 0 0 0 0.1rem #621818;
+}
+
+
+
+
+#viewoc-firetype {
+    border-width: 0 0 2px 0;
+    width: 100%;
+}
+
+#viewoc-adress {
+    border-width: 0 0 2px 0;
+    width: 100%;
+}
+
+#viewoc-hour {
+    border-width: 0 0 2px 0;
+    width: 100%;
+}
+
+#idSelect2 {
+    border-width: 0 0 2px 0 !important;
+    width: 100%;
+}
+
+.contact-form .input-text:focus,
+#viewoc-duration,
+#viewoc-vehicle,
+#viewoc-firetype {
+    outline: none;
+}
+
+.select2-container--default .select2-selection--multiple {
+    border-width: 0 0 2px 0 !important;
+    height: 52px;
+}
+
+#occu-edit-vehicle {
+    background-color: transparent;
+    border-width: 0;
+    position: absolute;
+    margin-left: 90%;
+    margin-top: -8%;
+}
+
+#occu-edit-vehicle:focus {
+    outline: none;
+}
+
+.select2-container--default.select2-container--disabled .select2-selection--multiple {
+    background-color: transparent !important;
+}
+
+.select2-container--default.select2-container--disabled .select2-selection--multiple {
+    margin-left: 0px !important;
+    width: 100%;
+}
+
+.select2-container--default.select2-container--focus .select2-selection--multiple {
+    border-color: lightgray !important;
+    outline: 0;
+}
+
+#viewoc-adress,
+#viewoc-name,
+#viewoc-firetype,
+#viewoc-hour,
+#viewoc-phone {
+    border-width: 0 0 2px 0;
+    width: 100%;
+    background-color: white;
+    border-color: rgb(118, 118, 118);
+}
+
+.select2-container--default .select2-selection--multiple .select2-selection__rendered {
+    border-color: rgb(118, 118, 118) !important;
+}
+
+.select2-container--default .select2-selection--multiple {
+    background-color: white;
+    border: 1px solid #aaa;
+    border-radius: 0px !important;
+    cursor: text;
+    border-color: rgb(118, 118, 118) !important;
+}
+
+.select2-container--default:focus .select2-selection--multiple:focus .select2-selection__rendered:focus {
+    outline: none;
+}
+
+.select2-container--focus {
+    border-color: rgb(118, 118, 118) !important;
+}
+
+.select2-container--default.select2-container--disabled .select2-selection--multiple {
+    background-color: #eee;
+    cursor: default;
+    border-color: rgb(118, 118, 118) !important;
+}
+
+.select2-container--default .select2-selection--multiple .select2-selection__choice {
+    border: none;
+}
+
+.select2-container--default.select2-container--focus .select2-selection--multiple {
+    border-color: rgb(118, 118, 118) !important;
+}
+
+.select2-container--default .select2-results__option--highlighted[aria-selected] {
+    background-color: #611818 !important;
+}
+
+.select2-container--classic .select2-selection--single:focus {
+    border: 1px solid #611818;
+}
+
+.select2-container--classic.select2-container--open .select2-dropdown {
+    border-color: #611818;
+}
+
+.select2-container--classic.select2-container--open .select2-selection--multiple {
+    border: 1px solid #611818;
+}
+
+.select2-container--classic .select2-selection--multiple:focus {
+    border: 1px solid #611818;
+}
+
+.select2-container--classic.select2-container--open .select2-selection--single {
+    border: 1px solid #611818
+}
+
+.select2-container--default .select2-selection--multiple .select2-selection__choice {
+    margin-top: 0px !important;
+}
+
+.select2-container {
+    display: none;
+}
+
+.select2-container--default.select2-container--focus .select2-selection--multiple {
+    height: 32px;
+    width:100% !important;
+}
+.select2-container--default.select2-container .select2-selection--multiple {
+    height: 32px;
+    width:100% !important;
+}
+#occu-edit-phone {
+    margin-left: 92%;
+    margin-top: -8%;
+    display: block;
+    background-color: transparent;
+    border-color: transparent;
+}
+
+#occu-edit-phone:focus {
+    outline: none;
+}
+
+.contact-form .form-field {
+    position: relative;
+}
+
+/*--------------VISULIZAR PEDIDOS----------*/
+
+#viewreq-descrition,
+#viewreq-email,
+#viewreq-date,
+#viewreq-adress,
+#viewreq-phone,
+#viewreq-type,
+#viewreq-name,
+#viewreq-id,
+#viewreq-hour {
+    border-width: 0 0 2px 0;
+    width: 100%;
+    background-color: white;
+    border-color: rgb(118, 118, 118);
+}
+
+
+/*-----------------DASHBOARD---------------------*/
+
+#dash-cent-pupnu {
+    text-align: center;
+}
+
+#btn-day {
+    background-color: white;
+    color: black;
+    border-radius: 25px 0 0 25px;
+    border-color: #611818;
+    font-size: large;
+}
+
+#btn-month {
+    background-color: white;
+    color: black;
+    margin-left: -1%;
+    border-radius: 0 25px 25px 0;
+    border-color: #611818;
+    font-size: large;
+}
+
+#btn-week {
+    background-color: white;
+    color: black;
+    margin-left: -1%;
+    border-radius: 0;
+    border-color: #611818;
+    font-size: large;
+}
+
+#btn-day:focus {
+    background-color: #611818;
+    color: white;
+    border-radius: 25px 0 0 25px;
+    border-color: #611818;
+    box-shadow: 0 0 0 0;
+    font-size: large;
+}
+
+#btn-week:focus {
+    background-color: #611818;
+    color: white;
+    border-radius: 0 0 0 0;
+    border-color: #611818;
+    box-shadow: 0 0 0 0;
+    font-size: large;
+}
+
+#btn-month:focus {
+    background-color: #611818;
+    color: white;
+    border-radius: 0 25px 25px 0;
+    border-color: #611818;
+    box-shadow: 0 0 0 0;
+    font-size: large;
+}
+
+#cent-dash {
+    display: inline-flex;
+}
+
+#btn-day-conc {
+    background-color: white;
+    color: black;
+    border-radius: 25px 0 0 25px;
+    border-color: #611818;
+    font-size: large;
+}
+
+#btn-month-conc {
+    background-color: white;
+    color: black;
+    margin-left: -1%;
+    border-radius: 0 25px 25px 0;
+    border-color: #611818;
+    font-size: large;
+}
+
+#btn-week-conc {
+    background-color: white;
+    color: black;
+    margin-left: -1%;
+    border-radius: 0;
+    border-color: #611818;
+    font-size: large;
+}
+
+#btn-day-conc:focus {
+    background-color: #611818;
+    color: white;
+    border-radius: 25px 0 0 25px;
+    border-color: #611818;
+    box-shadow: 0 0 0 0;
+    font-size: large;
+}
+
+#btn-week-conc:focus {
+    background-color: #611818;
+    color: white;
+    border-radius: 0 0 0 0;
+    border-color: #611818;
+    box-shadow: 0 0 0 0;
+    font-size: large;
+}
+
+#btn-month-conc:focus {
+    background-color: #611818;
+    color: white;
+    border-radius: 0 25px 25px 0;
+    border-color: #611818;
+    box-shadow: 0 0 0 0;
+    font-size: large;
+}
+
+#card-title {
+    background-color: #611818 !important;
+    color: white;
+    border-radius: 0.25rem 0.25rem 0 0;
+    font-size: larger;
+    padding: 20px;
+}
+
+#card-body {
+    height: 350px;
+    font-size: larger;
+    background-color: #FFF4F4;
+}
+
+.card-footer {
+    background-color: #611818 !important
+}
+
+.card-text {
+    text-align: center;
+    margin-top: 40px;
+}
+
+#occo-conc,
+#write-req,
+#occo-atc {
+    font-size: 35px !important;
+}
+
+
+#cent-req-pend {
+    background-color: #FCC6C6;
+}
+
+#cent-occ-act {
+    background-color: #FCC6C6;
+}
+
+#cent-card {
+    border: 0px;
+    top: -14%;
+}
+
+#cent-header-today,
+#cent-header-week,
+#cent-header-month {
+    background-color: #FFF5F5 !important;
+    border: 0px;
+    font-weight: 500;
+    line-height: 1.2;
+    font-size: 1.5rem;
+}
+
+#cent-body-month,
+#cent-body-week,
+#cent-body-today {
+    background-color: #F3F3F3 !important;
+}
+
+#cent-card1 {
+    border: 0px;
+}
+
+#div-card1{
+    padding-right: 0;
+}
+
+#cent-card2 {
+    border-width: 0 0 0 1px;
+    border-color: black;
+}
+
+#div-card2{
+        padding-right: 0;
+    padding-left: 0;
+}
+
+#cent-card3 {
+    border-width: 0 0 0 1px;
+    border-color: black;
+}
+
+#div-card3{
+    padding-left: 0;
+}
