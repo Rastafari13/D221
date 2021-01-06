@@ -2,9 +2,9 @@ const connect = require('../config/connectMYSQL');
 const jsonMessagesPath = __dirname + "/../assets/jsonMessages/";
 const jsonMessages = require(jsonMessagesPath + "bd");
 
-//read partnerss
+//read requests
 function readRequest(req, res) {
-    const query = connect.con.query('SELECT id_request, content, verification, id_operational, adress, mail, name FROM request order by id_request ', function(err, rows, fields) {
+    const query = connect.con.query('SELECT r.id_request, r.content, r.description, r.adress, r.mail, r.name, r.date, r.phone_number, r.verification, r.verification_date, rt.typology, rt.difficulty_level FROM request r, request_type rt WHERE r.id_request = rt.id_request ORDER BY id_request', function(err, rows, fields) {
         console.log(query.sql);
         if (err) {
             console.log(err);
@@ -21,6 +21,321 @@ function readRequest(req, res) {
     });
 }
 
+function readRequestID(req, res) {
+   /*   const idRequest = req.param('id');
+      const post = { id_request: idRequest };
+      const query = connect.con.query('SELECT r.id_request, r.content, r.adress, r.mail, r.name, r.date, r.phone_number, r.verifycation, r.verifycation_date, r.hour, rt.typology, rt.difficulty_level FROM request r, request_type rt WHERE r.id_request = rt.id_request  ', post, function(err, rows, fields) {
+          console.log(query.sql);
+          if (err) {
+              console.log(err);
+              res.status(jsonMessages.db.noRecords.status).send(jsonMessages.db.dbError);
+          }
+          else {
+              if (rows.length == 0) {
+                  res.status(jsonMessages.db.noRecords.status).send(jsonMessages.db.noRecords);
+              }
+              else {
+                  res.send(rows);
+              }
+          }
+      });*/
+    const idRequest = req.param('id');
+    const post = { id_request: idRequest };
+    const query = connect.con.query('SELECT id_request, content, description, adress, mail, name, date, phone_number, verification_date, hour FROM request where ? ', post, function(err, rows, fields) {
+        console.log(query.sql);
+        if (err) {
+            console.log(err);
+            res.status(jsonMessages.db.noRecords.status).send(jsonMessages.db.dbError);
+        }
+        else {
+            if (rows.length == 0) {
+                res.status(jsonMessages.db.noRecords.status).send(jsonMessages.db.noRecords);
+            }
+            else {
+                
+                res.send(rows);
+            }
+        }
+    });
+}
+
+function readRequestTypeID(req, res) {
+    const idRequest = req.param('id');
+    const post = { id_request: idRequest };
+    const query = connect.con.query('SELECT id_request, typology, difficulty_level FROM request_type where ? ', post, function(err, rows, fields) {
+        console.log(query.sql);
+        if (err) {
+            console.log(err);
+            res.status(jsonMessages.db.noRecords.status).send(jsonMessages.db.dbError);
+        }
+        else {
+            if (rows.length == 0) {
+                res.status(jsonMessages.db.noRecords.status).send(jsonMessages.db.noRecords);
+            }
+            else {
+                
+                res.send(rows);
+            }
+        }
+    });
+}
+
+
+function saveRequest(req, res) {
+
+    //receber os dados do formulário que são enviados por post
+    const idRequest = req.sanitize('id_request').escape();
+    const content = req.sanitize('content').escape();
+    const description = req.sanitize('description').escape();
+    const adress = req.sanitize('adress').escape();
+    const mail = req.sanitize('mail').escape();
+    const name = req.sanitize('name').escape();
+    const date = req.sanitize('date').escape();
+    const phone_number = req.sanitize('phone_number').escape();
+    const verification = req.sanitize('verification').escape();
+    const verification_date = req.sanitize('verification_date').escape();
+
+
+    req.checkBody("mail", "Insira um email válido.").isEmail;
+    req.checkBody("phone_number").notEmpty;
+    req.checkBody("date").notEmpty;
+    req.checkBody("content").notEmpty;
+    req.checkBody("name").notEmpty;
+
+    const errors = req.validationErrors();
+    if (errors) {
+        res.send(errors);
+        return;
+    }
+
+    const post = {
+        id_request: idRequest,
+        content: content,
+        description: description,
+        adress: adress,
+        mail: mail,
+        name: name,
+        date: date,
+        phone_number: phone_number,
+        verification: verification,
+        verification_date: verification_date
+    };
+
+    //criar e executar a query de gravação na BD para inserir os dados presentes no post
+    const query = connect.con.query('INSERT INTO request SET ?', post, function(err, rows, fields) {
+        console.log(query.sql);
+        if (!err) {
+            res.status(jsonMessages.db.successInsert.status).send(jsonMessages.db.successInsert);
+            console.log(rows.insertId);
+        }
+        else {
+            console.log(err);
+            if (err.code == "ER_DUP_ENTRY") {
+                res.status(jsonMessages.db.duplicateData.status).send(jsonMessages.db.duplicateData);
+            }
+            else
+                res.status(jsonMessages.db.dbError.status).send(jsonMessages.db.dbError);
+        }
+    });
+}
+
+function saveRequestType(req, res) {
+
+    //receber os dados do formulário que são enviados por post
+    /*   const idRequest = req.sanitize('id_request').escape();
+       const typology = req.sanitize('typology').escape();
+       const difficulty_level = req.sanitize('difficulty_level').escape();
+
+       const errors = req.validationErrors();
+       if (errors) {
+           res.send(errors);
+           return;
+       }
+       
+       const post = {
+           id_request:idRequest,
+           typology: typology,
+           difficulty_level: difficulty_level
+       }
+
+       //criar e executar a query de gravação na BD para inserir os dados presentes no post
+       const query = connect.con.query('INSERT INTO request_type SET ?', post, function(err, rows, fields) {
+           console.log(query.sql);
+           if (!err) {
+               res.status(jsonMessages.db.successInsert.status).send(jsonMessages.db.successInsert);
+               localStorage.setItem("idreq3", rows.insertId);
+               console.log(localStorage.idreq3)
+           }
+           else {
+               console.log(err);
+               if (err.code == "ER_DUP_ENTRY") {
+                   res.status(jsonMessages.db.duplicateData.status).send(jsonMessages.db.duplicateData);
+               }
+               else
+                   res.status(jsonMessages.db.dbError.status).send(jsonMessages.db.dbError);
+           }
+       });*/
+
+    const idRequest = req.sanitize('id_request').escape();
+    const content = req.sanitize('content').escape();
+    const description = req.sanitize('description').escape();
+    const adress = req.sanitize('adress').escape();
+    const mail = req.sanitize('mail').escape();
+    const name = req.sanitize('name').escape();
+    const date = req.sanitize('date').escape();
+    const phone_number = req.sanitize('phone_number').escape();
+    const verification = req.sanitize('verification').escape();
+    const verification_date = req.sanitize('verification_date').escape();
+
+    const typology = req.sanitize('typology').escape();
+    const difficulty_level = req.sanitize('difficulty_level').escape();
+
+
+    let post1 = [
+        idRequest, content,description, adress, mail, name, date, phone_number, verification, verification_date
+    ];
+    let query = "";
+
+    query = connect.con.query('INSERT INTO request (id_request, content, description, adress, mail, name, date, phone_number, verification, verification_date) values (?,?,?,?,?,?,?,?,?);', post1,
+        function(err, rows, fields) {
+            console.log(query.sql);
+            if (!err) {
+                res.status(jsonMessages.db.successInsert.status).send(jsonMessages.db.successInsert);
+                console.log(rows.insertId);
+                let post2 = [
+                        rows.insertId, typology, difficulty_level
+                    ],
+                    query = connect.con.query('insert into request_type (id_request, typology, difficulty_level) VALUES (?,?,?)', post2,
+                        function(err, rows, fields) {
+                            console.log(query.sql);
+                            if (!err) {
+                                res.status(jsonMessages.db.successInsert.status).send(jsonMessages.db.successInsert);
+                            }
+                            else {
+                                console.log(err);
+                                if (err.code == "ER_DUP_ENTRY") {
+                                    res.status(jsonMessages.db.duplicateData.status).send(jsonMessages.db.duplicateData);
+                                }
+                                else
+                                    res.status(jsonMessages.db.dbError.status).send(jsonMessages.db.dbError);
+                            }
+                        });
+
+            }
+            else {
+                console.log(err);
+                if (err.code == "ER_DUP_ENTRY") {
+                    res.status(jsonMessages.db.duplicateData.status).send(jsonMessages.db.duplicateData);
+                }
+                else
+                    res.status(jsonMessages.db.dbError.status).send(jsonMessages.db.dbError);
+            }
+        });
+}
+
+function readRequestByTypology(req, res) {
+    const typology = req.param('typology');
+    const post = { typology: typology };
+    const query = connect.con.query('SELECT r.id_request, r.content, r.description, r.adress, r.mail, r.name, r.date, r.phone_number, r.verification, r.verification_date, rt.typology, rt.difficulty_level FROM request r, request_type rt WHERE r.id_request = rt.id_request AND verification=null ND ? ', post, function(err, rows, fields) {
+        console.log(query.sql);
+        if (err) {
+            console.log(err);
+            res.status(jsonMessages.db.noRecords.status).send(jsonMessages.db.dbError);
+        }
+        else {
+            if (rows.length == 0) {
+                res.status(jsonMessages.db.noRecords.status).send(jsonMessages.db.noRecords);
+            }
+            else {
+                res.send(rows);
+            }
+        }
+    });
+
+}
+
+function updateRequest(req, res) {
+    const id = req.sanitize('id').escape();
+    const phone = req.sanitize('phone_number').escape();
+
+    const errors = req.validationErrors();
+    if (errors) {
+        res.send(errors);
+        console.log(errors);
+        return;
+    }
+    else {
+        if (phone != "NULL" && typeof(phone) != 'undefined') {
+            const update = [phone, id];
+            console.log(update);
+            const query = connect.con.query('UPDATE request SET phone_number =? WHERE id_request=?', update, function(err, rows, fields) {
+                console.log(query.sql);
+                if (!err) {
+                    res.status(jsonMessages.db.successUpdate.status).send(jsonMessages.db.successUpdate);
+                }
+                else {
+                    console.log(err);
+                    res.status(jsonMessages.db.successUpdate.status).send(jsonMessages.db.successUpdate);
+                }
+            });
+        }
+        else
+            res.status(jsonMessages.db.requiredData.status).send(jsonMessages.db.requiredData);
+    }
+}
+
+function readRequestVerification(req, res) {
+    const statusF = req.param('verification');
+    const post = { verification: statusF };
+    const query = connect.con.query('SELECT id_request, content, description, adress, date, phone_number, mail, name, verification, verification_date, hour FROM request where ? ', post, function(err, rows, fields) {
+        console.log(query.sql);
+        if (err) {
+            console.log(err);
+            res.status(jsonMessages.db.dbError.status).send(jsonMessages.db.dbError);
+        }
+        else {
+            if (rows.length == 0) {
+                res.status(jsonMessages.db.noRecords.status).send(jsonMessages.db.noRecords);
+            }
+            else {
+                res.send(rows);
+            }
+        }
+    });
+}
+
+function deleteRequest(req, res) {
+    const idRequest = req.param('id');
+    const query = connect.con.query('DELETE FROM request_type WHERE id_request=?', idRequest, function(err, rows, fields) {
+        console.log(query.sql);
+        if (!err) {
+            res.status(jsonMessages.db.successDelete.status).send(jsonMessages.db.successDelete);
+            const query = connect.con.query('DELETE FROM request WHERE id_request=?', idRequest, function(err, rows, fields) {
+                console.log(query.sql);
+                if (!err) {
+                    res.status(jsonMessages.db.successDelete.status).send(jsonMessages.db.successDelete);
+                }
+                else {
+                    console.log(err);
+                    res.status(jsonMessages.db.dbError.status).send(jsonMessages.db.dbError);
+                }
+            });
+        }
+        else {
+            console.log(err);
+            res.status(jsonMessages.db.dbError.status).send(jsonMessages.db.dbError);
+        }
+    });
+}
+
 module.exports = {
-    readRequest : readRequest
+    readRequest: readRequest,
+    readRequestID: readRequestID,
+    saveRequest: saveRequest,
+    saveRequestType: saveRequestType,
+    readRequestByTypology: readRequestByTypology,
+    updateRequest: updateRequest,
+    readRequestVerification: readRequestVerification,
+    deleteRequest: deleteRequest,
+    readRequestTypeID: readRequestTypeID,
 };

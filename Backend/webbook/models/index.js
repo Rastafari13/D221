@@ -1,7 +1,7 @@
-/*"use strict";
+"use strict";
 let fs        = require("fs");
 let path      = require("path");
-let Sequelize = require("sequelize");
+let sequelize = require("sequelize");
 let env       = "MYSQL";
 let config    = require(path.join(__dirname, '../', 'config', 'config.json'))[env];
 //let sequelize = new Sequelize(config.database, config.username, config.password, config);
@@ -24,4 +24,3 @@ fs
 });
 db.sequelize = sequelize;
 module.exports = db;
-*/

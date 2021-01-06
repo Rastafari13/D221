@@ -14,7 +14,9 @@
             "next": "Próxima",
             "previous": "Anterior"
           }
-        }
+        },
+        "lengthMenu": [
+         [-1, 25, 50],["Todos",25, 50]],
       });
     });
     

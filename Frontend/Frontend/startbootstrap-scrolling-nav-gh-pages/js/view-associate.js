@@ -1,30 +1,31 @@
 //EDITAR MORADA SÓCIO//
 let assoc_adress = document.getElementById("assoc-edit-adress");
-assoc_adress.onclick = assoc_adress_edit;
-
-function assoc_adress_edit() {
+assoc_adress.addEventListener("click", function(){
     document.getElementById("viewas-adress").disabled = false;
-}
+});
 
 //EDITAR COTA SÓCIO//
 let assoc_cota = document.getElementById("assoc-edit-cota");
-assoc_cota.onclick = assoc_cota_edit;
-
-function assoc_cota_edit() {
-    document.getElementById("viewas-quota").disabled = false;
-}
+assoc_cota.addEventListener("click", function() {
+     document.getElementById("viewas-quota").disabled = false;
+});
+   
 //EDITAR TELEFONE SÓCIO//
 let assoc_phone = document.getElementById("assoc-edit-phone");
-assoc_phone.onclick = assoc_phone_edit;
+assoc_phone.addEventListener("click", function(){
+    document.getElementById("viewas-phone").disabled =false;
+});
 
-function assoc_phone_edit() {
-    document.getElementById("viewas-phone").disabled = false;
-}
+//EDITAR EMAIL SÓCIO //
+let assoc_email = document.getElementById("assoc-edit-email");
+assoc_email.addEventListener("click", function(){
+    document.getElementById("viewas-email").disabled = false;
+});
 
 
 window.onload =
     async() => {
-        let id = localStorage.id;
+        let id = localStorage.idassoc;
         const response = await fetch(`https://23c6902811494393ad2cea6ff8f72d75.vfs.cloud9.us-east-1.amazonaws.com//partners/` + id)
         const partners = await response.json()
 
@@ -38,43 +39,51 @@ window.onload =
             let donation = partner.donation;
             let date_bith = partner.date_bith;
             let registration_date = partner.registration_date;
+            let email = partner.mail;
 
+            let age = `${date_bith.substr(0,10 )}`;
+            let date = `${registration_date.substr(0,10 )}`;
             document.getElementById('viewas-name').value = name;
             document.getElementById('viewas-adress').value = adress;
             document.getElementById('viewas-cc').value = cc;
             document.getElementById('viewas-quota').value = donation;
             document.getElementById('viewas-id').value = num;
-            document.getElementById('viewas-age').value = date_bith;
+            document.getElementById('viewas-age').value = age;
             document.getElementById('viewas-phone').value = phone;
-            document.getElementById('viewas-date').value = registration_date;
+            document.getElementById('viewas-date').value = date;
+            document.getElementById('viewas-email').value = email;
+
         }
-    }
+    };
 
-
-
- document.getElementById("assoc-save").onclick = function(e) {
+document.getElementById("assoc-save").onclick = function(e) {
     assoc_edit();
-}
+};
 
 function assoc_edit() {
-    let a = localStorage.id;
+    let a = localStorage.idassoc;
     let data = {};
 
     data.num_partner = document.getElementById("viewas-id").value;
     data.phone_num = document.getElementById("viewas-phone").value;
     data.donation = document.getElementById("viewas-quota").value;
     data.adress = document.getElementById("viewas-adress").value;
-    data.data_bith = document.getElementById("viewas-age").value;
+    data.date_bith = document.getElementById("viewas-age").value;
+    data.mail = document.getElementById("viewas-email").value;
     console.log(data); //debugging para ver os dados que foram enviados
     //chamada fetch para envio dos dados para o servior via POST
-    if (data.phone_num.length !== 9 || data.adress.length < 3) {
-
-    }
+    if (data.phone_num.length !== 9 || data.adress.length < 3 || data.mail.length < 10) {}
     else {
+        let save = document.getElementById("assoc-save");
+        save.type="button";
         if (data.donation.length === 0) {
-            alert("Por favor preencha o valor da cota");
+            swal({
+                title: "Por favor preencha o valor da cota",
+                icon: "info",
+            });
         }
         else {
+            save.type = "button";
             fetch(`https://23c6902811494393ad2cea6ff8f72d75.vfs.cloud9.us-east-1.amazonaws.com//partners/` + a, {
                 headers: { 'Content-Type': 'application/json' },
                 method: 'PUT',
@@ -85,18 +94,26 @@ function assoc_edit() {
                     console.log(response.statusText); //=> String
                     console.log(response.headers); //=> Headers
                     console.log(response.url); //=> String
+                    swal({
+                        title: "Erro, por favor tente novamente",
+                        icon: "error",
+                    });
+                    throw Error(response.statusText);
                 }
-                // else {
-
-                //   alert("Alterações gravadas com sucesso");
-                //  }
-                /* }).then(function(result) {
-                     console.log(result);
-                 }).catch(function(err) {
-                     alert("Submission error");
-                     console.error(err);*/
+                else {
+                    swal({
+                        title: "Alterações gravadas com sucesso",
+                        icon: "success",
+                    })
+                    .then(() => {
+                    window.location.replace("view-associate.html");
+                });
+                };
+            }).then(function(result) {
+                console.log(result);
+            }).catch(function(err) {
+                console.error(err);
             });
-            alert("Alterações gravadas com sucesso");
         }
     }
 }

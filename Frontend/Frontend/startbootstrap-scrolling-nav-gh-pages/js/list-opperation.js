@@ -3,7 +3,6 @@
 
   setUpDataOp();
 
-
   async function setUpDataOp() {
 
     const res = await fetch("https://23c6902811494393ad2cea6ff8f72d75.vfs.cloud9.us-east-1.amazonaws.com//operationals/");
@@ -34,6 +33,7 @@
         ],
       });
 
+      //-------------------------------------------------------------------------------//
       let tabela = document.getElementById("Table-opperation");
       let linhas = tabela.getElementsByTagName("tr");
 
@@ -70,7 +70,10 @@
         let selecionados = tabela.getElementsByClassName("selecionado");
         //Verificar se eestá selecionado
         if (selecionados.length < 1) {
-          alert("Selecione pelo menos uma linha");
+          swal({
+            title: "Selecione uma linha!",
+            icon: "info",
+          });
           return false;
         }
 
@@ -93,7 +96,10 @@
         let selecionados = tabela.getElementsByClassName("selecionado");
         //Verificar se está selecionado
         if (selecionados.length < 1) {
-          alert("Selecione pelo menos uma linha");
+          swal({
+            title: "Selecione uma linha!",
+            icon: "info",
+          });
           return false;
         }
 
@@ -102,29 +108,71 @@
           selecionado = selecionado.getElementsByTagName("td");
           for (const ln of selecionados) {
 
-            var x;
-            var r = confirm("Deseja mesmo remover este operacional?");
-            if (r == true) {
-              x = "você pressionou OK!";
-
-              $(document).ready(function() {
-                setUpDataTable1();
-
+            swal({
+                title: "Pretende eliminar o operacional " + selecionado[0].innerHTML + " ?",
+                icon: "warning", //warning 
+                buttons: ["Sim", "Não"],
+                dangerMode: true,
               })
-              async function setUpDataTable1() {
-                let a = selecionado[0].innerHTML;
-                await fetch(`https://23c6902811494393ad2cea6ff8f72d75.vfs.cloud9.us-east-1.amazonaws.com//operationals/` + a, { method: "DELETE" })
-              }
+              .then((willDelete) => {
+                if (willDelete) {}
+                else {
+                  $(document).ready(function() {
+                    setUpDataTable1();
+                  })
+                  async function setUpDataTable1() {
+                    let a = selecionado[0].innerHTML;
+                    const response = await fetch(`https://23c6902811494393ad2cea6ff8f72d75.vfs.cloud9.us-east-1.amazonaws.com/operationals/` + a)
+                    const opperation = await response.json()
+                    for (const opp of opperation) {
+                      let id_login = opp.id_login;
+                      localStorage.setItem("idlogin", id_login);
+                    }
+                    await fetch(`https://23c6902811494393ad2cea6ff8f72d75.vfs.cloud9.us-east-1.amazonaws.com//operationals/` + a, { method: "DELETE" })
+                      .then(function(response) {
+                        if (!response.ok) {
+                          console.log(response.status); //=> number 100â€“599
+                          console.log(response.statusText); //=> String
+                          console.log(response.headers); //=> Headers
+                          console.log(response.url); //=> String
+                          swal({
+                            title: "Erro, por favor tente novamente",
+                            icon: "error",
+                          });
+                          throw Error(response.statusText);
+                        }
+                        else {
+                          let idlogin = localStorage.idlogin;
+                          fetch(`https://23c6902811494393ad2cea6ff8f72d75.vfs.cloud9.us-east-1.amazonaws.com/login/` + idlogin, { method: "DELETE" })
+                            .then(function(response) {
+                              if (!response.ok) {
+                                console.log(response.status); //=> number 100â€“599
+                                console.log(response.statusText); //=> String
+                                console.log(response.headers); //=> Headers
+                                console.log(response.url); //=> String
+                                swal({
+                                  title: "Erro, por favor tente novamente",
+                                  icon: "error",
+                                });
+                                throw Error(response.statusText);
+                              }
 
-              ln.remove();
-              alert("O operacional " + selecionado[0].innerHTML + " foi removido com sucesso")
-            }
-            else {
-              x = "Você pressionou Cancelar!";
-            }
+                              else {
+                                swal("O operacional " + selecionado[0].innerHTML + " removido com sucesso!", {
+                                  icon: "success",
+                                });
+                                ln.remove();
+
+                              }
+                            });
+                        }
+                      });
+                  }
+                }
+              });
           }
         }
-      })
+      });
     });
   }
 })(jQuery);

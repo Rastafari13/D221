@@ -66,10 +66,11 @@ function savePartner(req, res) {
         res.send(errors);
         return;
     }
-    if (idPartner != "NULL" && namePartner != "NULL" && registrationDate != "NULL" && email != "NULL" && phoneNum != "NULL" && ccPartner != "NULL" &&
-        donationPartner != "NULL" && idStation != "NULL" && typeof(idPartner) != 'undefined' && typeof(namePartner) != 'undefined' 
-        && typeof(registrationDate) != 'undefined' && typeof(email) != 'undefined' && typeof(phoneNum) != 'undefined' &&
-        typeof(ccPartner) != 'undefined' && typeof(donationPartner) != 'undefined' && typeof(idStation) != 'undefined') {
+    
+   /* if (idPartner != "NULL" && namePartner != "NULL" && registrationDate != "NULL" && email != "NULL" && phoneNum != "NULL" && ccPartner != "NULL" &&
+        donationPartner != "NULL" && idStation != "NULL" && typeof(idPartner) != 'undefined' && typeof(namePartner) != 'undefined' &&
+        typeof(registrationDate) != 'undefined' && typeof(email) != 'undefined' && typeof(phoneNum) != 'undefined' &&
+        typeof(ccPartner) != 'undefined' && typeof(donationPartner) != 'undefined' && typeof(idStation) != 'undefined') {*/
         const post = {
             num_partner: idPartner,
             name: namePartner,
@@ -81,26 +82,28 @@ function savePartner(req, res) {
             adress: adressPartner,
             donation: donationPartner,
             id_station: idStation
-        };
+        }
+
         //criar e executar a query de gravação na BD para inserir os dados presentes no post
         const query = connect.con.query('INSERT INTO partner SET ?', post, function(err, rows, fields) {
             console.log(query.sql);
             if (!err) {
                 res.status(jsonMessages.db.successInsert.status).send(jsonMessages.db.successInsert);
             }
-            else  {
+            else {
                 console.log(err);
                 if (err.code == "ER_DUP_ENTRY") {
                     res.status(jsonMessages.db.duplicateData.status).send(jsonMessages.db.duplicateData);
                 }
-                else
+                else 
                     res.status(jsonMessages.db.dbError.status).send(jsonMessages.db.dbError);
             }
         });
     }
-    // else{
-     //   res.status(jsonMessages.db.requiredData.status).send(jsonMessages.db.requiredData);}
-}
+    /*else {
+        res.status(jsonMessages.db.requiredData.status).send(jsonMessages.db.requiredData);*/
+    
+
 
 function deletePartner(req, res) {
     const idPartner = req.param('id');
@@ -122,27 +125,28 @@ function updatePartner(req, res) {
     const adressPartner = req.sanitize('adress').escape();
     const donationPartner = req.sanitize('donation').escape();
     const dateBirth = req.sanitize('date_bith').escape();
+    const mail = req.sanitize('mail').escape();
     const errors = req.validationErrors();
     if (errors) {
         res.send(errors);
         return;
     }
     else {
-        if (idPartner != "NULL"  && donationPartner != "NULL"  && typeof(idPartner) != 'undefined' && typeof(donationPartner) != 'undefined' && typeof(phoneNum) != 'undefined' &&typeof(adressPartner) != 'undefined'){
-        const update = [phoneNum, adressPartner, donationPartner, dateBirth, idPartner];
-        const query = connect.con.query('UPDATE partner SET phone_num =?, adress =?, donation=?, date_bith=? WHERE num_partner=?', update, function(err, rows, fields) {
-            console.log(query.sql);
-            if (!err) {
-                res.status(jsonMessages.db.successUpdate.status).send(jsonMessages.db.successUpdate);
-            }
-            else {
-                console.log(err);
-                res.status(jsonMessages.db.successUpdate.status).send(jsonMessages.db.successUpdate);
-            }
-        });
-         }
-         else
-             res.status(jsonMessages.db.requiredData.status).send(jsonMessages.db.requiredData);
+        if (idPartner != "NULL" && donationPartner != "NULL" && typeof(idPartner) != 'undefined' && typeof(donationPartner) != 'undefined' && typeof(phoneNum) != 'undefined' && typeof(adressPartner) != 'undefined') {
+            const update = [phoneNum, adressPartner, donationPartner, dateBirth, mail, idPartner];
+            const query = connect.con.query('UPDATE partner SET phone_num =?, adress =?, donation=?, date_bith=?, mail=? WHERE num_partner=?', update, function(err, rows, fields) {
+                console.log(query.sql);
+                if (!err) {
+                    res.status(jsonMessages.db.successUpdate.status).send(jsonMessages.db.successUpdate);
+                }
+                else {
+                    console.log(err);
+                    res.status(jsonMessages.db.successUpdate.status).send(jsonMessages.db.successUpdate);
+                }
+            });
+        }
+        else
+            res.status(jsonMessages.db.requiredData.status).send(jsonMessages.db.requiredData);
     }
 }
 

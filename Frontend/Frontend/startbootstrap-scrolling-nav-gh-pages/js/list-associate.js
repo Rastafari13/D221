@@ -10,7 +10,6 @@
 
     let assoc = data.map(el => Object.values(el));
 
-
     $(document).ready(function() {
 
       $('#Table-associate').DataTable({
@@ -27,7 +26,10 @@
           }
         },
         data: assoc,
-        "lengthMenu": [[-1, 10, 25, 50], ["Todos", 10, 25, 50]],
+        "lengthMenu": [
+          [-1, 10, 25, 50],
+          ["Todos", 10, 25, 50]
+        ],
       });
 
       //-------------------------------------------------------------------------------//
@@ -67,23 +69,22 @@
         let selecionados = tabela.getElementsByClassName("selecionado");
         //Verificar se eestá selecionado
         if (selecionados.length < 1) {
-          alert("Selecione pelo menos uma linha");
+          swal({
+            title: "Selecione uma linha!",
+            icon: "info",
+          });
           return false;
         }
-
-        let dados = "";
 
         for (let i = 0; i < selecionados.length; i++) {
           let selecionado = selecionados[i];
           selecionado = selecionado.getElementsByTagName("td");
 
           window.location.replace("view-associate.html");
-          localStorage.setItem("id", selecionado[0].innerHTML);
-
-         // dados += "ID: " + selecionado[0].innerHTML + " - Nome: " + selecionado[1].innerHTML + " - Idade: " + selecionado[2].innerHTML + "\n";
+          localStorage.setItem("idassoc", selecionado[0].innerHTML);
+          // dados += "ID: " + selecionado[0].innerHTML + " - Nome: " + selecionado[1].innerHTML + " - Idade: " + selecionado[2].innerHTML + "\n";
         }
       });
-
 
       let btnEliminar = document.getElementById("assoc-delete");
 
@@ -92,7 +93,10 @@
         let selecionados = tabela.getElementsByClassName("selecionado");
         //Verificar se está selecionado
         if (selecionados.length < 1) {
-          alert("Selecione pelo menos uma linha");
+          swal({
+            title: "Selecione uma linha!",
+            icon: "info",
+          });
           return false;
         }
 
@@ -100,30 +104,48 @@
           let selecionado = selecionados[i];
           selecionado = selecionado.getElementsByTagName("td");
           for (const ln of selecionados) {
-            var x;
-            var r = confirm("Deseja mesmo remover este associado?");
-            if (r == true) {
-              x = "você pressionou OK!";
 
-              $(document).ready(function() {
-                setUpDataTable1();
-                
+            swal({
+                title: "Pretende eliminar o sócio " + selecionado[0].innerHTML + " ?",
+                icon: "warning", //warning 
+                buttons: ["Sim", "Não"],
+                // dangerMode: true, partners
               })
-              async function setUpDataTable1() {
-                let a = selecionado[0].innerHTML;
-                await fetch(`https://23c6902811494393ad2cea6ff8f72d75.vfs.cloud9.us-east-1.amazonaws.com//partners/` + a, { method: "DELETE" })
-              }
-
-              ln.remove();
-              alert("O associado " + selecionado[0].innerHTML + " foi removido com sucesso")
-            }
-
-            else {
-              x = "Você pressionou Cancelar!";
-            }
+              .then((willDelete) => {
+                if (willDelete) {}
+                else {
+                  $(document).ready(function() {
+                    setUpDataTable1();
+                  })
+                  async function setUpDataTable1() {
+                    let a = selecionado[0].innerHTML;
+                    await fetch(`https://23c6902811494393ad2cea6ff8f72d75.vfs.cloud9.us-east-1.amazonaws.com//partners/` + a, { method: "DELETE" })
+                      .then(function(response) {
+                        if (!response.ok) {
+                          console.log(response.status); //=> number 100â€“599
+                          console.log(response.statusText); //=> String
+                          console.log(response.headers); //=> Headers
+                          console.log(response.url); //=> String
+                          swal({
+                            title: "Erro, por favor tente novamente",
+                            icon: "error",
+                          });
+                          throw Error(response.statusText);
+                        }
+                        else {
+                          swal({
+                            title: "O associado " + selecionado[0].innerHTML + " foi removido com sucesso!",
+                            icon: "success",
+                          });
+                          ln.remove();
+                        }
+                      });
+                  }
+                }
+              });
           }
         }
-      })
+      });
     });
   }
 })(jQuery);

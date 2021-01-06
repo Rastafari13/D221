@@ -23,10 +23,11 @@
         <button class="btn btn-link btn-sm order-1 order-lg-0" id="sidebarToggle" href="#"><i class="fas fa-bars"></i></button>
         <!-- Navbar Search-->
         <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">
-           <div class="input-group">
+            <div id="app"></div>
+            <!-- <div class="input-group">
                 <input class="form-control" type="text" placeholder="Pesquisa" aria-label="Search" aria-describedby="basic-addon2" id="sourch" />
-              <div class="input-group-append">
-                    <button class="btn btn-primary" type="button" id="btn-sourch"><img src="images.1/pesquisar.png" id="sourch1"></img></button>
+                <div class="input-group-app+end">
+                    <button class="btn btn-primary" type="button" id="btn-sourch"><img src="images.1/pesquisar.png" id="sourch1"></img></button> -->
             </div>
             </div>
         </form>
@@ -48,7 +49,7 @@
                 <div class="sb-sidenav-menu">
                     <div class="nav">
                         <hr class="division">
-                        <div class="sb-sidenav-menu-heading" id="titles">Sócios</div>
+                        <!--<div class="sb-sidenav-menu-heading" id="titles">Sócios</div>
                         <a class="nav-link" href="add-associate.html" id="centralist-menu">
                             <div class="sb-nav-link-icon"></div>
                             Adicionar Sócio
@@ -67,11 +68,53 @@
                             <div class="sb-nav-link-icon"></div>
                             Listar Operacionais
                         </a>
+                    </div>-->
+                        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages" id="titles">
+                            <div class="sb-nav-link-icon"><img src="images.1/socios.png" width="18" height="18" id="image"></div>
+                            Sócios
+                            <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                        </a>
+                        <div class="collapse" id="collapsePages" aria-labelledby="headingFour" data-parent="#sidenavAccordion">
+                            <nav class="sb-sidenav-menu-nested nav">
+                                <a class="nav-link" id="direction-menu" href="add-associate.html">Adicionar Sócio</a>
+                                <a class="nav-link" id="direction-menu" href="list-associate.html">Listar Sócios</a>
+                            </nav>
+                        </div>
+                        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePage3" aria-expanded="false" aria-controls="collapsePage3" id="titles">
+                            <div class="sb-nav-link-icon"><img src="images.1/operacionais.png" width="18" height="18" id="image"></img>
+                            </div>
+                            Operacionais
+                            <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                        </a>
+                        <div class="collapse" id="collapsePage3" aria-labelledby="headingThree" data-parent="#sidenavAccordion">
+                            <nav class="sb-sidenav-menu-nested nav">
+                                <a class="nav-link" id="direction-menu" href="add-opperation.html">Adicionar Operacional</a>
+                                <a class="nav-link" id="direction-menu" href="list-fireman.html">Listar Bombeiros</a>
+                                <a class="nav-link" id="direction-menu" href="list-centralist.html">Listar Centralistas</a>
+                            </nav>
+                        </div>
+
+                        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePage4" aria-expanded="false" aria-controls="collapsePage4" id="titles">
+                            <div class="sb-nav-link-icon"><img src="images.1/dir.png" width="18" height="18" id="image"></img>
+                            </div>
+                            Direção
+                            <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                        </a>
+                        <div class="collapse" id="collapsePage4" aria-labelledby="headingThree" data-parent="#sidenavAccordion">
+                            <nav class="sb-sidenav-menu-nested nav">
+                                <a class="nav-link" id="direction-menu" href="add-dirmember.html">Adicionar Membro</a>
+                                <a class="nav-link" id="direction-menu" href="list-dirmember.html">Listar Membro</a>
+                            </nav>
+                        </div>
+
                     </div>
+
                 </div>
+
+                <hr class="division2">
                 <div class="sb-sidenav-footer bg-color">
                     <div class="small">Ligado como:</div>
-                    Membro da Direção
+                    Membro da direção
                 </div>
             </nav>
         </div>
@@ -80,31 +123,72 @@
             <section class="get-in-touch" id="dash-dir-title">
                 <h1 class="title" id="dash-dir-title">DASHBOARD</h1>
                 <br>
-                <br>
-                <br>
             </section>
             <center>
-                <div class="row" id="div-dash-dir">
-                        <div class="col-sm-4">
-                            <div class="card">
-                                <div class="card-header" id="graphic-title">Percentagem de Pedidos por Urgência</div>
-                                <div class="card-body">
-                                    <div id="dir-dash">
-                                        <button class="btn" type="button" id="btn-day">Neste Dia</button>
-                                        <button class="btn" type="button" id="btn-month">Neste Mês</button>
-                                        <button class="btn" type="button" id="btn-year">Neste Ano</button>
+                <section class='statis text-center'>
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="card">
+                                    <div class="box bg-primary">
+                                        <div class="card-header">
+                                            <img src="images.1/socios.png" width="18" height="18" id="image"></img>
                                     </div>
-                                    <div id="chart_div"></div>
+                                    <div class="card-body">
+                                        <h3>125</h3>
+                                        <p class="lead">Socios</p>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-sm-8">
-                            <div class="card">
-                                <div class="card-header" id="graphic-title">Quantidade de Ocorrências por Tipo</div>
-                                <div class="card-body" id="chart_div-2"></div>
                             </div>
+
+                            <div class="col-md-4">
+                                <div class="card">
+                                    <div class="box bg-primary">
+                                        <div class="card-header">
+                                            <img src="images.1/operacionais.png" width="18" height="18" id="image"></img>
+                                        </div>
+                                        <div class="card-body">
+                                        <h3>245</h3>
+                                        
+                                            <p class="lead">Bombeiros</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="card">
+                                    <div class="box bg-primary">
+                                        <div class="card-header">
+                                            <img src="images.1/operacionais.png" width="18" height="18" id="image"></img>
+                                        </div>
+                                        <div class="card-body">
+                                            <h3>12</h3>
+                                            <p class="lead">Centralistas</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--<div class="col-md-3">
+                                <div class="card">
+                                    <div class="box bg-primary">
+                                        <div class="card-header">
+                                            <img src="images.1/dir.png" width="18" height="18" id="image"></img>
+                                        </div>
+                                        <div class="card-body">
+                                            <h3>56</h3>
+                                            <p class="lead">Diretores</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>-->
                         </div>
-                    <div class="col-sm-4" id="a">
+                </section>
+                <br>
+                <br>
+                <div class="row">
+
+                    <div class="col-sm-4">
                         <div class="card">
                             <div class="card-header" id="graphic-title">Número de Sócios</div>
                             <div class="card-body" id="line_top_x"></div>
@@ -114,14 +198,7 @@
                         <div class="card">
                             <div class="card-header" id="graphic-title">Quantidade de Pedidos por Urgência</div>
                             <div class="car-body">
-                                <div id="dir-dash">
-                                    <button class="btn" type="button" id="btn-1tri">1º TRI</button>
-                                    <button class="btn" type="button" id="btn-2tri">2º TRI</button>
-                                    <button class="btn" type="button" id="btn-3tri">3º TRI</button>
-                                    <button class="btn" type="button" id="btn-4tri">4º TRI</button>
-                                </div>
-
-                                <div id="columnchart_material"></div>
+                                <div id="line_top_x2"></div>
                             </div>
                         </div>
                     </div>
@@ -131,22 +208,28 @@
                             <div class="card-body" id="line_top_x1"></div>
                         </div>
                     </div>
+                    <div class="col-sm-12">
+                        <div class="card">
+                            <div class="card-header" id="graphic-title">Quantidade de Ocorrências por Tipo</div>
+                            <div class="card-body" id="chart_div-2"></div>
+                        </div>
+                    </div>
                 </div>
             </center>
 
-        </div>
-
-        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
-        <script src="js/scripts.js"></script>
-        <script src="js/direction.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
-        <script src="vendor/bootstrap/js1/chart-area-demo.js"></script>
-        <script src="vendor/bootstrap/js1/chart-bar-demo.js"></script>
-        <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js" crossorigin="anonymous"></script>
-        <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js" crossorigin="anonymous"></script>
-        <script src="vendor/bootstrap/js1/datatables-demo.js"></script>
-        <script src="vendor/bootstrap/js1/chart-pie-demo.js"></script>
+            </div>
+            <script src="js/hour.js"></script>
+            <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" crossorigin="anonymous"></script>
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+            <script src="js/scripts.js"></script>
+            <script src="js/direction.js"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
+            <script src="vendor/bootstrap/js1/chart-area-demo.js"></script>
+            <script src="vendor/bootstrap/js1/chart-bar-demo.js"></script>
+            <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js" crossorigin="anonymous"></script>
+            <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js" crossorigin="anonymous"></script>
+            <script src="vendor/bootstrap/js1/datatables-demo.js"></script>
+            <script src="vendor/bootstrap/js1/chart-pie-demo.js"></script>
 </body>
 
 </html>

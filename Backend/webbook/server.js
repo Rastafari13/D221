@@ -38,3 +38,7 @@ require("./controllers/partner.controller.js");
 require("./controllers/operational.controller.js");
 require("./controllers/request.controller.js");
 require("./controllers/occurrence.controller.js");
+require("./controllers/centralist.controller.js");
+require("./controllers/management.controller.js");
+require("./controllers/help_request.controller.js");
+require("./controllers/login.controller.js");

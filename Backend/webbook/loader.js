@@ -1,12 +1,12 @@
-/*const app = require('./server');
+const app = require('./server');
 const router = require('./routes/main.route');
 const cookieParser = require('cookie-parser');
-//const passport = require('passport');
+const passport = require('passport');
 const session = require('express-session');
 const expressSanitizer = require('express-sanitizer');
 const bodyParser = require('body-parser');
 const expressValidator = require('express-validator');
-const models=require("./models");
+const models=require("./models/");
 
 
 //garantir que as variáveis definidas são utilizadas
@@ -39,12 +39,12 @@ app.use(function(req, res, next) {
 });
 
 //inicializar passport de forma a dar para fazer login
-//app.use(passport.initialize());
-//app.use(passport.session()); // persistent login sessions
-//require('./routes/auth.route.js')(app, passport);
-//require('./config/passport/passport.js')(passport, models.user);
+app.use(passport.initialize());
+app.use(passport.session()); // persistent login sessions
+require('./routes/auth.route.js')(app, passport);
+require('./config/passport/passport.js')(passport, models.user);
 //Sync Database
-/*models.sequelize.sync().then(function() {
+models.sequelize.sync().then(function() {
   console.log('Nice! Database looks fine');
 
 }).catch(function(err) {
@@ -55,4 +55,3 @@ app.use(function(req, res, next) {
 
 app.use('/', router);
 module.exports = app;
-*/

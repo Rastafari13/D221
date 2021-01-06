@@ -13,18 +13,18 @@
     <link href="css/director.css" rel="stylesheet" />
     <link href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" rel="stylesheet" crossorigin="anonymous" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/js/all.min.js" crossorigin="anonymous"></script>
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
 
 </head>
 
 <body class="sb-nav-fixed">
     <nav class="sb-topnav navbar navbar-expand navbar-dark bg-color">
         <img src="images.1/logo.png" alt="logo" width=42 height=45.46 margin-left="20px" href="#page-top" id="logo"></img>
-        <a class="navbar-brand" href="centralist.html" id="name">SECURE4ALL</a>
+        <a class="navbar-brand" href="direction.html" id="name">SECURE4ALL</a>
         <button class="btn btn-link btn-sm order-1 order-lg-0" id="sidebarToggle" href="#"><i class="fas fa-bars"></i></button>
         <!-- Navbar Search-->
         <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">
+        <div class="input-group">
+        <div id="app"></div>    
             <!--<div class="input-group">
                 <input class="form-control" type="text" placeholder="Pesquisa" aria-label="Search" aria-describedby="basic-addon2" id="sourch" />
                 <div class="input-group-append">
@@ -50,27 +50,48 @@
                 <div class="sb-sidenav-menu">
                     <div class="nav">
                         <hr class="division">
-                        <div class="sb-sidenav-menu-heading" id="titles">Sócios</div>
-                        <a class="nav-link" href="add-associate.html" id="direction-menu">
-                            <div class="sb-nav-link-icon"></div>
-                            Adicionar Sócio
+                        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages" id="titles">
+                            <div class="sb-nav-link-icon"><img src="images.1/socios.png" width="18" height="18" id="image"></img>
+                            </div>
+                            Sócios
+                            <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                         </a>
-                        <a class="nav-link" href="list-associate.html" id="direction-menu1">
-                            <div class="sb-nav-link-icon"></div>
-                            Listar Sócios
+                        <div class="collapse" id="collapsePages" aria-labelledby="headingFour" data-parent="#sidenavAccordion">
+                            <nav class="sb-sidenav-menu-nested nav">
+                                <a class="nav-link" id="direction-menu" href="add-associate.html">Adicionar Sócio</a>
+                                <a class="nav-link" id="direction-menu1" href="#">Listar Sócios</a>
+                            </nav>
+                        </div>
+                        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePage3" aria-expanded="false" aria-controls="collapsePage3" id="titles">
+                            <div class="sb-nav-link-icon"><img src="images.1/operacionais.png" width="18" height="18" id="image"></img>
+                            </div>
+                            Operacionais
+                            <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                         </a>
+                        <div class="collapse" id="collapsePage3" aria-labelledby="headingThree" data-parent="#sidenavAccordion">
+                            <nav class="sb-sidenav-menu-nested nav">
+                                <a class="nav-link" id="direction-menu" href="add-opperation.html">Adicionar Operacional</a>
+                                <a class="nav-link" id="direction-menu" href="list-fireman.html">Listar Bombeiros</a>
+                                <a class="nav-link" id="direction-menu" href="list-centralist.html">Listar Centralistas</a>
+                            </nav>
+                        </div>
 
-                        <div class="sb-sidenav-menu-heading" id="titles">Operacionais</div>
-                        <a class="nav-link" href="add-opperation.html" id="direction-menu">
-                            <div class="sb-nav-link-icon"></div>
-                            Adicionar Operacional
+                        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePage4" aria-expanded="false" aria-controls="collapsePage4" id="titles">
+                            <div class="sb-nav-link-icon"><img src="images.1/dir.png" width="18" height="18" id="image"></img>
+                            </div>
+                            Direção
+                            <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                         </a>
-                        <a class="nav-link" href="list-opperation.html" id="direction-menu">
-                            <div class="sb-nav-link-icon"></div>
-                            Listar Operacionais
-                        </a>
+                        <div class="collapse" id="collapsePage4" aria-labelledby="headingThree" data-parent="#sidenavAccordion">
+                            <nav class="sb-sidenav-menu-nested nav">
+                                <a class="nav-link" id="direction-menu" href="add-dirmember.html">Adicionar Membro</a>
+                                <a class="nav-link" id="direction-menu" href="list-dirmember.html">Listar Membro</a>
+                            </nav>
+                        </div>
+
                     </div>
                 </div>
+                <hr class="division2">
                 <div class="sb-sidenav-footer bg-color">
                     <div class="small">Ligado como:</div>
                     Membro da Direção
@@ -81,9 +102,9 @@
         <div id="layoutSidenav_content">
             <div class="card-body" id="123">
                 <div class="table-responsive">
-                    <h1 id=listoc-title>Lista de sócios</h1>
+                    <h1 id="listoc-title">Lista de sócios</h1>
                     <div id="dataTable_wrapper" class="dataTables_wrapper dt-bootstrap4 no-footer">
-                        <table class="table" id="Table-associate" width="100%" cellspacing="0">
+                        <table class="table table-bordered supTable" id="Table-associate" width="100%" cellspacing="0" data-page-length='-1'>
                             <thead>
                                 <tr>
                                     <th>ID</th>
@@ -120,8 +141,12 @@
                         </div>
 
                     </div>
+                    <script src="js/hour.js"></script>
+                    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+                    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+                    <script src="bootstrap.min.js"></script>
+                    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" crossorigin="anonymous"></script>
                     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
-                    <!--<script src="js/generate-assoc.js"></script>-->
                     <script src="js/list-associate.js"></script>
                     <script src="js/scripts.js"></script>
                     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>

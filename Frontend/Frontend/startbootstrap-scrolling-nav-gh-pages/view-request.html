@@ -24,11 +24,12 @@
         <button class="btn btn-link btn-sm order-1 order-lg-0" id="sidebarToggle" href="#"><i class="fas fa-bars"></i></button>
         <!-- Navbar Search-->
         <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">
-              <!--<div class="input-group">
+        <div id="app"></div>    
+            <!--<div class="input-group">
                 <input class="form-control" type="text" placeholder="Pesquisa" aria-label="Search" aria-describedby="basic-addon2" id="sourch" />
                 <div class="input-group-append">
                     <button class="btn btn-primary" type="button" id="btn-sourch"><img src="images.1/pesquisar.png" id="sourch1"></img></button> -->
-                </div>
+            </div>
             </div>
         </form>
 
@@ -48,29 +49,33 @@
         <div id="layoutSidenav_nav">
             <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
                 <div class="sb-sidenav-menu">
-                    <hr class="division">
                     <div class="nav">
-                        <div class="sb-sidenav-menu-heading" id="titles">Ocorrências</div>
-                        <a class="nav-link" href="add-occurrence.html" id="centralist-menu">
-                            <div class="sb-nav-link-icon"></div>
-                            Adicionar ocorrência
+                        <hr class="division">
+                        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages" id="titles">
+                            <div class="sb-nav-link-icon"><img src="images.1/sirene.png" width="18" height="18" id="image"></img></div>
+                            Ocorrências
+                            <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                         </a>
-                        <a class="nav-link" href="list-occurence.html" id="centralist-menu">
-                            <div class="sb-nav-link-icon"></div>
-                            Listar ocorrência
+                        <div class="collapse" id="collapsePages" aria-labelledby="headingFour" data-parent="#sidenavAccordion">
+                            <nav class="sb-sidenav-menu-nested nav">
+                                <a class="nav-link" id="centralist-menu" href="add-occurrence.html">Adicionar ocorrência</a>
+                                <a class="nav-link" id="centralist-menu" href="list-occurence.html">Listar ocorrências</a>
+                            </nav>
+                        </div>
+                        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePage3" aria-expanded="false" aria-controls="collapsePage3" id="titles">
+                            <div class="sb-nav-link-icon"><img src="images.1/pedido2.png" width="18" height="18" id="image"></img></div>
+                            Pedidos
+                            <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                         </a>
-
-                        <div class="sb-sidenav-menu-heading" id="titles">Pedidos</div>
-                        <a class="nav-link" href="s" id="centralist-menu">
-                            <div class="sb-nav-link-icon"></div>
-                            Lista de pedidos pendentes
-                        </a>
-                        <a class="nav-link" href="s" id="centralist-menu">
-                            <div class="sb-nav-link-icon"></div>
-                            Lista de pedidos validados
-                        </a>
+                        <div class="collapse" id="collapsePage3" aria-labelledby="headingThree" data-parent="#sidenavAccordion">
+                            <nav class="sb-sidenav-menu-nested nav">
+                                <a class="nav-link" id="centralist-menu" href="list-pending-req.html">Lista de pedidos pendentes</a>
+                                <a class="nav-link" id="centralist-menu" href="list-validated-req.html">Lista de pedidos validados</a>
+                            </nav>
+                        </div>
                     </div>
                 </div>
+                <hr class="division2">
                 <div class="sb-sidenav-footer bg-color">
                     <div class="small">Ligado como:</div>
                     Centralista
@@ -85,62 +90,67 @@
                 <div class="col-sm-12">
                     <h1 class="title" id="viewoc-title"> Visualizar dados dos pedidos</h1>
                 </div>
-                
+
                 <div class="form-field col-sm-5 ">
                     <label class="label " for="firetype">ID</label>
-                    <input id="viewreq-id" placeholder="108" disabled></input>
+                    <input id="viewreq-id"  disabled></input>
                 </div>
-                
+
                 <div class="col-sm-2"></div>
-                
+
                 <div class="form-field col-sm-5">
                     <label class="label" for="name">Nome</label>
-                    <input id="viewreq-name" class="input-text js-input" type="text" placeholder="Antonio Maria" disabled></input>
+                    <input id="viewreq-name" class="input-text js-input" type=""  disabled></input>
                 </div>
-                
+
 
                 <div class="form-field col-sm-5 addoc-margin">
                     <label class="label" for="phone">Contacto</label>
-                    <input id="viewreq-phone" class="input-text js-input" type="txt" placeholder="919191919" disabled>
+                    <input id="viewreq-phone" class="input-text js-input" type=""  disabled>
                 </div>
-                
+
                 <div class="col-sm-2"></div>
-                
+
                 <div class="form-field col-sm-5 addoc-margin">
                     <label class="label" for="hour">Tipo de Ocorrência</label>
-                    <input id="viewreq-type" class="input-text js-input" type="txt" placeholder="02:34" disabled>
+                    <input id="viewreq-type" class="input-text js-input" type="" p disabled>
                 </div>
-                
+
 
                 <div class="form-field col-sm-5 addoc-margin">
                     <label class="label" for="vehicle" id="label-vehicle">Morada</label>
-                    <input id="viewreq-adress" class="input-text js-input" type="txt" placeholder="Rua das Estrilheiras, Vizela" disabled>
+                    <input id="viewreq-adress" class="input-text js-input" type=""  disabled>
                 </div>
-                
+
                 <div class="col-sm-2"></div>
-                
+
                 <div class="form-field col-sm-5 addoc-margin">
                     <label class="label" for="vehicle" id="label-vehicle">Data</label>
-                    <input id="viewreq-date" class="input-text js-input" type="txt" placeholder="30/12/2020" disabled>
+                    <input id="viewreq-date" class="input-text js-input" type=""  disabled>
                 </div>
-                
+
 
                 <div class="form-field col-sm-5 addoc-margin">
                     <label class="label" for="vehicle" id="label-vehicle">Email</label>
-                    <input id="viewreq-email" class="input-text js-input" type="txt" placeholder="zedascouves@gmail.com" disabled>
+                    <input id="viewreq-email" class="input-text js-input" type=""  disabled>
                 </div>
-                
+
                 <div class="col-sm-2"></div>
+
+                <div class="form-field col-sm-5 addoc-margin">
+                    <label class="label" for="vehicle" id="label-hour">Hora</label>
+                    <input id="viewreq-hour" class="input-text js-input" type=""  disabled>
+                </div>
                 
                 <div class="form-field col-sm-5 addoc-margin">
-                    <label class="label" for="vehicle" id="label-vehicle">Hora</label>
-                    <input id="viewreq-hour" class="input-text js-input" type="txt" placeholder="10:00" disabled>
+                    <label class="label" for="vehicle" id="label-level">Gravidade</label>
+                    <input id="viewreq-level" class="input-text js-input" type=""  disabled>
                 </div>
-                
-                
+
+
                 <div class="form-field col-sm-12 addoc-margin">
                     <label class="label" id="label-descrition">Descrição</label>
-                    <textarea id="viewreq-descrition" name="textarea" class="input-text js-input" rows="5" placeholder="IR A CASA DA MARTA ARAUJO, RAPTALÁ-LA E DEIXAR NO MEIO DO MONTE COM UMA CARTA A DIZER ASSINADO HÉLDER" disabled></textarea>
+                    <textarea id="viewreq-descrition" name="textarea" class="input-text js-input" rows="5"  disabled></textarea>
                 </div>
                 <!--<div class="col-sm-12 text-right">
                      <input id="occu-save" class="btn btn-primary text-uppercase js-scroll-trigge" type="submit" value="Guardar Alterações" href=""></input>
@@ -148,9 +158,12 @@
         </div>
         </form>
     </div>
-    <script src="js/scripts.js"></script>
+    <script src="js/hour.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+    <script src="js/view-request.js"></script>
+    <script src="js/scripts.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
     <script src="vendor/bootstrap/js1/chart-area-demo.js"></script>
     <script src="vendor/bootstrap/js1/chart-bar-demo.js"></script>

@@ -17,10 +17,11 @@
 <body class="sb-nav-fixed">
     <nav class="sb-topnav navbar navbar-expand navbar-dark bg-color">
         <img src="images.1/logo.png" alt="logo" width=42 height=45.46 margin-left="20px" href="#page-top" id="logo"></img>
-        <a class="navbar-brand" href="centralist.html" id="name">SECURE4ALL</a>
+        <a class="navbar-brand" href="direction.html" id="name">SECURE4ALL</a>
         <button class="btn btn-link btn-sm order-1 order-lg-0" id="sidebarToggle" href="#"><i class="fas fa-bars"></i></button>
         <!-- Navbar Search-->
         <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">
+        <div id="app"></div>    
             <!--<div class="input-group">
                 <input class="form-control" type="text" placeholder="Pesquisa" aria-label="Search" aria-describedby="basic-addon2" id="sourch" />
                 <div class="input-group-append">
@@ -40,36 +41,54 @@
             </li>
         </ul>
     </nav>
-    <div id="layoutSidenav">
+<div id="layoutSidenav">
         <div id="layoutSidenav_nav">
             <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
                 <div class="sb-sidenav-menu">
-                    <hr class="division">
                     <div class="nav">
-                        <div class="sb-sidenav-menu-heading" id="titles">Sócios</div>
-                        <a class="nav-link" href="add-associate.html" id="direction-menu">
-                            <div class="sb-nav-link-icon"></div>
-                            Adicionar sócio
+                        <hr class="division">
+                        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages" id="titles">
+                            <div class="sb-nav-link-icon"><img src="images.1/socios.png" width="18" height="18" id="image"></div>
+                            Sócios
+                            <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                         </a>
-                        <a class="nav-link" href="list-associate.html" id="direction-menu">
-                            <div class="sb-nav-link-icon"></div>
-                            Listar sócios
+                        <div class="collapse" id="collapsePages" aria-labelledby="headingFour" data-parent="#sidenavAccordion">
+                            <nav class="sb-sidenav-menu-nested nav">
+                                <a class="nav-link" id="direction-menu" href="add-associate.html">Adicionar Sócio</a>
+                                <a class="nav-link" id="direction-menu" href="list-associate.html">Listar Sócios</a>
+                            </nav>
+                        </div>
+                        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePage3" aria-expanded="false" aria-controls="collapsePage3" id="titles">
+                            <div class="sb-nav-link-icon"><img src="images.1/operacionais.png" width="18" height="18" id="image"></img></div>
+                            Operacionais
+                            <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                         </a>
-
-                        <div class="sb-sidenav-menu-heading" id="titles">Operacionais</div>
-                        <a class="nav-link" href="add-opperation.html" id="direction-menu">
-                            <div class="sb-nav-link-icon"></div>
-                            Adicionar operacional
-                        </a>
-                        <a class="nav-link" href="list-opperation.html" id="direction-menu">
-                            <div class="sb-nav-link-icon"></div>
-                            Listar operacional
-                        </a>
+                        <div class="collapse" id="collapsePage3" aria-labelledby="headingThree" data-parent="#sidenavAccordion">
+                            <nav class="sb-sidenav-menu-nested nav">
+                                <a class="nav-link" id="direction-menu" href="add-opperation.html">Adicionar Operacional</a>
+                                <a class="nav-link" id="direction-menu" href="list-fireman.html">Listar Bombeiros</a>
+                                <a class="nav-link" id="direction-menu" href="list-centralist.html">Listar Centralistas</a>
+                            </nav>
+                        </div>
+                        
+                        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePage4" aria-expanded="false" aria-controls="collapsePage4" id="titles">
+                            <div class="sb-nav-link-icon"><img src="images.1/dir.png" width="18" height="18" id="image"></img></div>
+                            Direção
+                            <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                        </a> 
+                            <div class="collapse" id="collapsePage4" aria-labelledby="headingThree" data-parent="#sidenavAccordion">
+                            <nav class="sb-sidenav-menu-nested nav">
+                                <a class="nav-link" id="direction-menu" href="add-dirmember.html">Adicionar Membro</a>
+                                <a class="nav-link" id="direction-menu" href="list-dirmember.html">Listar Membro</a>
+                            </nav>
+                        </div>
+                        
                     </div>
                 </div>
+                <hr class="division2">
                 <div class="sb-sidenav-footer bg-color">
                     <div class="small">Ligado como:</div>
-                    Membro da direção
+                    Membro da Direção
                 </div>
             </nav>
         </div>
@@ -79,9 +98,9 @@
             <form class="contact-form row" id="view-operational">
                 <div class="col-sm-12">
                     <div id="photo-profile">
-                        <h1 class="title" id="addoc-title">Visualizar dados do Operacional</h1>
-                      <!--  <img src="images.1/perfil.png" width="290" height="290" id="photo-profile"></img>
-                        <h2 id="alt-photo-cent">Alterar foto de perfil</h2>-->
+                        <h1 class="title" id="addoc-title">Visualizar dados do Bombeiro</h1>
+                        <img src="images.1/perfil.png" width="180" height="180" id="photo-profile"></img>
+                        <h2 id="alt-photo-cent">Alterar foto de perfil</h2>
                     </div>
                 </div>
                 <div class="form-field col-sm-5 addoc-margin">
@@ -91,12 +110,13 @@
                 <div class="col-sm-2"></div>
                 <div class="form-field col-sm-5 addoc-margin">
                     <label for="function">Função</label>
-                    <input id="viewop-function" value="" disabled></input>
+                    <input id="viewop-function" class="input-text js-input" value="" disabled></input>
                 </div>
 
                 <div class="form-field col-sm-5 addoc-margin">
                     <label class="label" for="passsword">Palavra Passe</label>
-                    <input id="viewop-ps" class="input-text js-input" type="txt" value="" disabled>
+                    <input id="viewop-ps" class="input-text js-input" type="txt" value="" maxlength="9" minlength="9" disabled>
+                    <button id="viewop-edit-ps" type="button"><img src = "images.1/editar.png" width="20" height="20"></img></button>
                 </div>
                 <div class="col-sm-2"></div>
 
@@ -114,46 +134,55 @@
 
                 <div class=" form-field col-sm-5 addoc-margin" id="div-addoc-phone">
                     <label class="label" for="phone" id="label-phone">Telefone</label>
-                    <input type="tel" name="phone" id="viewop-phone" pattern="[0-9]+$" maxlength="9" minlength="9" value="" disabled></input>
+                    <input type="tel" name="phone" id="viewop-phone" pattern="[0-9]+$" maxlength="9" minlength="9" value="" disabled required></input>
                     <button id="viewop-edit-phone" type="button"><img src = "images.1/editar.png" width="20" height="20"></img></button>
                 </div>
 
-
                 <div class=" form-field col-sm-5 addoc-margin" id="div-addoc-adress">
                     <label class="label" for="date" id="label-adress-opp">Morada</label>
-                    <input name="adress" id="viewop-adress" type="text" value="" disabled></input>
+                    <input name="adress" id="viewop-adress" type="text" value="" maxlength="159" minlength="3" disabled required></input>
                     <button id="viewop-edit-adress" type="button"><img src = "images.1/editar.png" width="20" height="20"></img></button>
                 </div>
                 <div class="col-sm-2"></div>
 
                 <div class=" form-field col-sm-5 addoc-margin">
                     <label class="label" for="date" id="label-phone">Ordenado (€ por hora)</label>
-                    <input name="date" id="viewop-salary" type="number" pattern="[0-9]+$" maxlength="2" value="" disabled></input>
+                    <input name="date" id="viewop-salary" type="number" pattern="[0-9]+$" maxlength="2" value="" oninput="validity.valid ? this.save = value : value = this.save;" disabled></input>
                     <button id="viewop-edit-salary" type="button"><img src = "images.1/editar.png" width="20" height="20"></img></button>
                 </div>
 
                 <div class=" form-field col-sm-5 addoc-margin">
                     <label class="label" for="date" id="entry_date">Data de entrada</label>
-                    <input name="entry_date" pattern="[0-9]+$" id="viewop-entry" type="txt" value="" disabled ></input>
+                    <input name="entry_date" pattern="[0-9]+$" id="viewop-entry" type="txt" value="" disabled></input>
+                </div>
+                
+                <div class="col-sm-2"></div>
+                
+                <div class="form-field col-sm-5 addoc-margin" id="div-addoc-email">
+                    <label class="label" for="age" id="label-email">Email</label>
+                    <input name="email" id="viewop-email" maxlength="50" minlength="10" type="email" value="" disabled required></input>
+                    <button id="viewop-edit-email" type="button"><img src = "images.1/editar.png" width="20" height="20"></img></button>
                 </div>
 
-                <div class="col-sm-7"></div>
+                <div class="col-sm-12"></div>
                 <div id="diretor-id">
                     <p id="p-id-label">ID
                         <input id="view-id-opp" value="" disabled></p>
                     </input>
                 </div>
-                <div class="col-sm-12 text-right" >
-                    <button id="opp-save" class="btn btn-primary text-uppercase js-scroll-trigge" value="Guardar Alterações" type="button" >Guardar Alterações</button>
+                
+                <div class="col-sm-12 text-right">
+                    <input id="opp-save" class="btn btn-primary text-uppercase js-scroll-trigge" value="Guardar Alterações" type="submit"></button>
                     <!--<input id="viewas-clean" class="btn btn-primary text-uppercase js-scroll-trigger" type="reset" value="cancelar"></input>-->
                 </div>
             </form>
             </section>
 
         </div>
+        <script src="js/hour.js"></script>
+        <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
-        <script src="123.js"></script>
         <script src="js/view-opperation.js"></script>
         <script src="js/scripts.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
