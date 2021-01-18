@@ -37,7 +37,7 @@ app.use(function(req, res, next) {
     }
     next();
 });
-/*
+
 //inicializar passport de forma a dar para fazer login
 app.use(passport.initialize());
 app.use(passport.session()); // persistent login sessions
@@ -51,6 +51,6 @@ models.sequelize.sync().then(function() {
   console.log(err, "Something went wrong with the Database Update!");
 });
 
-*/
+
 //app.use('/', router);
 module.exports = app;
