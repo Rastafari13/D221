@@ -59,10 +59,11 @@
         }
         linha.classList.toggle("selecionado");
       }
-
+      
       /**
       Exemplo de como capturar os dados
       **/
+      
       let btnVisualizar = document.getElementById("view-data-assoc");
 
       btnVisualizar.addEventListener("click", function() {
@@ -82,7 +83,6 @@
 
           window.location.replace("view-associate.html");
           localStorage.setItem("idassoc", selecionado[0].innerHTML);
-          // dados += "ID: " + selecionado[0].innerHTML + " - Nome: " + selecionado[1].innerHTML + " - Idade: " + selecionado[2].innerHTML + "\n";
         }
       });
 
@@ -119,7 +119,7 @@
                   })
                   async function setUpDataTable1() {
                     let a = selecionado[0].innerHTML;
-                    await fetch(`https://23c6902811494393ad2cea6ff8f72d75.vfs.cloud9.us-east-1.amazonaws.com//partners/` + a, { method: "DELETE" })
+                    await fetch(`https://23c6902811494393ad2cea6ff8f72d75.vfs.cloud9.us-east-1.amazonaws.com/checkOutPartners/` + a, { method: "PUT" })
                       .then(function(response) {
                         if (!response.ok) {
                           console.log(response.status); //=> number 100â€“599

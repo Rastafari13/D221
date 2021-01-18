@@ -22,13 +22,9 @@
         <img src="images.1/logo.png" alt="logo" width=42 height=45.46 margin-left="20px" href="#page-top" id="logo"></img>
         <a class="navbar-brand" href="centralist.html" id="name">SECURE4ALL</a>
         <button class="btn btn-link btn-sm order-1 order-lg-0" id="sidebarToggle" href="#"><i class="fas fa-bars"></i></button>
-        <!-- Navbar Search-->
+
         <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">
-        <div id="app"></div>
-            <!-- <div class="input-group">
-                <input class="form-control" type="text" placeholder="Pesquisa" aria-label="Search" aria-describedby="basic-addon2" id="sourch" />
-                <div class="input-group-append">
-                    <button class="btn btn-primary" type="button" id="btn-sourch"><img src="images.1/pesquisar.png" id="sourch1"></img></button> -->
+            <div id="app"></div>
             </div>
             </div>
         </form>
@@ -90,6 +86,7 @@
                     <h1 class="title" id="addoc-title">Adicionar Ocorrência</h1>
                     <br>
                 </section>
+                
                 <div class="form-field col-sm-5">
                     <label class="label " for="firetype"></label>Tipo de Incêndio</label>
                     <select name="Tipo de Incêndio" id="addoc-firetype" required>
@@ -102,29 +99,20 @@
 
                 <div class="form-field col-sm-5">
                     <label class="label" for="adress">Morada</label>
-                    <input id="addoc-adress" class="input-text js-input" type="text" required>
+                    <input id="addoc-adress" class="input-text js-input" maxlength="159" minlength="5" type="text" required>
                 </div>
 
                 <div class="form-field col-sm-5 addoc-margin">
                     <label class="label" for="hour">Hora de inicio</label>
-                    <input id="addoc-hour" class="input-text js-input" type="date" required>
+                    <input id="addoc-hour" class="input-text js-input" type="time" required>
                 </div>
 
                 <div class="col-sm-2"></div>
 
                 <div class=" form-field col-sm-5 addoc-margin" id="div-addoc-phone">
                     <label class="label" for="phone" id="label-phone">Telefone</label>
-                    <input type="tel" name="phone" id="addoc-phone" pattern="[0-9]+$" maxlength="9" minlength="9" required></input>
+                    <input type="tel" name="phone" id="addoc-phone" pattern="[0-9]+$" maxlength="9" minlength="9" required onkeypress='return filtroTeclas(event)'></input>
                 </div>
-
-                <!--<div class="form-field col-sm-5 addoc-margin" id="div-addoc-vehicle">
-                    <label class="label" for="vehicle">Veículos Utilizados</label>
-                    <select class="select2 form-control" id="idSelect2" multiple="" tabindex="-1" style="display: none;" required>
-                          <option value="1">V1</option>
-                          <option value="2">V2</option>
-                          <option value="3">V3</option>
-                      </select>
-                </div> -->
 
                 <div class="form-field col-sm-5 addoc-margin">
                     <label class="label" for="level"></label>Nível de Gravidade</label>

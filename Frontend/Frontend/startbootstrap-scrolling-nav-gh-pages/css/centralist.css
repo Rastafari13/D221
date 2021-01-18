@@ -13,12 +13,13 @@ footer {
 }
 
 #app {
-  display:flex;
-  font-size:20px;
-  justify-content:center;
-  align-items:center;
-  font-family: 'Comfortaa', cursive;
-  color:white;
+    display: block;
+    font-size: 20px;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Comfortaa', cursive;
+    color: white;
+    width: 78px !important;
 }
 
 #logo {
@@ -87,6 +88,8 @@ footer {
     font-weight: 400;
     color: white;
     font-size: 18px;
+    margin-top:15px;
+
 }
 
 #centralist-menu1 {
@@ -113,6 +116,10 @@ footer {
 
 #image {
     margin-top: -3.5px;
+}
+
+h1, .h1 {
+    margin-top:15px !important;
 }
 
 /*---------------------------ADD-OCCURRENCE----------------*/
@@ -188,7 +195,7 @@ footer {
     width: 100%;
     margin-top: 19px;
 }
-    
+
 #addoc-level {
     border-width: 0 0 2px 0;
     width: 100%;
@@ -242,6 +249,7 @@ textarea[name=textarea] {
 }
 
 /*---------CENTRALIST-PROFILE--------------------*/
+
 #pc-password {
     border-width: 0 0 2px 0;
     width: 25rem;
@@ -271,7 +279,7 @@ textarea[name=textarea] {
 }
 
 #pc-entrydate {
-        border-width: 0 0 2px 0;
+    border-width: 0 0 2px 0;
     width: 25rem;
     background-color: white;
     border-color: rgb(118, 118, 118);
@@ -283,6 +291,7 @@ textarea[name=textarea] {
     background-color: white;
     border-color: rgb(118, 118, 118);
 }
+
 #pc-adress {
     border-width: 0 0 2px 0;
     width: 25rem;
@@ -347,11 +356,11 @@ textarea[name=textarea] {
 
 #cent-prof-title {
     font-size: 25px;
-    border-width:0;
-    width:100%;
-    color:black;
-    text-align:center;
-    background-color:white;
+    border-width: 0;
+    width: 100%;
+    color: black;
+    text-align: center;
+    background-color: white;
 }
 
 #span-id {
@@ -371,7 +380,7 @@ textarea[name=textarea] {
 #profile-centralist-id {
     color: black;
     width: 60px;
-    position:relative;
+    position: relative;
 }
 
 #pc-save {
@@ -441,10 +450,10 @@ textarea[name=textarea] {
 }
 
 #centralist-id {
-    margin-top: -570px;
+    margin-top: -690px;
     margin-left: 20px;
     font-size: 18px;
-    position:relative;
+    position: relative;
 }
 
 #photo-profile {}
@@ -459,6 +468,50 @@ textarea[name=textarea] {
 #cent-edit-ps:focus {
     outline: none;
 }
+
+.swal2-styled.swal2-confirm {
+    border: 0;
+    border-radius: 15px !important;
+    border-line: #390606;
+    border-color: #390606 !important;
+    background-color: #390606 !important;
+
+}
+
+.swal2-confirm:not([disabled]):hover {
+    background-color: #390606 ;
+    opacity:0.8;
+    border-line:#390606;
+}
+
+.swal2-confirm:focus {
+    outline: none;
+    box-shadow: 0 0 0 0 !important;
+}
+
+.swal2-styled.swal2-cancel {
+    background-color:#390606 !important;
+    border-radius: 15px !important;
+    border-line: #390606;
+    border-color: #390606 !important;
+}
+
+.swal2-cancel:not([disabled]):hover{
+    background-color: #390606 ;
+    opacity:0.8;
+    border-line:#390606;
+}
+
+.swal2-cancel:focus{
+    outline: none;
+    box-shadow: 0 0 0 0 !important;  
+}
+
+.swal2-input:focus{
+   border: 1px solid #d9d9d9 !important;
+   box-shadow:0 0 0 0  !important;
+}
+
 
 /*---------ALTERAR PALAVRA-PASSE*/
 
@@ -705,92 +758,6 @@ tr.selecionado td {
     color: white;
 }
 
-
-/*---------ALTERAR PALAVRA-PASSE*/
-
-#new-password-body {
-    display: block;
-    position: absolute;
-}
-
-#new-ps-show {
-    margin-top: -6%;
-    margin-left: 89%;
-    display: block;
-    font-weight: 400;
-    background-color: white;
-    font-size: 18px;
-}
-
-#new-ps-show1 {
-    margin-top: -6%;
-    margin-left: 89%;
-    display: block;
-    font-weight: 400;
-    background-color: white;
-    font-size: 18px;
-}
-
-#password-passconf {
-    background-color: #390606 !important;
-    border-radius: 15px;
-    font-size: 15px;
-    margin-left: 38%;
-    margin-top: 9%;
-    border: white;
-    width: 150px;
-}
-
-#new-password-body {
-    background-color: white !important;
-}
-
-.card-header {
-    background-color: white !important;
-    color: black;
-}
-
-#password-text {
-    text-align: center !important;
-    color: black;
-    font-size: 18px;
-}
-
-#password-header {
-    margin-top: 10rem;
-    font-size: 30px !important;
-}
-
-#password-email {
-    margin-top: 3rem;
-    border: black;
-}
-
-#inputEmailAddress {
-    border-color: black;
-    border-radius: 9px;
-}
-
-#password-passconf:hover,
-#password-passconf:focus {
-    opacity: 0.8;
-    box-shadow: 0 0 0 0rem;
-    border-color: #390606;
-}
-
-#inputEmailAddress:focus {
-    border-color: #390606;
-    box-shadow: 0 0 0 0rem;
-    opacity: 0.8;
-}
-
-#login-forgot:hover,
-#login-forgot:focus {
-    text-decoration: none;
-    font-weight: 800;
-}
-
-
 /*---LIST-OCCURENCE---*/
 
 .page-item.active .page-link {
@@ -874,9 +841,6 @@ tr.selecionado td {
     width: 250px;
     box-shadow: 0 0 0 0rem;
 }
-
-
-
 
 #viewoc-firetype {
     border-width: 0 0 2px 0;
@@ -1043,6 +1007,7 @@ tr.selecionado td {
 
 #viewreq-descrition,
 #viewreq-level,
+#viewreq-typereq,
 #viewreq-email,
 #viewreq-date,
 #viewreq-adress,
@@ -1058,209 +1023,6 @@ tr.selecionado td {
 }
 
 
-/*-----------------DASHBOARD---------------------*/
-
-#dash-cent-pupnu {
-    text-align: center;
-}
-
-#btn-day {
-    background-color: white;
-    color: black;
-    border-radius: 25px 0 0 25px;
-    border-color: #390606;
-    font-size: large;
-}
-
-#btn-month {
-    background-color: white;
-    color: black;
-    margin-left: -1%;
-    border-radius: 0 25px 25px 0;
-    border-color: #390606;
-    font-size: large;
-}
-
-#btn-week {
-    background-color: white;
-    color: black;
-    margin-left: -1%;
-    border-radius: 0;
-    border-color: #390606;
-    font-size: large;
-}
-
-#btn-day:focus {
-    background-color: #390606;
-    color: white;
-    border-radius: 25px 0 0 25px;
-    border-color: #390606;
-    box-shadow: 0 0 0 0;
-    font-size: large;
-}
-
-#btn-week:focus {
-    background-color: #390606;
-    color: white;
-    border-radius: 0 0 0 0;
-    border-color: #390606;
-    box-shadow: 0 0 0 0;
-    font-size: large;
-}
-
-#btn-month:focus {
-    background-color: #390606;
-    color: white;
-    border-radius: 0 25px 25px 0;
-    border-color: #390606;
-    box-shadow: 0 0 0 0;
-    font-size: large;
-}
-
-#cent-dash {
-    display: inline-flex;
-}
-
-#btn-day-conc {
-    background-color: white;
-    color: black;
-    border-radius: 25px 0 0 25px;
-    border-color: #390606;
-    font-size: large;
-}
-
-#btn-month-conc {
-    background-color: white;
-    color: black;
-    margin-left: -1%;
-    border-radius: 0 25px 25px 0;
-    border-color: #390606;
-    font-size: large;
-}
-
-#btn-week-conc {
-    background-color: white;
-    color: black;
-    margin-left: -1%;
-    border-radius: 0;
-    border-color: #390606;
-    font-size: large;
-}
-
-#btn-day-conc:focus {
-    background-color: #390606;
-    color: white;
-    border-radius: 25px 0 0 25px;
-    border-color: #390606;
-    box-shadow: 0 0 0 0;
-    font-size: large;
-}
-
-#btn-week-conc:focus {
-    background-color: #390606;
-    color: white;
-    border-radius: 0 0 0 0;
-    border-color: #390606;
-    box-shadow: 0 0 0 0;
-    font-size: large;
-}
-
-#btn-month-conc:focus {
-    background-color: #390606;
-    color: white;
-    border-radius: 0 25px 25px 0;
-    border-color: #390606;
-    box-shadow: 0 0 0 0;
-    font-size: large;
-}
-
-#card-title {
-    background-color: #390606 !important;
-    color: white;
-    border-radius: 0.25rem 0.25rem 0 0;
-    font-size: larger;
-    padding: 20px;
-}
-
-#card-body {
-    height: 350px;
-    font-size: larger;
-    background-color: #FFF4F4;
-}
-
-.card-footer {
-    background-color: #390606 !important
-}
-
-.card-text {
-    text-align: center;
-    margin-top: 40px;
-}
-
-#occo-conc,
-#write-req,
-#occo-atc {
-    font-size: 35px !important;
-}
-
-
-#cent-req-pend {
-    background-color: #FCC6C6;
-}
-
-#cent-occ-act {
-    background-color: #FCC6C6;
-}
-
-#cent-card {
-    border: 0px;
-    top: -14%;
-}
-
-#cent-header-today,
-#cent-header-week,
-#cent-header-month {
-    background-color: #FFF5F5 !important;
-    border: 0px;
-    font-weight: 500;
-    line-height: 1.2;
-    font-size: 1.5rem;
-}
-
-#cent-body-month,
-#cent-body-week,
-#cent-body-today {
-    background-color: #F3F3F3 !important;
-}
-
-#cent-card1 {
-    border: 0px;
-}
-
-#div-card1 {
-    padding-right: 0;
-}
-
-#cent-card2 {
-    border-width: 0 0 0 1px;
-    border-color: black;
-}
-
-#div-card2 {
-    padding-right: 0;
-    padding-left: 0;
-}
-
-#cent-card3 {
-    border-width: 0 0 0 1px;
-    border-color: black;
-}
-
-#div-card3 {
-    padding-left: 0;
-}
-
-
 /*-----------------------LIST-PENDING-REQ-----------------*/
 
 .swal-button {
@@ -1272,9 +1034,9 @@ tr.selecionado td {
 
 .swal-button--cancel {
     color: white;
-    background-color:#390606;
-    border-line:#390606;
-    box-shadow:0;
+    background-color: #390606;
+    border-line: #390606;
+    box-shadow: 0;
 }
 
 #box-selectline {
@@ -1284,14 +1046,15 @@ tr.selecionado td {
 .modal-title {
     text-align: center;
 }
-#exampleModalLabel{
-    text-align:center;
+
+#exampleModalLabel {
+    text-align: center;
 }
 
 .swal-button:not([disabled]):hover {
-    background-color: #390606 ;
-    opacity:0.8;
-    border-line:#390606;
+    background-color: #390606;
+    opacity: 0.8;
+    border-line: #390606;
 }
 
 .swal-button:focus {
@@ -1320,4 +1083,166 @@ tr.selecionado td {
     outline: none;
     margin-block-start: -0.15rem !important;
     margin-block-end: 0px !important;
+}
+
+
+
+/* ------------------------------------Centalista-1----------------------------------- */
+.dash-cent-pupnu{
+    display:block !important;
+    position:absolute !important;
+    min-width:1493px !important;
+    max-width:2000px !important;
+    text-align:center !important;
+}
+.tools-dashborad a {
+    text-decoration: none;
+    display: block;
+}
+
+.tools-dashborad .custom-tiles {
+    min-height: 160px;
+    padding: 10px 10px;
+    position: relative;
+    color: #fff;
+    border-radius: 4px;
+    box-shadow: 0 0 1px rgba(0, 0, 0, .125), 0 1px 3px rgba(0, 0, 0, .2);
+    transition: all 0.35s ease;
+}
+
+.tools-dashborad .custom-tiles span {
+    display: inline-block;
+    font-size: 18px;
+    margin: 10px 0px 0px;
+    line-height: 1.1;
+    font-weight: bold;
+}
+
+.tools-dashborad .custom-tiles h3 {
+    font-size: 18px;
+    margin: 5px 0 0 0;
+    letter-spacing: 1px;
+}
+
+.tools-dashborad .custom-tiles .icon-wrap {
+    height: 32px;
+    width: 32px;
+    position: absolute;
+    right: 30px;
+    top: 40px;
+    font-size: 28px;
+    transitian: all 0.35s ease;
+}
+
+.tools-dashborad .total-records {
+    background-color: #07B55C;
+}
+
+.tools-dashborad .in-progress {
+    background-color: #E36414;
+}
+
+.tools-dashborad .my-pending {
+    background-color: #9A031E;
+}
+
+.tools-dashborad .group-pending {
+    background-color: #FECF3E;
+}
+
+.tools-dashborad .custom-tiles .small-box-footer {
+    position: absolute;
+    text-align: center;
+    padding: 5px 0;
+    color: rgba(255, 255, 255, .8);
+    display: block;
+    background: rgba(0, 0, 0, .1);
+    text-decoration: none;
+    bottom: 0;
+    width: 100%;
+    left: 0;
+    transition: all 0.3s ease;
+    font-size: 14px;
+}
+
+.tools-dashborad .custom-tiles .small-box-footer:hover {
+    color: #fff;
+    background: rgba(0, 0, 0, .15);
+}
+
+.chart-wrap {
+    box-shadow: 0 0 1px rgba(0, 0, 0, .125), 0 1px 3px rgba(0, 0, 0, .2);
+}
+
+.middle-wrap .m-block {
+    display: inline-block;
+    width: 40%;
+    float: left;
+    /* background:rgba(255,255,255,0.1);*/
+    padding: 10px 10px;
+    margin: inherit;
+}
+
+.middle-wrap {
+    margin: 15px -10px 0px;
+}
+
+.tools-dashborad .custom-tiles .middle-wrap h3 {
+    font-size: 1.1rem;
+    display: inline-block;
+    margin-left:5px;
+}
+
+.tools-dashborad .custom-tiles .middle-wrap span {
+    font-size: 1.5rem;
+    display: inline-block;
+}
+
+
+#urgente,
+#occ-act,
+#req-pend,
+#occ-conc,
+#occ-total,
+#req-total,
+#req-valid,
+#urgente-total{
+    text-align: center;
+    font-size: 2.5rem;
+    margin-top:30px;
+}
+
+#dash-cent {
+    display: flex;
+    margin-top: 30px;
+}
+
+#dash-cent1 {
+    display: flex;
+    margin-top: -50px;
+}
+
+#occ-conc {
+    text-align: center;
+    font-size: 2.5rem;
+}
+
+.m-block1 {
+    display: inline-block;
+    width: 60%;
+    float: left;
+    /*background:rgba(255,255,255,0.1);*/
+    padding: 10px 10px;
+    margin: inherit;
+}
+
+.marg-graf{
+    margin-top:20px;
+}
+
+#columnchart_values1, 
+#columnchart_values2{
+    text-align:center !important;
+    margin-left:auto;
+    margin-right:auto;
 }

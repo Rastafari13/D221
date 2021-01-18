@@ -166,7 +166,6 @@
                                   icon: "success",
                                 });
                                 ln.remove();
-
                               }
                             });
                         }

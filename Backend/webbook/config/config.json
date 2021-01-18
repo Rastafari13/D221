@@ -1,17 +1,6 @@
-{
-  "name": "conexao",
-  "version": "1.0.0",
-  "description": "",
-  "main": "connectMYSQL.js",
-  "scripts": {
-    "start": "connectMYSQL.js"
-  },
-  "author": "",
-  "license": "ISC"
-}
 
-{
-    "MySQL": {
+{    
+  "MySQL": {
         "username": "SKMj4aTpc9",
         "password": "djKHE1y1Pg",
         "database": "SKMj4aTpc9",

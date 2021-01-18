@@ -34,7 +34,7 @@
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" id="userDropdown" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
-                    <a class="dropdown-item" href="director-profile.html" id="menu-profile">Perfil</a>
+                    <a class="dropdown-item" href="direction-profile.html" id="menu-profile">Perfil</a>
                     <div class="dropdown-divider"></div>
                     <a class="dropdown-item" href="index.html" id="menu-logout">Sair</a>
                 </div>
@@ -80,8 +80,8 @@
                         </a>
                         <div class="collapse" id="collapsePage4" aria-labelledby="headingThree" data-parent="#sidenavAccordion">
                             <nav class="sb-sidenav-menu-nested nav">
-                                <a class="nav-link" id="direction-menu" href="add-dirmember.html">Adicionar Membro</a>
-                                <a class="nav-link" id="direction-menu" href="list-dirmember.html">Listar Membro</a>
+                                <a class="nav-link" id="direction-menu" href="add-dirmember.html">Adicionar Diretores</a>
+                                <a class="nav-link" id="direction-menu" href="list-dirmember.html">Listar Diretores</a>
                             </nav>
                         </div>
 
@@ -100,7 +100,7 @@
             <form class="contact-form row" id="view-dirmember">
                 <div class="col-sm-12">
                     <div id="photo-profile">
-                        <h1 class="title" id="addoc-title">Visualizar dados do Membro da Direção</h1>
+                        <h1 class="title" id="addoc-title">Visualizar dados do Diretor</h1>
                         <img src="images.1/perfil.png" width="180" height="180" id="photo-profile"></img>
                         <h2 id="alt-photo-cent">Alterar foto de perfil</h2>
                     </div>
@@ -126,37 +126,37 @@
 
                 <div class="col-sm-2"></div>
 
-                <div class="form-field col-sm-5 addoc-margin" id="div-addoc-quota">
-                    <label class="label" for="age" id="label-email-dir">Email</label>
-                    <input name="email" id="viewdir-email" type="email"  maxlength="50" minlength="10" disabled></input>
-                    <button id="viewdir-edit-email" type="button"><img src = "images.1/editar.png" width="20" height="20"></img></button>
-                </div>
-
 
                 <div class="form-field col-sm-5 addoc-margin" id="div-addoc-id">
                     <label class="label" for="id" id="label-cc-dir">Cartão de cidadão</label>
                     <input name="viewdir-cc" id="viewdir-cc" pattern="[0-9]+$" maxlength="8" minlength="8" value="" disabled></input>
                 </div>
-
-                 <div class="col-sm-2"></div>
-
-                <div class=" form-field col-sm-5 addoc-margin" id="div-addoc-phone">
-                    <label class="label" for="phone" id="label-phone">Telefone</label>
-                    <input type="tel" name="phone" id="viewdir-phone" pattern="[0-9]+$" maxlength="9" minlength="9" value="" disabled required></input>
-                    <button id="viewdir-edit-phone" type="button"><img src = "images.1/editar.png" width="20" height="20"></img></button>
-                </div>
-
+                
                 <div class=" form-field col-sm-5 addoc-margin" id="div-addoc-adress">
                     <label class="label" for="date" id="label-adress-dir">Morada</label>
                     <input name="adress" id="viewdir-adress" type="text" value="" maxlength="159" minlength="3" disabled required></input>
                     <button id="viewdir-edit-adress" type="button"><img src = "images.1/editar.png" width="20" height="20"></img></button>
                 </div>
                 
+                    <div class="col-sm-2"></div>
+
+                <div class=" form-field col-sm-5 addoc-margin" id="div-addoc-phone">
+                    <label class="label" for="phone" id="label-phone">Telefone</label>
+                    <input type="tel" name="phone" id="viewdir-phone" pattern="[0-9]+$" maxlength="9" minlength="9" value="" disabled required onkeypress='return filtroTeclas(event)'></input>
+                    <button id="viewdir-edit-phone" type="button"><img src = "images.1/editar.png" width="20" height="20"></img></button>
+                </div>
+                
+                  <div class="form-field col-sm-5 addoc-margin" id="div-addoc-quota">
+                    <label class="label" for="age" id="label-email-dir">Email</label>
+                    <input name="email" id="viewdir-email" type="email"  maxlength="50" minlength="10" disabled></input>
+                    <button id="viewdir-edit-email" type="button"><img src = "images.1/editar.png" width="20" height="20"></img></button>
+                </div>
+                
                 <div class="col-sm-2"></div>
                 
                 <div class="form-field col-sm-5 addoc-margin" id="div-addoc-quota">
                     <label class="label" for="age" id="label-age-dir">Data de Nascimento</label>
-                    <input id="viewdir-age" pattern="[0-9]+$" type="txt" value="" disabled></input>
+                    <input id="viewdir-age" pattern="[0-9]+$" type="date" value="" disabled></input>
                 </div>
 
                 <div class="col-sm-12 text-right">

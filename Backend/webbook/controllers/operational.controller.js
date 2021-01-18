@@ -220,10 +220,72 @@ function updateOperational(req, res) {
     }
 }
 
+function readOperationalPhone(req, res) {
+    const phone_number = req.param('phone');
+    const post = { phone_number: phone_number };
+    const query = connect.con.query('SELECT phone_number FROM operational WHERE ?',post, function(err, rows, fields) {
+        console.log(query.sql);
+        if (err) {
+            console.log(err);
+            res.status(jsonMessages.db.noRecords.status).send(jsonMessages.db.dbError);
+        }
+        else {
+            if (rows.length == 0) {
+                res.status(jsonMessages.db.noRecords.status).send(jsonMessages.db.noRecords);
+            }
+            else {
+                res.send(rows);
+            }
+        }
+    });
+}
+
+function readOperationalCc(req, res) {
+    const cc = req.param('cc');
+    const post = { cc: cc };
+    const query = connect.con.query('SELECT cc FROM operational WHERE ?',post, function(err, rows, fields) {
+        console.log(query.sql);
+        if (err) {
+            console.log(err);
+            res.status(jsonMessages.db.noRecords.status).send(jsonMessages.db.dbError);
+        }
+        else {
+            if (rows.length == 0) {
+                res.status(jsonMessages.db.noRecords.status).send(jsonMessages.db.noRecords);
+            }
+            else {
+                res.send(rows);
+            }
+        }
+    });
+}
+
+function numberOperationals(req, res) {
+    const query = connect.con.query('SELECT COUNT(*) FROM operational', function(err, rows, fields) {
+        console.log(query.sql);
+        if (err) {
+            console.log(err);
+            res.status(jsonMessages.db.noRecords.status).send(jsonMessages.db.dbError);
+        }
+        else {
+            if (rows.length == 0) {
+                res.status(jsonMessages.db.noRecords.status).send(jsonMessages.db.noRecords);
+            }
+            else {
+                res.send(rows);
+            }
+        }
+    });
+}
+
+
 module.exports = {
     saveOperational: saveOperational,
     readOperationalID: readOperationalID,
     readOperational: readOperational,
     deleteOperational: deleteOperational,
-    updateOperational: updateOperational
+    updateOperational: updateOperational,
+    readOperationalPhone:readOperationalPhone,
+    readOperationalCc: readOperationalCc,
+    numberOperationals:numberOperationals,
 };

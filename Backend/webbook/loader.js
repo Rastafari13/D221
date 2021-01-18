@@ -15,7 +15,7 @@ app.use(expressSanitizer());
 app.use(cookieParser());
 app.set('trust proxy',1);
 app.use(session({
-    secret: 'webbook',
+    secret: 'fire',
     resave: false,
     saveUninitialized: true,
     cookie: {
@@ -41,7 +41,7 @@ app.use(function(req, res, next) {
 //inicializar passport de forma a dar para fazer login
 app.use(passport.initialize());
 app.use(passport.session()); // persistent login sessions
-require('./routes/auth.route.js')(app, passport);
+require('./routes/auth.js')(app, passport);
 require('./config/passport/passport.js')(passport, models.user);
 //Sync Database
 models.sequelize.sync().then(function() {

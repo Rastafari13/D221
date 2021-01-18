@@ -28,7 +28,7 @@
 
          <div class="form-field col-sm-5">
             <label class="request-distance label" for="name">Nome</label>
-            <input id="request-name" class="input-text js-input" type="text" pattern="[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]+$" required>
+            <input id="request-name" class="input-text js-input" type="text" pattern="[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]+$" maxlength="150" minlength="2" required>
          </div>
          <div class="col-sm-2">
          </div>
@@ -50,7 +50,7 @@
          <div class="col-sm-2">
          </div>
          <div class="form-field col-sm-5 ">
-            <input id="request-adress" class="input-text js-input" type="text" required>
+            <input id="request-adress" class="input-text js-input" maxlength="150" minlength="5" type="text" required>
             <label class="request-distance label" for="adress">Morada</label>
          </div>
 
@@ -61,8 +61,8 @@
          <div class="col-sm-2">
          </div>
          <div class="form-field col-sm-5 ">
-            <input id="request-email" class="input-text js-input" type="email" required>
-            <label class="request-distance label" for="email">E-mail</label>
+            <input id="request-email" class="input-text js-input" maxlength="45" minlength="10" type="email" required>
+            <label class="request-distance label" for="email">Email</label>
          </div>
 
          <div class="form-field col-sm-5">
@@ -72,7 +72,7 @@
 
          <div class="form-field col-sm-12" id="div-description">
             <label class="request-distance" id="label-descrition">Descrição</label>
-            <textarea rows="3" id="request-descrition" class="js-input" name="textarea"></textarea>
+            <textarea rows="3" maxlength="300" id="request-descrition" class="js-input" name="textarea"></textarea>
          </div>
 
          <div class=" col-sm-12 text-right">

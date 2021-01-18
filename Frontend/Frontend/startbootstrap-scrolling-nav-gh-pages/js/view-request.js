@@ -14,6 +14,7 @@ window.onload =
             let date = request.date;
             let email = request.mail;
             let content = request.content;
+            let descrition = request.description;
 
             const response1 = await fetch(`https://23c6902811494393ad2cea6ff8f72d75.vfs.cloud9.us-east-1.amazonaws.com/requeststype/` + id)
             const reqs = await response1.json()
@@ -36,8 +37,14 @@ window.onload =
             document.getElementById('viewreq-hour').value = hour2;
             document.getElementById('viewreq-date').value = date2;
             document.getElementById('viewreq-email').value = email;
-            document.getElementById('viewreq-descrition').value = content;
+            document.getElementById('viewreq-descrition').value = descrition;
             document.getElementById('viewreq-name').value = name;
+            if (content === "florestal" || "urbano") {
+                document.getElementById("viewreq-typereq").value = "Incêndio " + content;
+            }
+            else {
+                document.getElementById("viewreq-typereq").value = content;
+            }
 
         }
     };

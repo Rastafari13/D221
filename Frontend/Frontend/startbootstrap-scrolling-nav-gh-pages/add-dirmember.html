@@ -19,13 +19,9 @@
         <img src="images.1/logo.png" alt="logo" width=42 height=45.46 margin-left="20px" href="#page-top" id="logo"></img>
         <a class="navbar-brand" href="direction.html" id="name">SECURE4ALL</a>
         <button class="btn btn-link btn-sm order-1 order-lg-0" id="sidebarToggle" href="#"><i class="fas fa-bars"></i></button>
-        <!-- Navbar Search-->
+
         <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">
          <div id="app"></div> 
-            <!-- <div class="input-group">
-                <input class="form-control" type="text" placeholder="Pesquisa" aria-label="Search" aria-describedby="basic-addon2" id="sourch" />
-                <div class="input-group-append">
-                    <button class="btn btn-primary" type="button" id="btn-sourch"><img src="images.1/pesquisar.png" id="sourch1"></img></button> -->
             </div>
             </div>
         </form>
@@ -81,8 +77,8 @@
                         </a>
                         <div class="collapse" id="collapsePage4" aria-labelledby="headingThree" data-parent="#sidenavAccordion">
                             <nav class="sb-sidenav-menu-nested nav">
-                                <a class="nav-link" id="direction-menu1" href="#">Adicionar Membro</a>
-                                <a class="nav-link" id="direction-menu" href="list-dirmember.html">Listar Membro</a>
+                                <a class="nav-link" id="direction-menu1" href="#">Adicionar Diretor</a>
+                                <a class="nav-link" id="direction-menu" href="list-dirmember.html">Listar Diretores</a>
                             </nav>
                         </div>
 
@@ -100,7 +96,7 @@
             <form class="contact-form row" id="add-dir">
                 <div class="col-sm-12">
                     <section class="get-in-touch" id="addoc-title">
-                        <h1 class="title" id="addoc-title">Formulário Novo Membro da Direção</h1>
+                        <h1 class="title" id="addoc-title">Formulário Novo Diretor</h1>
                         <img src="images.1/perfil.png" width="180" height="180" id="photo-profile"></img>
                     </section>
                     <h2 id="alt-photo-cent">Adicionar foto de perfil</h2>
@@ -109,7 +105,7 @@
 
                 <div class="form-field col-sm-5 addoc-margin">
                     <label class="label" for="name"></label>Nome</label>
-                    <input id="adddir-name" pattern="[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]+$" required></input>
+                    <input id="adddir-name" pattern="[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]+$" maxlength="150" minlength="2" required></input>
                 </div>
 
                 <div class="col-sm-2"></div>
@@ -118,42 +114,35 @@
                     <label class="label" for="password">Palavra Passe</label>
                     <input id="adddir-ps" type="password" maxlength="45" minlength="6" required>
                 </div>
+                
+                <div class="form-field col-sm-5 addoc-margin" id="div-adddir-id">
+                    <label class="label" for="id" id="label-cc-dir">Cartão de cidadão</label>
+                    <input name="cc" id="adddir-cc" pattern="[0-9]+$" maxlength="8" minlength="8" required onkeypress='return filtroTeclas(event)'></input>
+                </div>
 
+                <div class="col-sm-2"></div>
+                
+                <div class=" form-field col-sm-5 addoc-margin" id="div-adddir-adress">
+                    <label class="label" for="adress" id="label-adress-dir">Morada</label>
+                    <input name="adress" id="adddir-adress" type="text" maxlength="150" minlength="5"  required></input>
+                </div>
+
+                <div class=" form-field col-sm-5 addoc-margin" id="div-adddir-phone">
+                    <label class="label" for="phone" id="label-phone">Telefone</label>
+                    <input type="tel" name="phone" id="adddir-phone" pattern="[0-9]+$" maxlength="9" minlength="9" required onkeypress='return filtroTeclas(event)'></input>
+                </div>
+
+                <div class="col-sm-2"></div>
 
                 <div class="form-field col-sm-5 addoc-margin" id="div-addoc-quota">
                     <label class="label" for="age" id="label-email-dir">Email</label>
                     <input name="email" id="adddir-email" type="email" maxlength="50" minlength="10"  required></input>
                 </div>
 
-                <div class="col-sm-2"></div>
-
-                <div class="form-field col-sm-5 addoc-margin" id="div-adddir-id">
-                    <label class="label" for="id" id="label-cc-dir">Cartão de cidadão</label>
-                    <input name="cc" id="adddir-cc" pattern="[0-9]+$" maxlength="8" minlength="8" required></input>
-                </div>
-
-
-                <div class=" form-field col-sm-5 addoc-margin" id="div-adddir-phone">
-                    <label class="label" for="phone" id="label-phone">Telefone</label>
-                    <input type="tel" name="phone" id="adddir-phone" pattern="[0-9]+$" maxlength="9" minlength="9" required></input>
-                </div>
-
-                <div class="col-sm-2"></div>
-
-                <div class=" form-field col-sm-5 addoc-margin" id="div-adddir-adress">
-                    <label class="label" for="adress" id="label-adress-dir">Morada</label>
-                    <input name="adress" id="adddir-adress" type="text" maxlength="150" minlength="5"  required></input>
-                </div>
-
                 <div class="form-field col-sm-5 addoc-margin" id="div-addoc-age">
                     <label class="label" for="date" id="label-age">Data de nascimento</label>
                     <input name="date" id="adddir-birth" type="date" required></input>
                 </div>
-                <!-- <div class="" id="addop-div-id">
-                    <label id="p-id-label">ID</label>
-                    <input type="number" id="addop-id" min="1" max="10000" value="" pattern="[0-9]+$" oninput="validity.valid ? this.save = value : value = this.save;" required/>
-                <-->
-
                 <div class="col-sm-12 text-right">
                     <input id="adddir-clean" class="btn btn-primary text-uppercase js-scroll-trigger" type="reset" value="limpar"></input>
                     <input id="adddir-add" class="btn btn-primary text-uppercase js-scroll-trigge" type="submit" value="adicionar" href=""></input>

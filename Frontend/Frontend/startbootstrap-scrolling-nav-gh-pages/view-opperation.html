@@ -19,13 +19,8 @@
         <img src="images.1/logo.png" alt="logo" width=42 height=45.46 margin-left="20px" href="#page-top" id="logo"></img>
         <a class="navbar-brand" href="direction.html" id="name">SECURE4ALL</a>
         <button class="btn btn-link btn-sm order-1 order-lg-0" id="sidebarToggle" href="#"><i class="fas fa-bars"></i></button>
-        <!-- Navbar Search-->
         <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">
-        <div id="app"></div>    
-            <!--<div class="input-group">
-                <input class="form-control" type="text" placeholder="Pesquisa" aria-label="Search" aria-describedby="basic-addon2" id="sourch" />
-                <div class="input-group-append">
-                    <button class="btn btn-primary" type="button" id="btn-sourch"><img src="images.1/pesquisar.png" id="sourch1"></img></button> -->
+            <div id="app"></div>
             </div>
             </div>
         </form>
@@ -41,7 +36,8 @@
             </li>
         </ul>
     </nav>
-<div id="layoutSidenav">
+
+    <div id="layoutSidenav">
         <div id="layoutSidenav_nav">
             <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
                 <div class="sb-sidenav-menu">
@@ -59,7 +55,8 @@
                             </nav>
                         </div>
                         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePage3" aria-expanded="false" aria-controls="collapsePage3" id="titles">
-                            <div class="sb-nav-link-icon"><img src="images.1/operacionais.png" width="18" height="18" id="image"></img></div>
+                            <div class="sb-nav-link-icon"><img src="images.1/operacionais.png" width="18" height="18" id="image"></img>
+                            </div>
                             Operacionais
                             <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                         </a>
@@ -70,19 +67,20 @@
                                 <a class="nav-link" id="direction-menu" href="list-centralist.html">Listar Centralistas</a>
                             </nav>
                         </div>
-                        
+
                         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePage4" aria-expanded="false" aria-controls="collapsePage4" id="titles">
-                            <div class="sb-nav-link-icon"><img src="images.1/dir.png" width="18" height="18" id="image"></img></div>
+                            <div class="sb-nav-link-icon"><img src="images.1/dir.png" width="18" height="18" id="image"></img>
+                            </div>
                             Direção
                             <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-                        </a> 
-                            <div class="collapse" id="collapsePage4" aria-labelledby="headingThree" data-parent="#sidenavAccordion">
+                        </a>
+                        <div class="collapse" id="collapsePage4" aria-labelledby="headingThree" data-parent="#sidenavAccordion">
                             <nav class="sb-sidenav-menu-nested nav">
-                                <a class="nav-link" id="direction-menu" href="add-dirmember.html">Adicionar Membro</a>
-                                <a class="nav-link" id="direction-menu" href="list-dirmember.html">Listar Membro</a>
+                                <a class="nav-link" id="direction-menu" href="add-dirmember.html">Adicionar Diretor</a>
+                                <a class="nav-link" id="direction-menu" href="list-dirmember.html">Listar Diretores</a>
                             </nav>
                         </div>
-                        
+
                     </div>
                 </div>
                 <hr class="division2">
@@ -108,60 +106,63 @@
                     <input id="viewop-name" value="" disabled></input>
                 </div>
                 <div class="col-sm-2"></div>
-                <div class="form-field col-sm-5 addoc-margin">
-                    <label for="function">Função</label>
-                    <input id="viewop-function" class="input-text js-input" value="" disabled></input>
-                </div>
 
                 <div class="form-field col-sm-5 addoc-margin">
                     <label class="label" for="passsword">Palavra Passe</label>
                     <input id="viewop-ps" class="input-text js-input" type="txt" value="" maxlength="9" minlength="9" disabled>
                     <button id="viewop-edit-ps" type="button"><img src = "images.1/editar.png" width="20" height="20"></img></button>
                 </div>
-                <div class="col-sm-2"></div>
 
-                <div class="form-field col-sm-5 addoc-margin" id="div-addoc-quota">
-                    <label class="label" for="age" id="label-age-opp">Data de Nascimento</label>
-                    <input id="viewop-age" pattern="[0-9]+$" type="txt" value="" disabled></input>
+                <div class="form-field col-sm-5 addoc-margin">
+                    <label for="function">Função</label>
+                    <input id="viewop-function" class="input-text js-input" value="" disabled></input>
                 </div>
-
+                
+                <div class="col-sm-2"></div>
+                
                 <div class="form-field col-sm-5 addoc-margin" id="div-addoc-id">
                     <label class="label" for="id" id="label-cc-opp">Cartão de cidadão</label>
                     <input name="viewop-cc" id="viewop-cc" pattern="[0-9]+$" maxlength="8" minlength="8" value="" disabled></input>
                 </div>
-
-                <div class="col-sm-2"></div>
-
-                <div class=" form-field col-sm-5 addoc-margin" id="div-addoc-phone">
-                    <label class="label" for="phone" id="label-phone">Telefone</label>
-                    <input type="tel" name="phone" id="viewop-phone" pattern="[0-9]+$" maxlength="9" minlength="9" value="" disabled required></input>
-                    <button id="viewop-edit-phone" type="button"><img src = "images.1/editar.png" width="20" height="20"></img></button>
-                </div>
-
-                <div class=" form-field col-sm-5 addoc-margin" id="div-addoc-adress">
+                
+                 <div class=" form-field col-sm-5 addoc-margin" id="div-addoc-adress">
                     <label class="label" for="date" id="label-adress-opp">Morada</label>
                     <input name="adress" id="viewop-adress" type="text" value="" maxlength="159" minlength="3" disabled required></input>
                     <button id="viewop-edit-adress" type="button"><img src = "images.1/editar.png" width="20" height="20"></img></button>
                 </div>
+                
+                 <div class="col-sm-2"></div>
+
+                <div class=" form-field col-sm-5 addoc-margin" id="div-addoc-phone">
+                    <label class="label" for="phone" id="label-phone">Telefone</label>
+                    <input type="tel" name="phone" id="viewop-phone" pattern="[0-9]+$" maxlength="9" minlength="9" value="" disabled required onkeypress='return filtroTeclas(event)'></input>
+                    <button id="viewop-edit-phone" type="button"><img src = "images.1/editar.png" width="20" height="20"></img></button>
+                </div>
+                
+                 <div class="form-field col-sm-5 addoc-margin" id="div-addoc-email">
+                    <label class="label" for="age" id="label-email">Email</label>
+                    <input name="email" id="viewop-email" maxlength="50" minlength="10" type="email" value="" disabled required></input>
+                    <button id="viewop-edit-email" type="button"><img src = "images.1/editar.png" width="20" height="20"></img></button>
+                </div>
+
                 <div class="col-sm-2"></div>
+                              
+                <div class="form-field col-sm-5 addoc-margin" id="div-addoc-quota">
+                    <label class="label" for="age" id="label-age-opp">Data de Nascimento</label>
+                    <input id="viewop-age" pattern="[0-9]+$" type="date" value="" disabled></input>
+                </div>
 
                 <div class=" form-field col-sm-5 addoc-margin">
                     <label class="label" for="date" id="label-phone">Ordenado (€ por hora)</label>
                     <input name="date" id="viewop-salary" type="number" pattern="[0-9]+$" maxlength="2" value="" oninput="validity.valid ? this.save = value : value = this.save;" disabled></input>
                     <button id="viewop-edit-salary" type="button"><img src = "images.1/editar.png" width="20" height="20"></img></button>
                 </div>
+                
+                 <div class="col-sm-2"></div>
 
                 <div class=" form-field col-sm-5 addoc-margin">
                     <label class="label" for="date" id="entry_date">Data de entrada</label>
-                    <input name="entry_date" pattern="[0-9]+$" id="viewop-entry" type="txt" value="" disabled></input>
-                </div>
-                
-                <div class="col-sm-2"></div>
-                
-                <div class="form-field col-sm-5 addoc-margin" id="div-addoc-email">
-                    <label class="label" for="age" id="label-email">Email</label>
-                    <input name="email" id="viewop-email" maxlength="50" minlength="10" type="email" value="" disabled required></input>
-                    <button id="viewop-edit-email" type="button"><img src = "images.1/editar.png" width="20" height="20"></img></button>
+                    <input name="entry_date" pattern="[0-9]+$" id="viewop-entry" type="date" value="" disabled></input>
                 </div>
 
                 <div class="col-sm-12"></div>
@@ -170,10 +171,9 @@
                         <input id="view-id-opp" value="" disabled></p>
                     </input>
                 </div>
-                
+
                 <div class="col-sm-12 text-right">
                     <input id="opp-save" class="btn btn-primary text-uppercase js-scroll-trigge" value="Guardar Alterações" type="submit"></button>
-                    <!--<input id="viewas-clean" class="btn btn-primary text-uppercase js-scroll-trigger" type="reset" value="cancelar"></input>-->
                 </div>
             </form>
             </section>

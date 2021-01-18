@@ -1,65 +1,200 @@
-    $(document).ready(function() {
+function numberHelpRequest() {
+    async function fetchAsync() {
+        const response = await fetch('https://23c6902811494393ad2cea6ff8f72d75.vfs.cloud9.us-east-1.amazonaws.com/numberHelp/');
+        const helps = await response.json();
+        let help = helps.map(el => Object.values(el));
+        document.getElementById("urgente").innerHTML = help;
+    }
+    //chama a função fetchAsync()
+    fetchAsync().then(data => console.log("ok")).catch(reason => console.log(reason.message));
+};
 
-        let day_conc  = document.getElementById("btn-day");
-        let week_conc = document.getElementById("btn-week");
-        let month_conc = document.getElementById("btn-month");
-        let day_oc = document.getElementById("btn-day");
-        let week_oc = document.getElementById("btn-week");
-        let month_oc = document.getElementById("btn-month");
+function numberPendReq() {
+    async function fetchAsync() {
+
+        const response = await fetch('https://23c6902811494393ad2cea6ff8f72d75.vfs.cloud9.us-east-1.amazonaws.com/numberPendingReq/');
+        const pendingReqs = await response.json();
+        let pendingReq = pendingReqs.map(el => Object.values(el));
+        document.getElementById("req-pend").innerHTML = pendingReq;
+        localStorage.setItem("pendingReq", pendingReq);
+    }
+    //chama a função fetchAsync()
+    fetchAsync().then(data => console.log("ok")).catch(reason => console.log(reason.message));
+
+};
+
+function numberTratReq() {
+    async function fetchAsync() {
+
+        const response = await fetch('https://23c6902811494393ad2cea6ff8f72d75.vfs.cloud9.us-east-1.amazonaws.com/numberTratReq/');
+        const tratReqs = await response.json();
+        let tratReq = tratReqs.map(el => Object.values(el));
+        localStorage.setItem("tratReq", tratReq);
+
+    }
+    //chama a função fetchAsync()
+    fetchAsync().then(data => console.log("ok")).catch(reason => console.log(reason.message));
+
+};
+
+function numberTotalReq() {
+    async function fetchAsync() {
+
+        const response = await fetch('https://23c6902811494393ad2cea6ff8f72d75.vfs.cloud9.us-east-1.amazonaws.com/numberTotalReq/');
+        const totalReqs = await response.json();
+        let totalReq = totalReqs.map(el => Object.values(el));
+        localStorage.setItem("totalReq", totalReq);
+
+    }
+    //chama a função fetchAsync()
+    fetchAsync().then(data => console.log("ok")).catch(reason => console.log(reason.message));
+
+};
+
+function numberOccAct() {
+    async function fetchAsync() {
+
+        const response = await fetch('https://23c6902811494393ad2cea6ff8f72d75.vfs.cloud9.us-east-1.amazonaws.com/numberOccAct/');
+        const occurs = await response.json();
+        let occAct = occurs.map(el => Object.values(el));
+
+        localStorage.setItem("occAct", occAct);
+
+        document.getElementById("occ-act").innerHTML = occAct;
+    }
+    //chama a função fetchAsync()
+    fetchAsync().then(data => console.log("ok")).catch(reason => console.log(reason.message));
+};
 
 
-        document.getElementById("occo-atc").innerHTML = "10";
+function numberOccFin() {
+    async function fetchAsync() {
+
+        const response = await fetch('https://23c6902811494393ad2cea6ff8f72d75.vfs.cloud9.us-east-1.amazonaws.com/numberOccFin/');
+        const occurs = await response.json();
+
+        let occFin = occurs.map(el => Object.values(el));
+        localStorage.setItem("occFin", occFin);
 
 
-        day_conc.onclick = write_day_conc;
+    }
+    //chama a função fetchAsync()
+    fetchAsync().then(data => console.log("ok")).catch(reason => console.log(reason.message));
+};
 
-        function write_day_conc() {
-            document.getElementById("occo-conc").innerHTML = "40";
-            document.getElementById("text-write-occ").innerHTML =" O número de ocorrências concluidas hoje foram:";
-            document.getElementById("btn-day-con").focus();
-            
-        }
 
-        week_conc.onclick = write_week_conc;
+function numberOccTotal() {
+    async function fetchAsync() {
 
-        function write_week_conc() {
-            document.getElementById("occo-conc").innerHTML = "100";
-            document.getElementById("text-write-occ").innerHTML =" O número de ocorrências concluidas nesta semana foram:";
-            document.getElementById("btn-week-con").focus();
-            
-        }
+        const response = await fetch('https://23c6902811494393ad2cea6ff8f72d75.vfs.cloud9.us-east-1.amazonaws.com/numberOccTotal/');
+        const occurs = await response.json();
 
-        month_conc.onclick = write_month_conc;
+        let occTotal = occurs.map(el => Object.values(el));
+        localStorage.setItem("occTotal", occTotal);
 
-        function write_month_conc() {
-            document.getElementById("occo-conc").innerHTML = "250";
-            document.getElementById("text-write-occ").innerHTML =" O número de ocorrências concluidas neste mês foram:";
-            document.getElementById("btn-month-con").focus();
-        }
-  
-    
-        day_oc.onclick = write_day_req;
+    }
+    //chama a função fetchAsync()
+    fetchAsync().then(data => console.log("ok")).catch(reason => console.log(reason.message));
+};
 
-        function write_day_req() {
-            document.getElementById("write-req").innerHTML = "10";
-            document.getElementById("text-write-req").innerHTML ="O número de pedidos tratados hoje foram:";
-            document.getElementById("btn-day").focus();
-        }
 
-        week_oc.onclick = write_week_req;
+window.onload = numberHelpRequest(), numberOccAct(), numberPendReq(), numberTratReq(), numberTotalReq(), numberOccFin(), numberOccTotal();
 
-        function write_week_req() {
-            document.getElementById("write-req").innerHTML = "50";
-            document.getElementById("text-write-req").innerHTML ="O número de pedidos tratados esta semana foram:";
-            document.getElementById("btn-week").focus();
-        }
 
-        month_oc.onclick = write_month_req;
+google.charts.load("current", { packages: ['corechart'] });
+google.charts.setOnLoadCallback(drawChart1);
 
-        function write_month_req() {
-            document.getElementById("write-req").innerHTML = "89";
-            document.getElementById("text-write-req").innerHTML ="O número de pedidos tratados este mês foram:";
-            document.getElementById("btn-month").focus();
-        }
-  
-    })  
+function drawChart1() {
+    let pendingReq = localStorage.pendingReq;
+    const numberPendReq = parseInt(pendingReq);
+
+    let tratReq = localStorage.tratReq;
+    const numberTratReq = parseInt(tratReq);
+
+    let totalReq = localStorage.totalReq;
+    const numberTotalReq = parseInt(totalReq);
+
+    var data = google.visualization.arrayToDataTable([
+        ["Element", "Pedidos", { role: "style" }],
+        ["Pendentes", numberPendReq, "#9A031E"],
+        ["Tratados", numberTratReq, "#E36414"],
+        ["Totais", numberTotalReq, "#FECF3E"],
+    ]);
+
+    var view = new google.visualization.DataView(data);
+    view.setColumns([0, 1,
+        {
+
+            calc: "stringify",
+            sourceColumn: 1,
+            type: "string",
+            role: "annotation"
+        },
+        2
+    ]);
+
+    var options = {
+        width: 600,
+        height: 450,
+        bar: { groupWidth: "90%" },
+        legend: { position: "none" },
+        display: "block !important",
+        position: "absolute",
+        "min-width": 600,
+        "max-width": 600,
+        "margin-left": "-30px"
+
+
+
+    };
+    var chart = new google.visualization.ColumnChart(document.getElementById("columnchart_values1"));
+    chart.draw(view, options);
+}
+
+google.charts.load("current", { packages: ['corechart'] });
+google.charts.setOnLoadCallback(drawChart2);
+
+function drawChart2() {
+
+    let occAct = localStorage.occAct;
+    const numberOccAct = parseInt(occAct);
+
+    let occFin = localStorage.occFin;
+    const numberOccFin = parseInt(occFin);
+
+    let totalOcc = localStorage.occTotal;
+    const numberTotalOcc = parseInt(totalOcc);
+
+    var data = google.visualization.arrayToDataTable([
+        ["Element", "Ocorrências", { role: "style" }],
+        ["Em curso", numberOccAct, "#9A031E"],
+        ["Concluidas", numberOccFin, "#E36414"],
+        ["Totais", numberTotalOcc, "#FECF3E"],
+    ]);
+
+    var view = new google.visualization.DataView(data);
+    view.setColumns([0, 1,
+        {
+            calc: "stringify",
+            sourceColumn: 1,
+            type: "string",
+            role: "annotation"
+        },
+        2
+    ]);
+
+    var options = {
+        width: 610,
+        height: 450,
+        bar: { groupWidth: "90%" },
+        legend: { position: "none" },
+        display: "block !important",
+        position: "absolute !important",
+        "min-width": "610px !important",
+        "max-width": "610px !important",
+        "margin-left": "-30px important"
+
+    };
+    var chart = new google.visualization.ColumnChart(document.getElementById("columnchart_values2"));
+    chart.draw(view, options);
+}

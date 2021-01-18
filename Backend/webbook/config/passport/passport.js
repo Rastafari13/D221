@@ -18,7 +18,7 @@ module.exports = function(passport, user) {
       }
     });
   });
-  passport.use('local-signup', new LocalStrategy({
+ /* passport.use('local-signup', new LocalStrategy({
       usernameField: 'email',
       passwordField: 'password',
       passReqToCallback: true // allows us to pass back the entire request to the callback
@@ -51,7 +51,7 @@ module.exports = function(passport, user) {
         }
       });
     }
-  ));
+  ));*/
   //LOCAL SIGNIN
   passport.use('local-signin', new LocalStrategy({
       // by default, local strategy uses username and password, we will override with email
@@ -61,8 +61,8 @@ module.exports = function(passport, user) {
     },
     function(req, email, password, done) {
       var User = user;
-      var isValidPassword = function(userpass, password) {
-        return bCrypt.compareSync(password, userpass);
+      var isValidPassword = function(password, password) {
+        return bCrypt.compareSync(password, password);
 
       }
       User.findOne({ where: { email: email } }).then(function(user) {
@@ -72,7 +72,7 @@ module.exports = function(passport, user) {
         if (!isValidPassword(user.password, password)) {
           return done(null, false, jsonMessages.user.password);
         }
-        var userinfo = user.get();
+        let userinfo = user.get();
         return done(null, userinfo);
       }).catch(function(err) {
         console.log("Error:", err);
@@ -80,5 +80,5 @@ module.exports = function(passport, user) {
       });
     }
   ));
-}
+};
 

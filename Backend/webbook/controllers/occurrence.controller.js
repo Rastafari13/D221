@@ -82,9 +82,65 @@ function readOccurrenceStatus(req, res) {
     });
 }
 
+function numberOccAct(req, res) {
+    const query = connect.con.query('SELECT COUNT(*) FROM occurrence WHERE status = "Em curso"', function(err, rows, fields) {
+        console.log(query.sql);
+        if (err) {
+            console.log(err);
+            res.status(jsonMessages.db.noRecords.status).send(jsonMessages.db.dbError);
+        }
+        else {
+            if (rows.length == 0) {
+                res.status(jsonMessages.db.noRecords.status).send(jsonMessages.db.noRecords);
+            }
+            else {
+                res.send(rows);
+            }
+        }
+    });
+}
+
+function numberOccFin(req, res) {
+    const query = connect.con.query('SELECT COUNT(*) FROM occurrence WHERE status = "Finalizada"', function(err, rows, fields) {
+        console.log(query.sql);
+        if (err) {
+            console.log(err);
+            res.status(jsonMessages.db.noRecords.status).send(jsonMessages.db.dbError);
+        }
+        else {
+            if (rows.length == 0) {
+                res.status(jsonMessages.db.noRecords.status).send(jsonMessages.db.noRecords);
+            }
+            else {
+                res.send(rows);
+            }
+        }
+    });
+}
+
+function numberOccTotal(req, res) {
+    const query = connect.con.query('SELECT COUNT(*) FROM occurrence', function(err, rows, fields) {
+        console.log(query.sql);
+        if (err) {
+            console.log(err);
+            res.status(jsonMessages.db.noRecords.status).send(jsonMessages.db.dbError);
+        }
+        else {
+            if (rows.length == 0) {
+                res.status(jsonMessages.db.noRecords.status).send(jsonMessages.db.noRecords);
+            }
+            else {
+                res.send(rows);
+            }
+        }
+    });
+}
 //export functions
 module.exports = {
     readOccurrenceID: readOccurrenceID,
     readOccurrence: readOccurrence,
     readOccurrenceStatus: readOccurrenceStatus,
+    numberOccAct:numberOccAct,
+    numberOccFin:numberOccFin,
+    numberOccTotal:numberOccTotal, 
 };

@@ -10,10 +10,13 @@
     <link rel="shortcut icon" type="imagem/x-png" href="images.1/logo.png" />
     <title>Centralista</title>
     <link href="css/centralist.css" rel="stylesheet" />
+    <link href="css/centralist1.css" rel="stylesheet" />
+    <link href="css/dashcentr.css" rel="stylesheet" />
     <link href="vendor/bootstrap/css1/styles.css" rel="stylesheet">
     <link href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" rel="stylesheet" crossorigin="anonymous" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/js/all.min.js" crossorigin="anonymous"></script>
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
 </head>
 
 <body class="sb-nav-fixed">
@@ -23,11 +26,7 @@
         <button class="btn btn-link btn-sm order-1 order-lg-0" id="sidebarToggle" href="#"><i class="fas fa-bars"></i></button>
         <!-- Navbar Search-->
         <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">
-          <div id="app"></div>
-            <!--<div class="input-group">
-                <input class="form-control" type="text" placeholder="Pesquisa" aria-label="Search" aria-describedby="basic-addon2" id="sourch" />
-                <div class="input-group-append">
-                    <button class="btn btn-primary" type="button" id="btn-sourch"><img src="images.1/pesquisar.png" id="sourch1"></img></button> -->
+            <div id="app"></div>
             </div>
             </div>
         </form>
@@ -83,101 +82,79 @@
                 </div>
             </nav>
         </div>
-        <div id="layoutSidenav_content" id="dash-cent-pupnu">
+        <div id="layoutSidenav_content" class="dash-cent-pupnu">
             <section class="get-in-touch" id="dash-cent-title">
-                <h1 class="title" id="dash-cent-title">DASHBOARD</h1>
+                <h1 class="titles">DASHBOARD</h1>
                 <br>
                 <br>
+                <br>
+
             </section>
-            <center>
+            <div class="tools-dashborad">
                 <div class="row">
-                    <div class="col-sm-1">
+                    <div class="col-sm-12" id="dash-cent1">
+                        <div class="col-sm-4">
+                            <div class="custom-tiles my-pending" >
+                                <h3 class="animated slideInUp">Pedidos de Ajuda Urgentes</h3>
+                                <h1 id="urgente"></h1>
+                                <div class="icon-wrap" id="urgent-icon"><i class="fas fa-exclamation-triangle"></i></div>
+                                <a href="#" class="small-box-footer">Mais Informações <i class="fa fa-arrow-circle-right"></i></a>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-4">
+                            <div class="custom-tiles in-progress">
+                                <h3 class="animated slideInUp">Ocorrências ativas</h3>
+                                <h1 id="occ-act"></h1>
+                                <div class="icon-wrap"><img src="images.1/sirene2.png" width=35 height=35></img>
+                                </div>
+                                <a href="list-occurence.html" class="small-box-footer">Mais Informações <i class="fa fa-arrow-circle-right"></i></a>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-4">
+                            <div class="custom-tiles group-pending">
+                                <h3 class="animated slideInUp">Pedidos Pendentes</h3>
+                                <h1 id="req-pend"></h1>
+
+                                <div class="icon-wrap"><img src="images.1/list.png" width=32 height=40></img>
+                                </div>
+
+                                <a href="list-pending-req.html" class="small-box-footer">Mais Informações <i class="fa fa-arrow-circle-right"></i></a>
+                            </div>
+                        </div>
 
                     </div>
-                    <div class="col-sm-5">
-                        <div class="card" id="cent-card">
-                            <div class="card-body" id="cent-req-pend">
-                                <h3>Pedidos Pendentes</h3>
-                                <br>
-                                <h6> Neste momento registam-se</h6>
-                                <h3>10</h3>
-                                <h6>pedidos pendentes</h6>
-                                <br>
-                            </div>
+                    <br>
+                    
+                    <div class="col-sm-6">
+                        <div class="card marg-graf">
+                            <div class="card-header" id="graphic-title">Quantidade de pedidos</div>
+                            <div class="card-body" id="columnchart_values1"></div>
                         </div>
                     </div>
-                    <div class="col-sm-5">
-                        <div class="card" id="cent-card">
-                            <div class="card-body" id="cent-occ-act">
-                                <h3>Ocorrências Ativas</h3>
-                                <br>
-                                <h6>Neste momento registam-se</h6>
-                                <h3>5</h3>
-                                <h6>ocorrências ativas</h6>
-                                <br>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-1"></div>
-                    <div class="col-sm-4" id="div-card1">
-                        <div class="card" id="cent-card1">
-                            <div class="card-header" id="cent-header-today">
-                                HOJE
-                            </div>
-                            <div class="card-body" id="cent-body-today">
-                                <h6>Ocorrências Concluidas</h6>
-                                <h3>8</h3>
-                            </div>
-                            <div class="card-body" id="cent-body-today">
-                                <h6>Pedidos tratados</h6>
-                                <h3>6</h3>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-4" id="div-card2">
-                        <div class="card" id="cent-card2">
-                            <div class="card-header" id="cent-header-week">
-                                ESTA SEMANA
-                            </div>
-                            <div class="card-body" id="cent-body-week">
-                                <h6>Ocorrências Concluidas</h6>
-                                <h3>8</h3>
-                            </div>
-                            <div class="card-body" id="cent-body-week">
-                                <h6>Pedidos tratados</h6>
-                                <h3>6</h3>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-4" id="div-card3">
-                        <div class="card" id="cent-card3">
-                            <div class="card-header" id="cent-header-month">
-                                ESTE MÊS
-                            </div>
-                            <div class="card-body" id="cent-body-month">
-                                <h6>Ocorrências Concluidas</h6>
-                                <h3>8</h3>
-                            </div>
-                            <div class="card-body" id="cent-body-month">
-                                <h6>Pedidos tratados</h6>
-                                <h3>6</h3>
-                            </div>
+                    <div class="col-sm-6">
+                        <div class="card marg-graf">
+                            <div class="card-header" id="graphic-title">Quantidade de ocorrências</div>
+                            <div class="card-body" id="columnchart_values2"></div>
                         </div>
                     </div>
                 </div>
-        </div>
-        <script src="js/hour.js"></script>
-        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
-        <script src="js/scripts.js"></script>
-        <script src="js/centralist.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
-        <script src="vendor/bootstrap/js1/chart-area-demo.js"></script>
-        <script src="vendor/bootstrap/js1/chart-bar-demo.js"></script>
-        <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js" crossorigin="anonymous"></script>
-        <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js" crossorigin="anonymous"></script>
-        <script src="vendor/bootstrap/js1/datatables-demo.js"></script>
-        <script src="vendor/bootstrap/js1/chart-pie-demo.js"></script>
+                </center>
+
+            </div>
+            <script src="js/hour.js"></script>
+            <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" crossorigin="anonymous"></script>
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+            <script src="js/scripts.js"></script>
+            <script src="js/centralist.js"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
+            <script src="vendor/bootstrap/js1/chart-area-demo.js"></script>
+            <script src="vendor/bootstrap/js1/chart-bar-demo.js"></script>
+            <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js" crossorigin="anonymous"></script>
+            <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js" crossorigin="anonymous"></script>
+            <script src="vendor/bootstrap/js1/datatables-demo.js"></script>
+            <script src="vendor/bootstrap/js1/chart-pie-demo.js"></script>
 </body>
 
 </html>

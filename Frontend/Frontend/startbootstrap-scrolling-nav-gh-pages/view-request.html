@@ -24,7 +24,7 @@
         <button class="btn btn-link btn-sm order-1 order-lg-0" id="sidebarToggle" href="#"><i class="fas fa-bars"></i></button>
         <!-- Navbar Search-->
         <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">
-        <div id="app"></div>    
+            <div id="app"></div>
             <!--<div class="input-group">
                 <input class="form-control" type="text" placeholder="Pesquisa" aria-label="Search" aria-describedby="basic-addon2" id="sourch" />
                 <div class="input-group-append">
@@ -52,7 +52,8 @@
                     <div class="nav">
                         <hr class="division">
                         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages" id="titles">
-                            <div class="sb-nav-link-icon"><img src="images.1/sirene.png" width="18" height="18" id="image"></img></div>
+                            <div class="sb-nav-link-icon"><img src="images.1/sirene.png" width="18" height="18" id="image"></img>
+                            </div>
                             Ocorrências
                             <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                         </a>
@@ -63,7 +64,8 @@
                             </nav>
                         </div>
                         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePage3" aria-expanded="false" aria-controls="collapsePage3" id="titles">
-                            <div class="sb-nav-link-icon"><img src="images.1/pedido2.png" width="18" height="18" id="image"></img></div>
+                            <div class="sb-nav-link-icon"><img src="images.1/pedido2.png" width="18" height="18" id="image"></img>
+                            </div>
                             Pedidos
                             <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                         </a>
@@ -93,68 +95,68 @@
 
                 <div class="form-field col-sm-5 ">
                     <label class="label " for="firetype">ID</label>
-                    <input id="viewreq-id"  disabled></input>
+                    <input id="viewreq-id" disabled></input>
                 </div>
 
                 <div class="col-sm-2"></div>
 
                 <div class="form-field col-sm-5">
                     <label class="label" for="name">Nome</label>
-                    <input id="viewreq-name" class="input-text js-input" type=""  disabled></input>
+                    <input id="viewreq-name" class="input-text js-input" type="text" disabled></input>
                 </div>
-
+                
+                <div class="form-field col-sm-5 addoc-margin">
+                    <label class="label" for="vehicle" id="label-vehicle">Morada</label>
+                    <input id="viewreq-adress" class="input-text js-input" type="text" disabled>
+                </div>
+                
+                <div class="col-sm-2"></div>
 
                 <div class="form-field col-sm-5 addoc-margin">
-                    <label class="label" for="phone">Contacto</label>
-                    <input id="viewreq-phone" class="input-text js-input" type=""  disabled>
+                    <label class="label" for="phone">Telefone</label>
+                    <input id="viewreq-phone" class="input-text js-input" type="tel" disabled >
+                </div>
+                
+                <div class="form-field col-sm-5 addoc-margin">
+                    <label class="label" for="vehicle" id="label-vehicle">Email</label>
+                    <input id="viewreq-email" class="input-text js-input" type="text" disabled>
                 </div>
 
                 <div class="col-sm-2"></div>
 
                 <div class="form-field col-sm-5 addoc-margin">
                     <label class="label" for="hour">Tipo de Ocorrência</label>
-                    <input id="viewreq-type" class="input-text js-input" type="" p disabled>
-                </div>
-
-
-                <div class="form-field col-sm-5 addoc-margin">
-                    <label class="label" for="vehicle" id="label-vehicle">Morada</label>
-                    <input id="viewreq-adress" class="input-text js-input" type=""  disabled>
-                </div>
-
-                <div class="col-sm-2"></div>
-
-                <div class="form-field col-sm-5 addoc-margin">
-                    <label class="label" for="vehicle" id="label-vehicle">Data</label>
-                    <input id="viewreq-date" class="input-text js-input" type=""  disabled>
-                </div>
-
-
-                <div class="form-field col-sm-5 addoc-margin">
-                    <label class="label" for="vehicle" id="label-vehicle">Email</label>
-                    <input id="viewreq-email" class="input-text js-input" type=""  disabled>
-                </div>
-
-                <div class="col-sm-2"></div>
-
-                <div class="form-field col-sm-5 addoc-margin">
-                    <label class="label" for="vehicle" id="label-hour">Hora</label>
-                    <input id="viewreq-hour" class="input-text js-input" type=""  disabled>
+                    <input id="viewreq-type" class="input-text js-input" type="text" p disabled>
                 </div>
                 
                 <div class="form-field col-sm-5 addoc-margin">
                     <label class="label" for="vehicle" id="label-level">Gravidade</label>
-                    <input id="viewreq-level" class="input-text js-input" type=""  disabled>
+                    <input id="viewreq-level" class="input-text js-input" type="text" disabled>
+                </div>
+                
+                <div class="col-sm-2"></div>
+
+                <div class="form-field col-sm-5 addoc-margin">
+                    <label class="label" for="vehicle" id="label-vehicle">Data</label>
+                    <input id="viewreq-date" class="input-text js-input" type="date" disabled>
                 </div>
 
-
+                <div class="form-field col-sm-5 addoc-margin">
+                    <label class="label" for="vehicle" id="label-hour">Hora</label>
+                    <input id="viewreq-hour" class="input-text js-input" type="time" disabled>
+                </div>
+                
+                <div class="col-sm-2"></div>
+                
+                <div class="form-field col-sm-5 addoc-margin">
+                    <label class="label" for="hour" >Tipo de Pedido</label>
+                    <input id="viewreq-typereq" class="input-text js-input" type="text" p disabled>
+                </div>
+                
                 <div class="form-field col-sm-12 addoc-margin">
                     <label class="label" id="label-descrition">Descrição</label>
-                    <textarea id="viewreq-descrition" name="textarea" class="input-text js-input" rows="5"  disabled></textarea>
+                    <textarea id="viewreq-descrition" name="textarea" class="input-text js-input" rows="5" disabled></textarea>
                 </div>
-                <!--<div class="col-sm-12 text-right">
-                     <input id="occu-save" class="btn btn-primary text-uppercase js-scroll-trigge" type="submit" value="Guardar Alterações" href=""></input>
-                     <input id="viewas-clean" class="btn btn-primary text-uppercase js-scroll-trigger" type="reset" value="cancelar"></input>-->
         </div>
         </form>
     </div>

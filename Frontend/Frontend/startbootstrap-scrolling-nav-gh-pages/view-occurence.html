@@ -24,12 +24,12 @@
         <button class="btn btn-link btn-sm order-1 order-lg-0" id="sidebarToggle" href="#"><i class="fas fa-bars"></i></button>
         <!-- Navbar Search-->
         <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">
-        <div id="app"></div>     
-              <!--<div class="input-group">
+            <div id="app"></div>
+            <!--<div class="input-group">
                 <input class="form-control" type="text" placeholder="Pesquisa" aria-label="Search" aria-describedby="basic-addon2" id="sourch" />
                 <div class="input-group-append">
                     <button class="btn btn-primary" type="button" id="btn-sourch"><img src="images.1/pesquisar.png" id="sourch1"></img></button> -->
-                </div>
+            </div>
             </div>
         </form>
 
@@ -52,18 +52,20 @@
                     <div class="nav">
                         <hr class="division">
                         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages" id="titles">
-                            <div class="sb-nav-link-icon"><img src="images.1/sirene.png" width="18" height="18" id="image"></img></div>
+                            <div class="sb-nav-link-icon"><img src="images.1/sirene.png" width="18" height="18" id="image"></img>
+                            </div>
                             Ocorrências
                             <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                         </a>
                         <div class="collapse" id="collapsePages" aria-labelledby="headingFour" data-parent="#sidenavAccordion">
                             <nav class="sb-sidenav-menu-nested nav">
-                                <a class="nav-link"id="centralist-menu" href="add-occurrence.html">Adicionar ocorrência</a>
-                                <a class="nav-link"id="centralist-menu" href="list-occurence.html">Listar ocorrências</a>
+                                <a class="nav-link" id="centralist-menu" href="add-occurrence.html">Adicionar ocorrência</a>
+                                <a class="nav-link" id="centralist-menu" href="list-occurence.html">Listar ocorrências</a>
                             </nav>
                         </div>
                         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePage3" aria-expanded="false" aria-controls="collapsePage3" id="titles">
-                            <div class="sb-nav-link-icon"><img src="images.1/pedido2.png" width="18" height="18" id="image"></img></div>
+                            <div class="sb-nav-link-icon"><img src="images.1/pedido2.png" width="18" height="18" id="image"></img>
+                            </div>
                             Pedidos
                             <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                         </a>
@@ -73,7 +75,7 @@
                                 <a class="nav-link" id="centralist-menu" href="list-validated-req.html">Lista de pedidos validados</a>
                             </nav>
                         </div>
-                        </div>
+                    </div>
                 </div>
                 <hr class="division2">
                 <div class="sb-sidenav-footer bg-color">
@@ -85,45 +87,35 @@
 
 
         <div id="layoutSidenav_content">
-           <form class="contact-form row">
+            <form class="contact-form row">
                 <div class="col-sm-12">
-                <h1 class="title" id="viewoc-title"> Visualizar dados da Ocorrência</h1>
+                    <h1 class="title" id="viewoc-title"> Visualizar dados da Ocorrência</h1>
                 </div>
                 <div class="form-field col-sm-5 addoc-margin">
                     <label class="label " for="firetype" id="label-firetype"></label>Tipo de Incêndio</label>
-                    <input name="Tipo de Incêndio" id="viewoc-firetype"  disabled></input>
+                    <input name="Tipo de Incêndio" id="viewoc-firetype" disabled></input>
                 </div>
                 <div class="col-sm-2"></div>
                 <div class="form-field col-sm-5 addoc-margin">
                     <label class="label" for="adress">Morada</label>
-                    <input id="viewoc-adress" class="input-text js-input" type=""  disabled></inpu>
+                    <input id="viewoc-adress" class="input-text js-input" type="text" value="" disabled></inpu>
                 </div>
 
                 <div class="form-field col-sm-5 addoc-margin">
                     <label class="label" for="hour">Hora de inicio</label>
-                    <input id="viewoc-hour" class="input-text js-input" type=""  disabled>
+                    <input id="viewoc-hour" class="input-text js-input" type="time" value="" disabled>
                 </div>
-                    <div class="col-sm-2"></div>
-                    
+                <div class="col-sm-2"></div>
+
                 <div class="form-field col-sm-5 addoc-margin">
                     <label class="label" for="phone">Telefone</label>
-                    <input type="tel" id="viewoc-phone" class="input-text js-input" type="" maxlength="9" minlength="9" disabled>
+                    <input type="tel" id="viewoc-phone" class="input-text js-input" pattern="[0-9]+$" maxlength="9" minlength="9" value="" disabled required onkeypress='return filtroTeclas(event)'>
                     <button id="occu-edit-phone" type="button"><img src = "images.1/editar.png" width="20" height="20"></img></button>
                 </div>
-                <!--<div class="form-field col-sm-5 addoc-margin">
-                    <label class="label" for="vehicle" id="label-vehicle">Veículos Utilizados</label>
-                    <select class="select2 form-control" id="idSelect2" multiple="" tabindex="-1" style="display: none;" disabled>
-                              <option value="1">V1</option>
-                              <option value="2">V2</option>
-                              <option value="3">V3</option>
-                    </select>
-                 <div> <button id="occu-edit-vehicle"type="button"><img src = "images.1/editar.png" width="20" height="20"></img></button></div>
-                    
-                </div> -->
-               <div class="col-sm-12 text-right">
-                     <input id="occu-save" class="btn btn-primary text-uppercase js-scroll-trigge" type="submit" value="Guardar Alterações" href=""></input>
-                     <!--<input id="viewas-clean" class="btn btn-primary text-uppercase js-scroll-trigger" type="reset" value="cancelar"></input>-->
-          </div>
+
+                <div class="col-sm-12 text-right">
+                    <input id="occu-save" class="btn btn-primary text-uppercase js-scroll-trigge" type="submit" value="Guardar Alterações" href=""></input>
+                </div>
             </form>
         </div>
         <script src="js/hour.js"></script>

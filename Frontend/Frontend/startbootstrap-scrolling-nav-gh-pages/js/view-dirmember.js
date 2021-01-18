@@ -1,3 +1,7 @@
+let filtroTeclas = function(event) {
+  return ((event.charCode >= 48 && event.charCode <= 57) || (event.keyCode == 45 || event.charCode == 46))
+}
+
 //EDITAR PASSWORD DIRETOR//
 let dir_ps = document.getElementById("viewdir-edit-ps");
 dir_ps.addEventListener("click", function() {
@@ -25,7 +29,6 @@ dir_phone.addEventListener("click", function() {
 });
 
 
-
 window.onload =
     async() => {
         let id = localStorage.iddir;
@@ -40,6 +43,8 @@ window.onload =
             let phone = dir.phone_number;
             let adress = dir.adress;
 
+            localStorage.setItem("phone", phone);
+
 
             let id_login = dir.id_login;
             localStorage.setItem("idlogin", id_login);
@@ -48,6 +53,9 @@ window.onload =
             for (const log of login) {
                 let ps = log.password;
                 let email = log.email;
+
+                localStorage.setItem("email", email);
+
                 document.getElementById("viewdir-ps").value = ps;
                 document.getElementById("viewdir-email").value = email;
             }
@@ -74,6 +82,10 @@ async function dir_edit() {
 
     let idlogin = localStorage.idlogin;
 
+    let phone = localStorage.phone;
+    
+    let email = localStorage.email;
+
     data.id_management = document.getElementById("viewdir-id").value;
     data.adress = document.getElementById("viewdir-adress").value;
     data.phone_number = document.getElementById("viewdir-phone").value;
@@ -83,30 +95,186 @@ async function dir_edit() {
     data1.password = document.getElementById("viewdir-ps").value;
     data1.id_login = idlogin;
 
-    let save = document.getElementById("dir-save");
-    save.type = "button";
-    fetch("https://23c6902811494393ad2cea6ff8f72d75.vfs.cloud9.us-east-1.amazonaws.com//managements/" + id, {
-        headers: { 'Content-Type': 'application/json' },
-        method: 'PUT',
-        body: JSON.stringify(data)
-    }).then(function(response) {
-        if (!response.ok) {
-            console.log(response.status); //=> number 100â€“599
-            console.log(response.statusText); //=> String
-            console.log(response.headers); //=> Headers
-            console.log(response.url); //=> String
+    if (data.phone_number.length !== 9 ||
+        data.adress.length < 5 ||
+        data1.email.length < 10 ||
+        data1.email.indexOf('@') === -1 ||
+        data1.password.length < 6) {
 
-            swal({
-                title: "Erro, por favor tente novamente",
-                icon: "error",
-            });
-            throw Error(response.statusText);
+    }
+    else {
+        let save = document.getElementById("dir-save");
+        save.type = "button";
+
+        if (data1.email !== email) {
+
+            fetch(`https://23c6902811494393ad2cea6ff8f72d75.vfs.cloud9.us-east-1.amazonaws.com/loginEmail/` + data1.email)
+                .then(response => {
+                    if (!response.ok) {
+                        console.log(response.status); //=> number 100â€“599
+                        console.log(response.statusText); //=> String
+                        console.log(response.headers); //=> Headers
+                        console.log(response.url);
+
+
+                        if (data.phone_number === phone) {
+
+
+                            fetch(`https://23c6902811494393ad2cea6ff8f72d75.vfs.cloud9.us-east-1.amazonaws.com/managements/` + id, {
+                                headers: { 'Content-Type': 'application/json' },
+                                method: 'PUT',
+                                body: JSON.stringify(data)
+                            }).then(function(response) {
+                                if (!response.ok) {
+                                    console.log(response.status); //=> number 100â€“599
+                                    console.log(response.statusText); //=> String
+                                    console.log(response.headers); //=> Headers
+                                    console.log(response.url); //=> String
+
+                                    swal({
+                                        title: "Erro, por favor tente novamente",
+                                        icon: "error",
+                                    });
+                                    throw Error(response.statusText);
+                                }
+                                else {
+                                    fetch(`https://23c6902811494393ad2cea6ff8f72d75.vfs.cloud9.us-east-1.amazonaws.com/login/` + idlogin, {
+                                        headers: { 'Content-Type': 'application/json' },
+                                        method: 'PUT',
+                                        body: JSON.stringify(data1)
+                                    }).then(function(response) {
+                                        if (!response.ok) {
+                                            console.log(response.status); //=> number 100â€“599
+                                            console.log(response.statusText); //=> String
+                                            console.log(response.headers); //=> Headers
+                                            console.log(response.url); //=> String
+
+                                            swal({
+                                                title: "Erro, por favor tente novamente",
+                                                icon: "error",
+                                            });
+                                            throw Error(response.statusText);
+                                        }
+                                        else {
+                                            swal({
+                                                    title: "Alterações gravadas com sucesso",
+                                                    icon: "success",
+                                                })
+                                                .then(() => {
+                                                    window.location.replace("view-dirmember.html");
+                                                });
+                                        };
+                                    }).then(function(result) {
+                                        console.log(result);
+                                    }).catch(function(err) {
+                                        console.error(err);
+                                    });
+                                };
+                            })
+                        }
+
+                        else {
+                            fetch(`https://23c6902811494393ad2cea6ff8f72d75.vfs.cloud9.us-east-1.amazonaws.com/managementsPhone/` + data.phone_number)
+                                .then(response => {
+                                    if (!response.ok) {
+                                        console.log(response.status); //=> number 100â€“599
+                                        console.log(response.statusText); //=> String
+                                        console.log(response.headers); //=> Headers
+                                        console.log(response.url);
+
+
+                                        fetch(`https://23c6902811494393ad2cea6ff8f72d75.vfs.cloud9.us-east-1.amazonaws.com/managements/` + id, {
+                                            headers: { 'Content-Type': 'application/json' },
+                                            method: 'PUT',
+                                            body: JSON.stringify(data)
+                                        }).then(function(response) {
+                                            if (!response.ok) {
+                                                console.log(response.status); //=> number 100â€“599
+                                                console.log(response.statusText); //=> String
+                                                console.log(response.headers); //=> Headers
+                                                console.log(response.url); //=> String
+
+                                                swal({
+                                                    title: "Erro, por favor tente novamente",
+                                                    icon: "error",
+                                                });
+                                                throw Error(response.statusText);
+                                            }
+                                            else {
+                                                fetch(`https://23c6902811494393ad2cea6ff8f72d75.vfs.cloud9.us-east-1.amazonaws.com/login/` + idlogin, {
+                                                    headers: { 'Content-Type': 'application/json' },
+                                                    method: 'PUT',
+                                                    body: JSON.stringify(data1)
+                                                }).then(function(response) {
+                                                    if (!response.ok) {
+                                                        console.log(response.status); //=> number 100â€“599
+                                                        console.log(response.statusText); //=> String
+                                                        console.log(response.headers); //=> Headers
+                                                        console.log(response.url); //=> String
+
+                                                        swal({
+                                                            title: "Erro, por favor tente novamente",
+                                                            icon: "error",
+                                                        });
+                                                        throw Error(response.statusText);
+                                                    }
+                                                    else {
+                                                        swal({
+                                                                title: "Alterações gravadas com sucesso",
+                                                                icon: "success",
+                                                            })
+                                                            .then(() => {
+                                                                window.location.replace("view-dirmember.html");
+                                                            });
+                                                    };
+                                                }).then(function(result) {
+                                                    console.log(result);
+                                                }).catch(function(err) {
+                                                    console.error(err);
+                                                });
+                                            };
+                                        }).then(function(result) {
+                                            console.log(result);
+                                        }).catch(function(err) {
+                                            console.error(err);
+                                        });
+                                    }
+
+                                    else {
+                                        swal({
+                                            title: "O Telefone já se encontra registado",
+                                            icon: "error",
+                                        });
+                                    }
+                                }).then(function(result) {
+                                    console.log(result);
+                                }).catch(function(err) {
+                                    console.error(err);
+                                });
+                        }
+                    }
+
+                    else {
+                        swal({
+                            title: "O Email já se encontra registado",
+                            icon: "error",
+                        });
+                    }
+
+                }).then(function(result) {
+                    console.log(result);
+                }).catch(function(err) {
+                    console.error(err);
+                });
         }
-        else {
-            fetch(`https://23c6902811494393ad2cea6ff8f72d75.vfs.cloud9.us-east-1.amazonaws.com//login/` + idlogin, {
+        else
+        if (data.phone_number === phone) {
+
+
+            fetch(`https://23c6902811494393ad2cea6ff8f72d75.vfs.cloud9.us-east-1.amazonaws.com/managements/` + id, {
                 headers: { 'Content-Type': 'application/json' },
                 method: 'PUT',
-                body: JSON.stringify(data1)
+                body: JSON.stringify(data)
             }).then(function(response) {
                 if (!response.ok) {
                     console.log(response.status); //=> number 100â€“599
@@ -121,31 +289,119 @@ async function dir_edit() {
                     throw Error(response.statusText);
                 }
                 else {
-                    swal({
-                            title: "Alterações gravadas com sucesso",
-                            icon: "success",
-                        })
-                        .then(() => {
-                            window.location.replace("view-dirmember.html");
-                        });
-                };
-            }).then(function(result) {
-                console.log(result);
-            }).catch(function(err) {
-                console.error(err);
-            });
-            /* swal({
-                     title: "Alterações gravadas com sucesso",
-                     icon: "success",
-                 })
-                 .then(() => {
-                     window.location.replace("view-dirmember.html");
-                 });*/
-        };
-    }).then(function(result) {
-        console.log(result);
-    }).catch(function(err) {
-        console.error(err);
-    });
+                    fetch(`https://23c6902811494393ad2cea6ff8f72d75.vfs.cloud9.us-east-1.amazonaws.com/login/` + idlogin, {
+                        headers: { 'Content-Type': 'application/json' },
+                        method: 'PUT',
+                        body: JSON.stringify(data1)
+                    }).then(function(response) {
+                        if (!response.ok) {
+                            console.log(response.status); //=> number 100â€“599
+                            console.log(response.statusText); //=> String
+                            console.log(response.headers); //=> Headers
+                            console.log(response.url); //=> String
 
-};
+                            swal({
+                                title: "Erro, por favor tente novamente",
+                                icon: "error",
+                            });
+                            throw Error(response.statusText);
+                        }
+                        else {
+                            swal({
+                                    title: "Alterações gravadas com sucesso",
+                                    icon: "success",
+                                })
+                                .then(() => {
+                                    window.location.replace("view-dirmember.html");
+                                });
+                        };
+                    }).then(function(result) {
+                        console.log(result);
+                    }).catch(function(err) {
+                        console.error(err);
+                    });
+                };
+            })
+        }
+
+        else {
+            fetch(`https://23c6902811494393ad2cea6ff8f72d75.vfs.cloud9.us-east-1.amazonaws.com/managementsPhone/` + data.phone_number)
+                .then(response => {
+                    if (!response.ok) {
+                        console.log(response.status); //=> number 100â€“599
+                        console.log(response.statusText); //=> String
+                        console.log(response.headers); //=> Headers
+                        console.log(response.url);
+
+
+                        fetch(`https://23c6902811494393ad2cea6ff8f72d75.vfs.cloud9.us-east-1.amazonaws.com/managements/` + id, {
+                            headers: { 'Content-Type': 'application/json' },
+                            method: 'PUT',
+                            body: JSON.stringify(data)
+                        }).then(function(response) {
+                            if (!response.ok) {
+                                console.log(response.status); //=> number 100â€“599
+                                console.log(response.statusText); //=> String
+                                console.log(response.headers); //=> Headers
+                                console.log(response.url); //=> String
+
+                                swal({
+                                    title: "Erro, por favor tente novamente",
+                                    icon: "error",
+                                });
+                                throw Error(response.statusText);
+                            }
+                            else {
+                                fetch(`https://23c6902811494393ad2cea6ff8f72d75.vfs.cloud9.us-east-1.amazonaws.com/login/` + idlogin, {
+                                    headers: { 'Content-Type': 'application/json' },
+                                    method: 'PUT',
+                                    body: JSON.stringify(data1)
+                                }).then(function(response) {
+                                    if (!response.ok) {
+                                        console.log(response.status); //=> number 100â€“599
+                                        console.log(response.statusText); //=> String
+                                        console.log(response.headers); //=> Headers
+                                        console.log(response.url); //=> String
+
+                                        swal({
+                                            title: "Erro, por favor tente novamente",
+                                            icon: "error",
+                                        });
+                                        throw Error(response.statusText);
+                                    }
+                                    else {
+                                        swal({
+                                                title: "Alterações gravadas com sucesso",
+                                                icon: "success",
+                                            })
+                                            .then(() => {
+                                                window.location.replace("view-dirmember.html");
+                                            });
+                                    };
+                                }).then(function(result) {
+                                    console.log(result);
+                                }).catch(function(err) {
+                                    console.error(err);
+                                });
+                            };
+                        }).then(function(result) {
+                            console.log(result);
+                        }).catch(function(err) {
+                            console.error(err);
+                        });
+                    }
+
+                    else {
+                        swal({
+                            title: "O Telefone já se encontra registado",
+                            icon: "error",
+                        });
+                    }
+                }).then(function(result) {
+                    console.log(result);
+                }).catch(function(err) {
+                    console.error(err);
+                });
+        }
+    }
+}

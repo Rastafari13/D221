@@ -78,8 +78,8 @@
                         </a> 
                             <div class="collapse" id="collapsePage4" aria-labelledby="headingThree" data-parent="#sidenavAccordion">
                             <nav class="sb-sidenav-menu-nested nav">
-                                <a class="nav-link" id="direction-menu" href="add-dirmember.html">Adicionar Membro</a>
-                                <a class="nav-link" id="direction-menu" href="list-dirmember.html">Listar Membro</a>
+                                <a class="nav-link" id="direction-menu" href="add-dirmember.html">Adicionar Diretor</a>
+                                <a class="nav-link" id="direction-menu" href="list-dirmember.html">Listar Diretores</a>
                             </nav>
                         </div>
                         
@@ -103,13 +103,20 @@
                     <h2 id="alt-photo-cent">Adicionar foto de perfil</h2>
                     </label>
                 </div>
+                
                 <div class="form-field col-sm-5 ">
                     <label class="label" for="name"></label>Nome</label>
                     <input id="addop-name" maxlength="150" minlength="2" pattern="[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]+$" required></input>
                 </div>
+                
                 <div class="col-sm-2"></div>
-
+                
                 <div class="form-field col-sm-5">
+                    <label class="label" for="password">Palavra Passe</label>
+                    <input id="addop-ps" maxlength="45" minlength="6" class="input-text js-input" type="password" maxlength="45" minlength="6" required></input>
+                </div>
+                
+                <div class="form-field col-sm-5 addoc-margin">
                     <label for="function" id="label-function">Função</label>
                     <select name="Tipo de ocorrência" id="addop-function" required>
                     <option value=""disabled selected></option>
@@ -117,61 +124,50 @@
                     <option value="Bombeiro">Bombeiro</option>
                 </select>
                 </div>
-
-                <div class="form-field col-sm-5 addoc-margin">
-                    <label class="label" for="password">Palavra Passe</label>
-                    <input id="addop-ps" maxlength="45" minlength="6" class="input-text js-input" type="password" maxlength="45" minlength="6"required>
-                </div>
+            
                 <div class="col-sm-2"></div>
                 
-                 <div class="form-field col-sm-5 addoc-margin" id="div-addoc-age">
-                    <label class="label" for="email" id="label-email-opp">Email</label>
-                    <input name="email" maxlength="45" minlength="10" id="addop-email" type="email" required></input>
-                </div>
-
-                <div class="form-field col-sm-5 addoc-margin" id="div-addoc-quota">
-                    <label class="label" for="age" id="label-age-opp">Data de Nascimento</label>
-                    <input id="addop-birth" pattern="[0-9]+$" type="date" required></input>
-                </div>
-                
-                <div class="col-sm-2"></div>
-
                 <div class="form-field col-sm-5 addoc-margin" id="div-addoc-id">
                     <label class="label" for="id" id="label-cc-opp">Cartão de cidadão</label>
-                    <input name="cc" maxlength="8" minlength="8" id="addop-cc" pattern="[0-9]+$" maxlength="8" minlength="8" required></input>
+                    <input name="cc" maxlength="8" minlength="8" id="addop-cc" pattern="[0-9]+$"  minlength="8" required onkeypress='return filtroTeclas(event)'></input>
                 </div>
-
                 
-
-                <div class=" form-field col-sm-5 addoc-margin" id="div-addoc-phone">
-                    <label class="label" for="phone" id="label-phone">Telefone</label>
-                    <input type="tel" maxlength="9" minlength="9" name="phone" id="addop-phone" pattern="[0-9]+$" maxlength="9" minlength="9" required></input>
-                </div>
-
-                <div class="col-sm-2"></div>
-                
-                 <div class=" form-field col-sm-5 addoc-margin" id="div-addoc-date">
+                <div class=" form-field col-sm-5 addoc-margin" id="div-addoc-date">
                     <label class="label" for="adress" id="label-adress-opp">Morada</label>
                     <input name="adress" maxlength="150" minlength="5" id="addop-adress" type="text" required></input>
                 </div>
                 
+                <div class="col-sm-2"></div>
+                
+                <div class=" form-field col-sm-5 addoc-margin" id="div-addoc-phone">
+                    <label class="label" for="phone" id="label-phone">Telefone</label>
+                    <input type="tel" maxlength="9" minlength="9" name="phone" id="addop-phone" pattern="[0-9]+$" maxlength="9" minlength="9" required onkeypress='return filtroTeclas(event)'></input>
+                </div>
+
+                
+                <div class="form-field col-sm-5 addoc-margin" id="div-addoc-age">
+                    <label class="label" for="email" id="label-email-opp">Email</label>
+                    <input name="email" maxlength="45" minlength="10" id="addop-email" type="email" required></input>
+                </div>
+                
+                <div class="col-sm-2"></div>
+                
+                <div class="form-field col-sm-5 addoc-margin" id="div-addoc-quota">
+                    <label class="label" for="age" id="label-age-opp">Data de Nascimento</label>
+                    <input id="addop-birth" pattern="[0-9]+$" type="date" required></input>
+                </div>
+
+                <div class=" form-field col-sm-5 addoc-margin">
+                    <label class="label" for="date" id="label-phone">Ordenado (€ por hora)</label>
+                    <input name="number" id="addop-salary" pattern="[0-9]+$" maxlength="2" required onkeypress='return filtroTeclas(event)'></input>
+                </div>
+                
+                <div class="col-sm-2"></div>
                 
                 <div class=" form-field col-sm-5 addoc-margin">
                     <label class="label" for="date" id="entry_date">Data de entrada</label>
                     <input name="entry_date"  pattern="[0-9]+$" id="adopp-entry-date" type="date"  required></input>
                 </div>
-
-                <div class="col-sm-2"></div>
-                
-                <div class=" form-field col-sm-5 addoc-margin">
-                    <label class="label" for="date" id="label-phone">Ordenado (€ por hora)</label>
-                    <input name="date" id="addop-salary" type="number" pattern="[0-9]+$" maxlength="2" required></input>
-                </div>
-                
-               <!-- <div class="" id="addop-div-id">
-                    <label id="p-id-label">ID</label>
-                    <input type="number" id="addop-id" min="1" max="10000" value="" pattern="[0-9]+$" oninput="validity.valid ? this.save = value : value = this.save;" required/>
-                </div>-->
                 
                 <div class="col-sm-12 text-right">
                     <input id="addop-clean" class="btn btn-primary text-uppercase js-scroll-trigger" type="reset" value="limpar"></input>

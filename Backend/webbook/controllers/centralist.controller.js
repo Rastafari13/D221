@@ -106,7 +106,7 @@ function saveCentralist(req, res) {
     const nameCentralist = req.sanitize('name').escape();
     const birthDate = req.sanitize('birth_date').escape();
     const ccCentralist = req.sanitize('cc').escape();
-    const phoneNumberCentralist = req.sanitize('phone_num').escape();
+    const phoneNumberCentralist = req.sanitize('phone_number').escape();
     const adressCentralist = req.sanitize('adress').escape();
     const loginCentralist = req.sanitize('id_login').escape();
     const salaryCentralist = req.sanitize('pay_per_hour').escape();
@@ -204,10 +204,71 @@ function updateCentralist(req, res) {
     }
 }
 
+function readCentralistPhone(req, res) {
+    const phone_num = req.param('phone');
+    const post = { phone_num: phone_num };
+    const query = connect.con.query('SELECT phone_num FROM centralist WHERE ?',post, function(err, rows, fields) {
+        console.log(query.sql);
+        if (err) {
+            console.log(err);
+            res.status(jsonMessages.db.noRecords.status).send(jsonMessages.db.dbError);
+        }
+        else {
+            if (rows.length == 0) {
+                res.status(jsonMessages.db.noRecords.status).send(jsonMessages.db.noRecords);
+            }
+            else {
+                res.send(rows);
+            }
+        }
+    });
+}
+
+function readCentralistCc(req, res) {
+    const cc = req.param('cc');
+    const post = { cc: cc };
+    const query = connect.con.query('SELECT cc FROM centralist WHERE ?',post, function(err, rows, fields) {
+        console.log(query.sql);
+        if (err) {
+            console.log(err);
+            res.status(jsonMessages.db.noRecords.status).send(jsonMessages.db.dbError);
+        }
+        else {
+            if (rows.length == 0) {
+                res.status(jsonMessages.db.noRecords.status).send(jsonMessages.db.noRecords);
+            }
+            else {
+                res.send(rows);
+            }
+        }
+    });
+}
+
+function numberCentralist(req, res) {
+    const query = connect.con.query('SELECT COUNT(*) FROM centralist', function(err, rows, fields) {
+        console.log(query.sql);
+        if (err) {
+            console.log(err);
+            res.status(jsonMessages.db.noRecords.status).send(jsonMessages.db.dbError);
+        }
+        else {
+            if (rows.length == 0) {
+                res.status(jsonMessages.db.noRecords.status).send(jsonMessages.db.noRecords);
+            }
+            else {
+                res.send(rows);
+            }
+        }
+    });
+}
+
 module.exports = {
     readCentralist: readCentralist,
     readCentralistID: readCentralistID,
     saveCentralist: saveCentralist,
     deleteCentralist: deleteCentralist,
-    updateCentralist: updateCentralist
+    updateCentralist: updateCentralist,
+    readCentralistPhone: readCentralistPhone,
+    readCentralistCc: readCentralistCc,
+    numberCentralist: numberCentralist,
 };

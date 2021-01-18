@@ -9,13 +9,23 @@ const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 const expressValidator = require('express-validator');
 const expressSanitizer = require("express-sanitizer");
+const session = require('express-session');
+const passport = require('passport');
 
 app.use('/assets', express.static('assets'));
 app.use('/views', express.static('views'));
-app.use(bodyParser.json());
-app.use(bodyParser.json(), bodyParser.urlencoded({extended : true}));
-app.use(expressValidator());
+//app.use(bodyParser.json());
+//app.use(bodyParser.json(), bodyParser.urlencoded({extended : true}));
+//app.use(expressValidator());
 
+/*
+// For Passport
+app.use(session({ secret: 'keyboard cat',resave: true, saveUninitialized:true})); // session secret
+ 
+app.use(passport.initialize());
+ 
+app.use(passport.session()); // persistent login sessions
+*/
 
 app.listen(port, function(err){
     if(!err){
@@ -32,7 +42,7 @@ app.use(expressSanitizer());
 app.use(expressValidator());
 
 module.exports = app;
-//require('./loader.js');
+require('./loader.js');
 require("./routes/main.route.js");
 require("./controllers/partner.controller.js");
 require("./controllers/operational.controller.js");

@@ -1,3 +1,7 @@
+let filtroTeclas = function(event) {
+  return ((event.charCode >= 48 && event.charCode <= 57) || (event.keyCode == 45 || event.charCode == 46))
+}
+
 //EDITAR PASSWORD CENTR//
 let viewcen_ps = document.getElementById("viewcen-edit-ps");
 viewcen_ps.addEventListener("click", function() {
@@ -45,7 +49,10 @@ window.onload =
             let functio = "Centralista";
             let birth = cent.date_birth;
             let salary = cent.pay_per_hour;
-            
+
+
+            localStorage.setItem("phone", phone);
+
 
             let id_login = cent.id_login;
             localStorage.setItem("idlogin", id_login);
@@ -54,6 +61,9 @@ window.onload =
             for (const log of login) {
                 let ps = log.password;
                 let email = log.email;
+
+                localStorage.setItem("email", email);
+
                 document.getElementById("viewcen-ps").value = ps;
                 document.getElementById("viewcen-email").value = email;
             }
@@ -75,7 +85,7 @@ window.onload =
     }
 
 
- document.getElementById("cen-save").onclick = function(e) {
+document.getElementById("cen-save").onclick = function(e) {
     cenedit();
 }
 
@@ -90,17 +100,26 @@ async function cenedit() {
 
     let idlogin = localStorage.idlogin;
 
+    let phone = localStorage.phone;
+    let email = localStorage.email;
+
     data.id_centralist = document.getElementById("view-id-cen").value;
     data.adress = document.getElementById("viewcen-adress").value;
     data.phone_num = document.getElementById("viewcen-phone").value;
     data.pay_per_hour = document.getElementById("viewcen-salary").value;
-    
+
     data1.email = document.getElementById("viewcen-email").value;
     data1.password = document.getElementById("viewcen-ps").value;
     data1.id_login = idlogin;
 
 
-    if (data.phone_num.length !== 9 || data.adress.length < 3) {}
+    if (data.phone_num.length !== 9 ||
+        data.adress.length < 5 ||
+        data1.email.length < 10 ||
+        data1.email.indexOf('@') === -1 ||
+        data1.password.length < 6) {
+
+    }
     else {
         let save = document.getElementById("cen-save");
         save.type = "button";
@@ -110,71 +129,307 @@ async function cenedit() {
                 icon: "info",
             });
         }
+
         else {
             save.type = "button";
-            fetch(`https://23c6902811494393ad2cea6ff8f72d75.vfs.cloud9.us-east-1.amazonaws.com/centralists/` + id, {
-                headers: { 'Content-Type': 'application/json' },
-                method: 'PUT',
-                body: JSON.stringify(data)
-            }).then(function(response) {
-                if (!response.ok) {
-                    console.log(response.status); //=> number 100â€“599
-                    console.log(response.statusText); //=> String
-                    console.log(response.headers); //=> Headers
-                    console.log(response.url); //=> String
 
-                    swal({
-                        title: "Erro, por favor tente novamente",
-                        icon: "error",
-                    });
-                    throw Error(response.statusText);
-                }
-                else {
-                    fetch(`https://23c6902811494393ad2cea6ff8f72d75.vfs.cloud9.us-east-1.amazonaws.com/login/` + idlogin, {
-                        headers: { 'Content-Type': 'application/json' },
-                        method: 'PUT',
-                        body: JSON.stringify(data1)
-                    }).then(function(response) {
+            if (data1.email !== email) {
+
+                fetch(`https://23c6902811494393ad2cea6ff8f72d75.vfs.cloud9.us-east-1.amazonaws.com/loginEmail/` + data1.email)
+                    .then(response => {
                         if (!response.ok) {
                             console.log(response.status); //=> number 100â€“599
                             console.log(response.statusText); //=> String
                             console.log(response.headers); //=> Headers
-                            console.log(response.url); //=> String
+                            console.log(response.url);
 
-                            swal({
-                                title: "Erro, por favor tente novamente",
-                                icon: "error",
-                            });
-                            throw Error(response.statusText);
+
+                            if (data.phone_num === phone) {
+
+
+                                fetch(`https://23c6902811494393ad2cea6ff8f72d75.vfs.cloud9.us-east-1.amazonaws.com/centralists/` + id, {
+                                    headers: { 'Content-Type': 'application/json' },
+                                    method: 'PUT',
+                                    body: JSON.stringify(data)
+                                }).then(function(response) {
+                                    if (!response.ok) {
+                                        console.log(response.status); //=> number 100â€“599
+                                        console.log(response.statusText); //=> String
+                                        console.log(response.headers); //=> Headers
+                                        console.log(response.url); //=> String
+
+                                        swal({
+                                            title: "Erro, por favor tente novamente",
+                                            icon: "error",
+                                        });
+                                        throw Error(response.statusText);
+                                    }
+                                    else {
+                                        fetch(`https://23c6902811494393ad2cea6ff8f72d75.vfs.cloud9.us-east-1.amazonaws.com/login/` + idlogin, {
+                                            headers: { 'Content-Type': 'application/json' },
+                                            method: 'PUT',
+                                            body: JSON.stringify(data1)
+                                        }).then(function(response) {
+                                            if (!response.ok) {
+                                                console.log(response.status); //=> number 100â€“599
+                                                console.log(response.statusText); //=> String
+                                                console.log(response.headers); //=> Headers
+                                                console.log(response.url); //=> String
+
+                                                swal({
+                                                    title: "Erro, por favor tente novamente",
+                                                    icon: "error",
+                                                });
+                                                throw Error(response.statusText);
+                                            }
+                                            else {
+                                                swal({
+                                                        title: "Alterações gravadas com sucesso",
+                                                        icon: "success",
+                                                    })
+                                                    .then(() => {
+                                                        window.location.replace("view-centralist.html");
+                                                    });
+                                            };
+                                        }).then(function(result) {
+                                            console.log(result);
+                                        }).catch(function(err) {
+                                            console.error(err);
+                                        });
+                                    };
+                                })
+                            }
+
+                            else {
+                                fetch(`https://23c6902811494393ad2cea6ff8f72d75.vfs.cloud9.us-east-1.amazonaws.com/centralistsPhone/` + data.phone_num)
+                                    .then(response => {
+                                        if (!response.ok) {
+                                            console.log(response.status); //=> number 100â€“599
+                                            console.log(response.statusText); //=> String
+                                            console.log(response.headers); //=> Headers
+                                            console.log(response.url);
+
+
+                                            fetch(`https://23c6902811494393ad2cea6ff8f72d75.vfs.cloud9.us-east-1.amazonaws.com/centralists/` + id, {
+                                                headers: { 'Content-Type': 'application/json' },
+                                                method: 'PUT',
+                                                body: JSON.stringify(data)
+                                            }).then(function(response) {
+                                                if (!response.ok) {
+                                                    console.log(response.status); //=> number 100â€“599
+                                                    console.log(response.statusText); //=> String
+                                                    console.log(response.headers); //=> Headers
+                                                    console.log(response.url); //=> String
+
+                                                    swal({
+                                                        title: "Erro, por favor tente novamente",
+                                                        icon: "error",
+                                                    });
+                                                    throw Error(response.statusText);
+                                                }
+                                                else {
+                                                    fetch(`https://23c6902811494393ad2cea6ff8f72d75.vfs.cloud9.us-east-1.amazonaws.com/login/` + idlogin, {
+                                                        headers: { 'Content-Type': 'application/json' },
+                                                        method: 'PUT',
+                                                        body: JSON.stringify(data1)
+                                                    }).then(function(response) {
+                                                        if (!response.ok) {
+                                                            console.log(response.status); //=> number 100â€“599
+                                                            console.log(response.statusText); //=> String
+                                                            console.log(response.headers); //=> Headers
+                                                            console.log(response.url); //=> String
+
+                                                            swal({
+                                                                title: "Erro, por favor tente novamente",
+                                                                icon: "error",
+                                                            });
+                                                            throw Error(response.statusText);
+                                                        }
+                                                        else {
+                                                            swal({
+                                                                    title: "Alterações gravadas com sucesso",
+                                                                    icon: "success",
+                                                                })
+                                                                .then(() => {
+                                                                    window.location.replace("view-centralist.html");
+                                                                });
+                                                        };
+                                                    }).then(function(result) {
+                                                        console.log(result);
+                                                    }).catch(function(err) {
+                                                        console.error(err);
+                                                    });
+                                                };
+                                            }).then(function(result) {
+                                                console.log(result);
+                                            }).catch(function(err) {
+                                                console.error(err);
+                                            });
+                                        }
+
+                                        else {
+                                            swal({
+                                                title: "O Telefone já se encontra registado",
+                                                icon: "error",
+                                            });
+                                        }
+                                    }).then(function(result) {
+                                        console.log(result);
+                                    }).catch(function(err) {
+                                        console.error(err);
+                                    });
+                            }
                         }
+
                         else {
                             swal({
-                                    title: "Alterações gravadas com sucesso",
-                                    icon: "success",
-                                })
-                                .then(() => {
-                                    window.location.replace("view-centralist.html");
-                                });
-                        };
+                                title: "O Email já se encontra registado",
+                                icon: "error",
+                            });
+                        }
+
                     }).then(function(result) {
                         console.log(result);
                     }).catch(function(err) {
                         console.error(err);
                     });
-                    /*  swal({
-                        title: "Alterações gravadas com sucesso",
-                        icon: "success",
-                    })
-                    .then(() => {
-                    window.location.replace("view-opperation.html");
-                });*/
-                };
-            }).then(function(result) {
-                console.log(result);
-            }).catch(function(err) {
-                console.error(err);
-            });
+            }
+            else
+            if (data.phone_num === phone) {
 
+
+                fetch(`https://23c6902811494393ad2cea6ff8f72d75.vfs.cloud9.us-east-1.amazonaws.com/centralists/` + id, {
+                    headers: { 'Content-Type': 'application/json' },
+                    method: 'PUT',
+                    body: JSON.stringify(data)
+                }).then(function(response) {
+                    if (!response.ok) {
+                        console.log(response.status); //=> number 100â€“599
+                        console.log(response.statusText); //=> String
+                        console.log(response.headers); //=> Headers
+                        console.log(response.url); //=> String
+
+                        swal({
+                            title: "Erro, por favor tente novamente",
+                            icon: "error",
+                        });
+                        throw Error(response.statusText);
+                    }
+                    else {
+                        fetch(`https://23c6902811494393ad2cea6ff8f72d75.vfs.cloud9.us-east-1.amazonaws.com/login/` + idlogin, {
+                            headers: { 'Content-Type': 'application/json' },
+                            method: 'PUT',
+                            body: JSON.stringify(data1)
+                        }).then(function(response) {
+                            if (!response.ok) {
+                                console.log(response.status); //=> number 100â€“599
+                                console.log(response.statusText); //=> String
+                                console.log(response.headers); //=> Headers
+                                console.log(response.url); //=> String
+
+                                swal({
+                                    title: "Erro, por favor tente novamente",
+                                    icon: "error",
+                                });
+                                throw Error(response.statusText);
+                            }
+                            else {
+                                swal({
+                                        title: "Alterações gravadas com sucesso",
+                                        icon: "success",
+                                    })
+                                    .then(() => {
+                                        window.location.replace("view-centralist.html");
+                                    });
+                            };
+                        }).then(function(result) {
+                            console.log(result);
+                        }).catch(function(err) {
+                            console.error(err);
+                        });
+                    };
+                })
+            }
+
+            else {
+                fetch(`https://23c6902811494393ad2cea6ff8f72d75.vfs.cloud9.us-east-1.amazonaws.com/centralistsPhone/` + data.phone_num)
+                    .then(response => {
+                        if (!response.ok) {
+                            console.log(response.status); //=> number 100â€“599
+                            console.log(response.statusText); //=> String
+                            console.log(response.headers); //=> Headers
+                            console.log(response.url);
+
+
+                            fetch(`https://23c6902811494393ad2cea6ff8f72d75.vfs.cloud9.us-east-1.amazonaws.com/centralists/` + id, {
+                                headers: { 'Content-Type': 'application/json' },
+                                method: 'PUT',
+                                body: JSON.stringify(data)
+                            }).then(function(response) {
+                                if (!response.ok) {
+                                    console.log(response.status); //=> number 100â€“599
+                                    console.log(response.statusText); //=> String
+                                    console.log(response.headers); //=> Headers
+                                    console.log(response.url); //=> String
+
+                                    swal({
+                                        title: "Erro, por favor tente novamente",
+                                        icon: "error",
+                                    });
+                                    throw Error(response.statusText);
+                                }
+                                else {
+                                    fetch(`https://23c6902811494393ad2cea6ff8f72d75.vfs.cloud9.us-east-1.amazonaws.com/login/` + idlogin, {
+                                        headers: { 'Content-Type': 'application/json' },
+                                        method: 'PUT',
+                                        body: JSON.stringify(data1)
+                                    }).then(function(response) {
+                                        if (!response.ok) {
+                                            console.log(response.status); //=> number 100â€“599
+                                            console.log(response.statusText); //=> String
+                                            console.log(response.headers); //=> Headers
+                                            console.log(response.url); //=> String
+
+                                            swal({
+                                                title: "Erro, por favor tente novamente",
+                                                icon: "error",
+                                            });
+                                            throw Error(response.statusText);
+                                        }
+                                        else {
+                                            swal({
+                                                    title: "Alterações gravadas com sucesso",
+                                                    icon: "success",
+                                                })
+                                                .then(() => {
+                                                    window.location.replace("view-centralist.html");
+                                                });
+                                        };
+                                    }).then(function(result) {
+                                        console.log(result);
+                                    }).catch(function(err) {
+                                        console.error(err);
+                                    });
+                                };
+                            }).then(function(result) {
+                                console.log(result);
+                            }).catch(function(err) {
+                                console.error(err);
+                            });
+                        }
+
+                        else {
+                            swal({
+                                title: "O Telefone já se encontra registado",
+                                icon: "error",
+                            });
+                        }
+                    }).then(function(result) {
+                        console.log(result);
+                    }).catch(function(err) {
+                        console.error(err);
+                    });
+            }
         }
     }
 }

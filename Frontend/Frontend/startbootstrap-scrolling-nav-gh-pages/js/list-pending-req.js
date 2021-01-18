@@ -4,7 +4,7 @@
   setUpDataOcc();
 
   async function setUpDataOcc() {
-    const res = await fetch('https://23c6902811494393ad2cea6ff8f72d75.vfs.cloud9.us-east-1.amazonaws.com/requestsPending/null');
+    const res = await fetch('https://23c6902811494393ad2cea6ff8f72d75.vfs.cloud9.us-east-1.amazonaws.com/requestsPending/');
     const data = await res.json();
 
     let occ = data.map(el => Object.values(el));

@@ -243,6 +243,25 @@ button.navbar:focus {
   margin-top: -1.6%;
 }
 
+
+.swal-button {
+  background-color:#390606;
+  border-radius: 15px;
+  border-line: #390606;
+  border-color: #390606 !important;
+}
+.swal-button:focus {
+    outline: none;
+    box-shadow: 0 0 0 0;
+}
+
+.swal-button:not([disabled]):hover {
+    background-color: #390606 ;
+    opacity:0.8;
+    border-line:#390606;
+}
+
+
 /*--------------------------------------LOGIN----------------------------------*/
 svg:not(:root).svg-inline--fa {
     overflow: visible;
@@ -352,6 +371,51 @@ svg:not(:root).svg-inline--fa {
 #userDropdown{
 margin-right: 10px;
 }
+
+.swal2-styled.swal2-cancel:not([disabled]):hover {
+  background-color: #390606;
+  opacity: 0.8;
+  border-line: #390606;
+  border-radius: 15px;
+}
+
+.swal2-styled.swal2-cancel{
+   border-radius: 15px !important;
+}
+
+.swal2-styled.swal2-confirm{
+   border-radius: 15px !important;
+}
+
+
+.swal2-styled.swal2-confirm:not([disabled]):hover {
+   background-color: #390606;
+   opacity: 0.8;
+   border-line: #390606;
+   border-radius: 15px;
+}
+
+.swal2-file:focus, .swal2-input:focus, .swal2-textarea:focus {
+    border: 1px solid #390606 !important;
+    outline: 0;
+    box-shadow: 0 0 0 0 !important;
+}
+
+.swal2-styled.swal2-confirm {
+    border: 0;
+    border-radius: .25em;
+    background: initial;
+    background-color: #390606 !important;
+    color: #fff;
+    font-size: 1.0625em;
+}
+
+.swal2-styled:focus {
+    outline: 0;
+    box-shadow: 0 0 0 0 !important;
+}
+    
+    
 /*----------------------------------------PASSWORD--------------------------------*/
 
 #password-emailconf {

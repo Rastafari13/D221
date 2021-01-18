@@ -14,12 +14,13 @@ footer {
 }
 
 #app {
-  display:flex;
+  display:block;
   font-size:20px;
   justify-content:center;
   align-items:center;
   font-family: 'Comfortaa', cursive;
   color:white;
+  width: 78px !important;
 }
 
 #logo {
@@ -97,6 +98,7 @@ footer {
     font-weight: 600;
     color: white;
     font-size: 18px;
+    margin-top:15px;
 }
 
 .division,
@@ -457,6 +459,46 @@ footer {
 #alt-photo-cent {
     text-align: center;
     font-size: 16px;
+}
+
+.swal2-styled.swal2-confirm {
+    background-color:#390606 !important;
+    border-radius: 15px !important;
+    border-line: #390606;
+    border-color: #390606 !important;
+}
+.swal2-confirm:not([disabled]):hover {
+    background-color: #390606 ;
+    opacity:0.8;
+    border-line:#390606;
+}
+
+.swal2-confirm:focus {
+    outline: none;
+    box-shadow: 0 0 0 0 !important;
+}
+
+.swal2-styled.swal2-cancel {
+    background-color:#390606 !important;
+    border-radius: 15px !important;
+    border-line: #390606;
+    border-color: #390606 !important;
+}
+
+.swal2-cancel:not([disabled]):hover{
+    background-color: #390606 ;
+    opacity:0.8;
+    border-line:#390606;
+}
+
+.swal2-cancel:focus{
+    outline: none;
+    box-shadow: 0 0 0 0 !important;  
+}
+
+.swal2-input:focus{
+   border: 1px solid #d9d9d9 !important;
+   box-shadow:0 0 0 0  !important;
 }
 
 /*---LIST-ASSOCIATE---*/
@@ -1123,10 +1165,24 @@ tr.selecionado td {
 
 
 /*---------------dashboard--------------------------*/
+.dash-dir-pupnu{
+    display:block !important;
+    position:absolute !important;
+    min-width:1493px !important;
+    max-width:2000px !important;
+    text-align:center !important;
+}
+
+#numberAssoc,
+#numberFireman,
+#numberCentralist{
+    text-align: center;
+    font-size: 2.5rem;
+    margin-top:20px;
+}
 
 #columnchart_material,
-#chart_div,
-#line_top_x {
+#chart_div {
     text-align: center !important;
     position: relative;
     display: flex;
@@ -1139,150 +1195,138 @@ tr.selecionado td {
     font-weight: bold;
 }
 
-#btn-day {
-    background-color: #BC8C8C;
-    color: black;
-    border-radius: 25px 0 0 25px;
-    border-color: #BC8C8C;
-    font-size: 12px;
-}
-
-#btn-month {
-    background-color: #BC8C8C;
-    color: black;
-    margin-left: -1%;
-    border-radius: 0;
-    border-color: #BC8C8C;
-    font-size: 12px;
-}
-
-#btn-year {
-    background-color: #BC8C8C;
-    color: black;
-    margin-left: -1%;
-    border-radius: 0 25px 25px 0;
-    border-color: #BC8C8C;
-    font-size: 12px;
-}
-
-#btn-day:focus {
-    background-color: #390606;
-    color: white;
-    border-radius: 25px 0 0 25px;
-    border-color: #390606;
-    box-shadow: 0 0 0 0;
-    font-size: 12px;
-}
-
-#btn-year:focus {
-    background-color: #390606;
-    color: white;
-    border-radius: 0 25px 25px 0;
-    border-color: #390606;
-    box-shadow: 0 0 0 0;
-    font-size: 12px;
-}
-
-#btn-month:focus {
-    background-color: #390606;
-    color: white;
-    border-radius: 0 0 0 0;
-    border-color: #390606;
-    box-shadow: 0 0 0 0;
-    font-size: 12px;
-}
-
-#btn-1tri {
-    background-color: #BC8C8C;
-    color: black;
-    margin-left: -1%;
-    border-radius: 25px 0 0 25px;
-    border-color: #BC8C8C;
-    margin-top: 4%;
-    font-size: 12px;
-}
-
-#btn-2tri {
-    background-color: #BC8C8C;
-    color: black;
-    margin-left: -1%;
-    border-radius: 0;
-    border-color: #BC8C8C;
-    margin-top: 4%;
-    font-size: 12px;
-}
-
-#btn-3tri {
-    background-color: #BC8C8C;
-    color: black;
-    margin-left: -1%;
-    border-radius: 0;
-    border-color: #BC8C8C;
-    margin-top: 4%;
-    font-size: 12px;
-}
-
-#btn-4tri {
-    background-color: #BC8C8C;
-    color: black;
-    margin-left: -1%;
-    border-radius: 0 25px 25px 0;
-    border-color: #BC8C8C;
-    margin-top: 4%;
-    font-size: 12px;
-}
-
-#btn-1tri:focus {
-    background-color: #390606;
-    color: white;
-    border-radius: 25px 0 0 25px;
-    border-color: #390606;
-    box-shadow: 0 0 0 0;
-    margin-top: 4%;
-    font-size: 12px;
-}
-
-#btn-2tri:focus {
-    background-color: #390606;
-    color: white;
-    border-radius: 0;
-    border-color: #390606;
-    box-shadow: 0 0 0 0;
-    margin-top: 4%;
-    font-size: 12px;
-}
-
-#btn-3tri:focus {
-    background-color: #390606;
-    color: white;
-    border-radius: 0;
-    border-color: #390606;
-    box-shadow: 0 0 0 0;
-    margin-top: 4%;
-    font-size: 12px;
-}
-
-#btn-4tri:focus {
-    background-color: #390606;
-    color: white;
-    border-radius: 0 25px 25px 0;
-    border-color: #390606;
-    box-shadow: 0 0 0 0;
-    margin-top: 4%;
-    font-size: 12px;
-}
-
 #dir-dash {
     display: inline-flex;
 }
 
-#line_top_x1,
-#line_top_x {
+#numberAssoci,
+#numberfire,
+#numbercent{
     margin-top: 2.5%;
 }
 
 #div-dash-dir {
     margin-top: -60px;
+}
+
+/*cards*/
+#card-centr{
+    background-color: #FECF3E;
+}
+
+#card-firem{
+    background-color: #E36414;
+}
+
+#card-assoc{
+    background-color: #C5292E;
+}
+
+#dash-dir1 {
+    display: flex;
+}
+
+.tools-dashborad a {
+    text-decoration: none;
+    display: block;
+}
+
+.tools-dashborad .custom-tiles {
+    min-height: 160px;
+    padding: 10px 10px;
+    position: relative;
+    color: #fff;
+    border-radius: 4px;
+    box-shadow: 0 0 1px rgba(0, 0, 0, .125), 0 1px 3px rgba(0, 0, 0, .2);
+    transition: all 0.35s ease;
+}
+
+.tools-dashborad .custom-tiles span {
+    display: inline-block;
+    font-size: 18px;
+    margin: 10px 0px 0px;
+    line-height: 1.1;
+    font-weight: bold;
+}
+
+.tools-dashborad .custom-tiles h3 {
+    font-size: 18px;
+    margin: 5px 0 0 0;
+    letter-spacing: 1px;
+}
+
+.tools-dashborad .custom-tiles .icon-wrap {
+    height: 32px;
+    width: 32px;
+    position: absolute;
+    right: 30px;
+    top: 40px;
+    font-size: 28px;
+    transitian: all 0.35s ease;
+}
+
+.tools-dashborad .total-records {
+    background-color: #07B55C;
+}
+
+.tools-dashborad .in-progress {
+    background-color: #E36414;
+}
+
+.tools-dashborad .my-pending {
+    background-color:#C5292E;
+}
+
+.tools-dashborad .group-pending {
+    background-color: #FECF3E;
+}
+
+.tools-dashborad .custom-tiles .small-box-footer {
+    position: absolute;
+    text-align: center;
+    padding: 5px 0;
+    color: rgba(255, 255, 255, .8);
+    display: block;
+    background: rgba(0, 0, 0, .1);
+    text-decoration: none;
+    bottom: 0;
+    width: 100%;
+    left: 0;
+    transition: all 0.3s ease;
+    font-size: 14px;
+}
+
+.tools-dashborad .custom-tiles .small-box-footer:hover {
+    color: #fff;
+    background: rgba(0, 0, 0, .15);
+}
+
+.chart-wrap {
+    box-shadow: 0 0 1px rgba(0, 0, 0, .125), 0 1px 3px rgba(0, 0, 0, .2);
+}
+
+.middle-wrap .m-block {
+    display: inline-block;
+    width: 40%;
+    float: left;
+    /* background:rgba(255,255,255,0.1);*/
+    padding: 10px 10px;
+    margin: inherit;
+}
+
+.middle-wrap {
+    margin: 15px -10px 0px;
+}
+
+.tools-dashborad .custom-tiles .middle-wrap h3 {
+    font-size: 1.1rem;
+    display: inline-block;
+    margin-left:5px;
+}
+
+.tools-dashborad .custom-tiles .middle-wrap span {
+    font-size: 1.5rem;
+    display: inline-block;
 }
 
 /*--------------------DIR-MEMBER--------------------*/
@@ -1507,4 +1551,5 @@ tr.selecionado td {
 
 .swal-button--cancel {
         color: #fff;
+        background-color:#390606;
 }

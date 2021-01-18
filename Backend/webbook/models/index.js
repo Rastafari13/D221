@@ -1,10 +1,10 @@
 "use strict";
 let fs        = require("fs");
 let path      = require("path");
-let sequelize = require("sequelize");
+let Sequelize = require("sequelize");
 let env       = "MYSQL";
 let config    = require(path.join(__dirname, '../', 'config', 'config.json'))[env];
-//let sequelize = new Sequelize(config.database, config.username, config.password, config);
+let sequelize = new Sequelize(config);
 let db        = {};
 //inicar bd
 fs

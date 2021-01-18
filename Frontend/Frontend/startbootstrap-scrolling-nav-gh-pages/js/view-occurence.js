@@ -1,18 +1,6 @@
-//EDITAR MORADA OPERACIONAL//
-/*(function($) {
-  "use strict";
-  // Start of use strict
-  $(document).ready(function() {
-$(".select2").select2();
-})
-
-    
-})(jQuery);*/
-
-/*let viewocc_vehicles = document.getElementById("occu-edit-vehicle");
-viewocc_vehicles.addEventListener("click", function() {
-    document.getElementById("viewocc_vehicles").disabled = false;
-});*/
+let filtroTeclas = function(event) {
+  return ((event.charCode >= 48 && event.charCode <= 57) || (event.keyCode == 45 || event.charCode == 46))
+}
 
 //EDITAR TELEFONE OCORRÊNCIA//
 let occu_phone = document.getElementById("occu-edit-phone");

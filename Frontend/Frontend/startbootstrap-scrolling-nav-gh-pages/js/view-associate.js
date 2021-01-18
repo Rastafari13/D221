@@ -1,3 +1,7 @@
+let filtroTeclas = function(event) {
+  return ((event.charCode >= 48 && event.charCode <= 57) || (event.keyCode == 45 || event.charCode == 46))
+}
+
 //EDITAR MORADA SÓCIO//
 let assoc_adress = document.getElementById("assoc-edit-adress");
 assoc_adress.addEventListener("click", function(){
@@ -61,18 +65,22 @@ document.getElementById("assoc-save").onclick = function(e) {
 };
 
 function assoc_edit() {
-    let a = localStorage.idassoc;
+    let id = localStorage.idassoc;
     let data = {};
 
     data.num_partner = document.getElementById("viewas-id").value;
     data.phone_num = document.getElementById("viewas-phone").value;
     data.donation = document.getElementById("viewas-quota").value;
     data.adress = document.getElementById("viewas-adress").value;
-    data.date_bith = document.getElementById("viewas-age").value;
     data.mail = document.getElementById("viewas-email").value;
-    console.log(data); //debugging para ver os dados que foram enviados
-    //chamada fetch para envio dos dados para o servior via POST
-    if (data.phone_num.length !== 9 || data.adress.length < 3 || data.mail.length < 10) {}
+    console.log(data); 
+    
+    if (data.phone_num.length !== 9 ||
+    data.adress.length < 5 ||
+    data.mail.length === 0 ||
+    data.mail.indexOf('@') === -1 ) {
+        
+    }
     else {
         let save = document.getElementById("assoc-save");
         save.type="button";
@@ -84,7 +92,7 @@ function assoc_edit() {
         }
         else {
             save.type = "button";
-            fetch(`https://23c6902811494393ad2cea6ff8f72d75.vfs.cloud9.us-east-1.amazonaws.com//partners/` + a, {
+            fetch(`https://23c6902811494393ad2cea6ff8f72d75.vfs.cloud9.us-east-1.amazonaws.com//partners/` + id, {
                 headers: { 'Content-Type': 'application/json' },
                 method: 'PUT',
                 body: JSON.stringify(data)
