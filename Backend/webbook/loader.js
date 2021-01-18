@@ -1,5 +1,5 @@
 const app = require('./server');
-const router = require('./routes/main.route');
+//const router = require("./routes/main.route.js");
 const cookieParser = require('cookie-parser');
 const passport = require('passport');
 const session = require('express-session');
@@ -37,7 +37,7 @@ app.use(function(req, res, next) {
     }
     next();
 });
-
+/*
 //inicializar passport de forma a dar para fazer login
 app.use(passport.initialize());
 app.use(passport.session()); // persistent login sessions
@@ -51,7 +51,6 @@ models.sequelize.sync().then(function() {
   console.log(err, "Something went wrong with the Database Update!");
 });
 
-
-
-app.use('/', router);
+*/
+//app.use('/', router);
 module.exports = app;

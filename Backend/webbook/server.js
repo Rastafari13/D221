@@ -4,14 +4,17 @@ const express = require('express');
 const app = express();
 
 //carregar bibliotecas globais
-const cors = require('cors');
-const cookieParser = require('cookie-parser');
+const cors = require("cors");
+app.use(cors({
+  exposedHeaders: ['Location'],
+}));
+/*const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 const expressValidator = require('express-validator');
 const expressSanitizer = require("express-sanitizer");
 const session = require('express-session');
 const passport = require('passport');
-
+*/
 app.use('/assets', express.static('assets'));
 app.use('/views', express.static('views'));
 //app.use(bodyParser.json());
@@ -36,11 +39,11 @@ app.listen(port, function(err){
     }
 });
 
-app.use(cors());
+/*app.use(cors());
 app.use(cookieParser());
 app.use(expressSanitizer());
 app.use(expressValidator());
-
+*/
 module.exports = app;
 require('./loader.js');
 require("./routes/main.route.js");
